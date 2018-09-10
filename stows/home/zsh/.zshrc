@@ -1,8 +1,10 @@
+# source the Antigen plugin manager
 source $HOME/.antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
+# Bungles from the default repo (robbyrussel's oh-my-zsh)
 antigen bundle git
 
 # Syntax highlighting bundle.
