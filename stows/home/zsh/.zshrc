@@ -13,3 +13,8 @@ antigen theme robbyrussell
 
 # Tell Antigen that you're done.
 antigen apply
+
+# make sure asdf always gets sourced after antigen
+source $HOME/.asdf/asdf.sh
+source $HOME/.asdf/completions/asdf.bash
+
