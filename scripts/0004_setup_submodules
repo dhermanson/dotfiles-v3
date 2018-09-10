@@ -1,0 +1,7 @@
+#! /bin/bash
+repo_root=$(git rev-parse --show-toplevel)
+
+pushd
+cd $repo_root/stows/home/asdf/.asdf
+git checkout v0.5.1
+popd
