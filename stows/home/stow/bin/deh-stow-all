@@ -1,0 +1,6 @@
+#! /bin/bash
+repo_root=$(cat $HOME/.config/deh/dotfiles-repo-root)
+
+for file in $repo_root/stows/home/*; do
+	stow -t $HOME -d $repo_root/stows/home $( basename $file)
+done

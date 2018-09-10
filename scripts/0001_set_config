@@ -1,0 +1,7 @@
+#! /bin/bash
+repo_root=$(git rev-parse --show-toplevel)
+
+mkdir -p $HOME/.config/deh
+touch $HOME/.config/deh/dotfiles-repo-root
+echo $repo_root > $HOME/.config/deh/dotfiles-repo-root
+

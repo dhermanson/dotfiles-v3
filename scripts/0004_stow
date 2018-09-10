@@ -1,0 +1,5 @@
+#! /bin/bash
+repo_root=$(cat $HOME/.config/deh/dotfiles-repo-root)
+stow_script=$repo_root/stows/home/stow/bin/deh-stow-all
+
+$( $stow_script )
