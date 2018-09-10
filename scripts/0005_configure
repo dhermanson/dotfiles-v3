@@ -4,3 +4,6 @@ sudo systemctl set-default multi-user.target # to revert: sudo systemctl set-def
 
 # avoid having to run sudo before every docker command
 sudo usermod -aG docker ${USER}
+
+# use zsh
+chsh -s $(which zsh)
