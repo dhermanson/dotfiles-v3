@@ -1,0 +1,16 @@
+#! /bin/bash
+
+# nodejs
+asdf plugin-add nodejs
+asdf install nodejs 8.12.0
+asdf global nodejs 8.12.0
+
+# java
+asdf plugin-add java
+asdf install java oracle-10.0.2
+asdf global java oracle-10.0.2
+
+# ruby
+asdf plugin-add ruby
+asdf install ruby 2.5.1
+asdf global ruby 2.5.1
