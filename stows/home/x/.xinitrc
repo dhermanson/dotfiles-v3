@@ -1,3 +1,4 @@
-# xmodmap ~/.xmodmap
+xmodmap ~/.xmodmap
 
-exec gnome-session
+# exec gnome-session
+exec i3
