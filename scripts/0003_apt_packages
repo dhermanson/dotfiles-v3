@@ -17,12 +17,16 @@ sudo apt install -y \
 	arandr \
 	curl \
 	docker-ce \
-	emacs \
+	emacs26 \
 	git \
 	i3 \
+	lxappearance \
+	gtk-chtheme \
+	qt4-qtconfig \
 	neovim \
 	python3-pip \
 	python-pip \
 	stow \
 	tmux \
+  tree \
 	zsh

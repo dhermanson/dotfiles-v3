@@ -15,6 +15,9 @@ sudo add-apt-repository \
    stable"
 
 # add neovim ppa
-sudo apt-add-repository ppa:neovim-ppa/stable
+sudo add-apt-repository ppa:neovim-ppa/stable
+
+# add emacs ppa
+sudo add-apt-repository ppa:kelleyk/emacs
 
 sudo apt-get update
