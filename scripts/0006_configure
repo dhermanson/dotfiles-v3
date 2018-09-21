@@ -10,3 +10,6 @@ sudo fc-cache -fv
 
 # use zsh
 chsh -s $(which zsh)
+
+# install fzf
+~/.fzf/install

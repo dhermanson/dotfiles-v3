@@ -19,6 +19,7 @@ sudo apt install -y \
 	docker-ce \
   dolphin \
 	emacs26 \
+  exuberant-ctags \
 	git \
 	i3 \
 	lxappearance \

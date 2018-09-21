@@ -1,5 +1,5 @@
-*font: xft:Source Code Pro:size=12:antialias=true:hinting=true
-*boldFont: xft:Source Code Pro:size=12:antialias=true:hinting=true
+*font: xft:Source Code Pro:style=Reguler:size=12:antialias=true:hinting=true
+*boldFont: xft:Source Code Pro:style=Bold:size=12:antialias=true:hinting=true
 *italicFont: xft:Source Code Pro:style=Oblique:size=12:antialias=true:hinting=true
 *boldItalicFont: xft:Source Code Pro:style=Bold Oblique:size=12:antialias=true:hinting=true
 ! *letterSpace: -2
@@ -19,6 +19,9 @@ emacs*font: Source Code Pro:size=16:antialias=true:hinting=true
 emacs*boldFont: Source Code Pro:size=16:antialias=true:hinting=true
 emacs*italicFont: Source Code Pro:style=Oblique:size=16:antialias=true:hinting=true
 emacs*boldItalicFont: Source Code Pro:style=Bold Oblique:size=16:antialias=true:hinting=true
+
+
+URxvt*font: xft:Source Code Pro:style=Regular:size=12:antialias=true:hinting=true
 
 ! Base16 Zenburn
 ! Scheme: elnawe
@@ -78,6 +81,8 @@ emacs*boldItalicFont: Source Code Pro:style=Bold Oblique:size=16:antialias=true:
 !! URXVT
 ! https://wiki.archlinux.org/index.php/rxvt-unicode
 ! URxvt*.termName: rxvt-unicode-256color
+URxvt.iso14755: false
+URxvt.iso14755_52: false
 URxvt.scrollBar: false
 URxvt.perl-ext:
 URxvt.perl-ext-common: resize-font
@@ -89,10 +94,6 @@ XTerm*renderFont: true
 XTerm*VT100.Translations: #override \
                  Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
                  Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)
-
-URxvt.vt100.translations: #override \n\
-  Ctrl <Key> minus: smaller-vt-font() \n\
-  Ctrl <Key> plus: larger-vt-font()
 
 XTerm.vt100.translations: #override \n\
   Ctrl <Key> minus: smaller-vt-font() \n\

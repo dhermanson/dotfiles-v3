@@ -18,6 +18,7 @@ function e() {
 
 # ALIASES
 alias xup="xrdb ~/.Xresources"
+alias tmux="tmux -2"
 
 
 # ANTIGEN
@@ -45,3 +46,5 @@ antigen apply
 # make sure asdf always gets sourced after antigen
 source $HOME/.asdf/asdf.sh
 source $HOME/.asdf/completions/asdf.bash
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -1,3 +1,6 @@
 [submodule "asdf"]
 	path = stows/home/asdf/.asdf
 	url = https://github.com/asdf-vm/asdf.git
+[submodule "fzf"]
+	path = stows/home/fzf/.fzf
+	url = https://github.com/junegunn/fzf.git
