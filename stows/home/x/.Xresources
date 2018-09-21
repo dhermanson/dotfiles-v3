@@ -1,77 +1,118 @@
-!!*font: xft:Source Code Pro:size=12:antialias=true:hinting=true
-!!*boldFont: xft:Source Code Pro:size=12:antialias=true:hinting=true
-!!*italicFont: xft:Source Code Pro:style=Oblique:size=12:antialias=true:hinting=true
-!!*boldItalicFont: xft:Source Code Pro:style=Bold Oblique:size=12:antialias=true:hinting=true
-!!*letterSpace: -2
+*font: xft:Source Code Pro:size=12:antialias=true:hinting=true
+*boldFont: xft:Source Code Pro:size=12:antialias=true:hinting=true
+*italicFont: xft:Source Code Pro:style=Oblique:size=12:antialias=true:hinting=true
+*boldItalicFont: xft:Source Code Pro:style=Bold Oblique:size=12:antialias=true:hinting=true
+! *letterSpace: -2
 
-*font: xft:Hack:size=12:antialias=true:hinting=true
-*boldFont: xft:Hack:size=12:antialias=true:hinting=true
-*italicFont: xft:Hack:style=Oblique:size=12:antialias=true:hinting=true
-*boldItalicFont: xft:Hack:style=Bold Oblique:size=12:antialias=true:hinting=true
+! *font: xft:Hack:size=12:antialias=true:hinting=true
+! *boldFont: xft:Hack:size=12:antialias=true:hinting=true
+! *italicFont: xft:Hack:style=Oblique:size=12:antialias=true:hinting=true
+! *boldItalicFont: xft:Hack:style=Bold Oblique:size=12:antialias=true:hinting=true
+! *letterSpace: -2
 
-emacs*font: Hack:size=16:antialias=true:hinting=true
-emacs*boldFont: Hack:size=16:antialias=true:hinting=true
-emacs*italicFont: Hack:style=Oblique:size=16:antialias=true:hinting=true
-emacs*boldItalicFont: Hack:style=Bold Oblique:size=16:antialias=true:hinting=true
+! emacs*font: Hack:size=16:antialias=true:hinting=true
+! emacs*font: Hack:size=16:antialias=true:hinting=true
+! emacs*boldFont: Hack:size=16:antialias=true:hinting=true
+! emacs*italicFont: Hack:style=Oblique:size=16:antialias=true:hinting=true
+! emacs*boldItalicFont: Hack:style=Bold Oblique:size=16:antialias=true:hinting=true
+emacs*font: Source Code Pro:size=16:antialias=true:hinting=true
+emacs*boldFont: Source Code Pro:size=16:antialias=true:hinting=true
+emacs*italicFont: Source Code Pro:style=Oblique:size=16:antialias=true:hinting=true
+emacs*boldItalicFont: Source Code Pro:style=Bold Oblique:size=16:antialias=true:hinting=true
 
-#define S_base03        #002b36
-#define S_base02        #073642
-#define S_base01        #586e75
-#define S_base00        #657b83
-#define S_base0         #839496
-#define S_base1         #93a1a1
-#define S_base2         #eee8d5
-#define S_base3         #fdf6e3
+! Base16 Zenburn
+! Scheme: elnawe
 
-*background:            S_base03
-*foreground:            S_base0
-*fadeColor:             S_base03
-*cursorColor:           S_base1
-*pointerColorBackground:S_base01
-*pointerColorForeground:S_base1
+#define base00 #3f3f3f
+#define base01 #404040
+#define base02 #606060
+#define base03 #4f4f4f
+#define base04 #808080
+#define base05 #dcdccc
+#define base06 #c0c0c0
+#define base07 #ffffff
+#define base08 #dca3a3
+#define base09 #dfaf8f
+#define base0A #e0cf9f
+#define base0B #5f7f5f
+#define base0C #93e0e3
+#define base0D #7cb8bb
+#define base0E #dc8cc3
+#define base0F #000000
 
-#define S_yellow        #b58900
-#define S_orange        #cb4b16
-#define S_red           #dc322f
-#define S_magenta       #d33682
-#define S_violet        #6c71c4
-#define S_blue          #268bd2
-#define S_cyan          #2aa198
-#define S_green         #859900
+*foreground:   base05
+#ifdef background_opacity
+*background:   [background_opacity]base00
+#else
+*background:   base00
+#endif
+*cursorColor:  base05
 
-!! black dark/light
-*color0:                S_base02
-*color8:                S_base03
+*color0:       base00
+*color1:       base08
+*color2:       base0B
+*color3:       base0A
+*color4:       base0D
+*color5:       base0E
+*color6:       base0C
+*color7:       base05
 
-!! red dark/light
-*color1:                S_red
-*color9:                S_orange
+*color8:       base03
+*color9:       base08
+*color10:      base0B
+*color11:      base0A
+*color12:      base0D
+*color13:      base0E
+*color14:      base0C
+*color15:      base07
 
-!! green dark/light
-*color2:                S_green
-*color10:               S_base01
-
-!! yellow dark/light
-*color3:                S_yellow
-*color11:               S_base00
-
-!! blue dark/light
-*color4:                S_blue
-*color12:               S_base0
-
-!! magenta dark/light
-*color5:                S_magenta
-*color13:               S_violet
-
-!! cyan dark/light
-*color6:                S_cyan
-*color14:               S_base1
-
-!! white dark/light
-*color7:                S_base2
-*color15:               S_base3
-
+! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
+! use 'shell' template to set these if necessary
+*color16:      base09
+*color17:      base0F
+*color18:      base01
+*color19:      base02
+*color20:      base04
+*color21:      base06
 
 !! URXVT
+! https://wiki.archlinux.org/index.php/rxvt-unicode
 ! URxvt*.termName: rxvt-unicode-256color
 URxvt.scrollBar: false
+URxvt.perl-ext:
+URxvt.perl-ext-common: resize-font
+
+! xterm
+XTerm.termName: xterm-256color
+XTerm*renderFont: true
+
+XTerm*VT100.Translations: #override \
+                 Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
+                 Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)
+
+URxvt.vt100.translations: #override \n\
+  Ctrl <Key> minus: smaller-vt-font() \n\
+  Ctrl <Key> plus: larger-vt-font()
+
+XTerm.vt100.translations: #override \n\
+  Ctrl <Key> minus: smaller-vt-font() \n\
+  Ctrl <Key> plus: larger-vt-font()
+
+XTerm.vt100.metaSendsEscape: true
+
+
+! Face size for normal:
+XTerm.VT100.faceSize:  14
+! Face sizes for alternates:
+! Unreadable:
+XTerm.VT100.faceSize1:  12 
+! Tiny:
+XTerm.VT100.faceSize2:  14 
+! Small:
+XTerm.VT100.faceSize3:  20
+! Medium:
+XTerm.VT100.faceSize4:  24
+! Large:
+XTerm.VT100.faceSize5:  28
+! Huge:
+XTerm.VT100.faceSize6:  32

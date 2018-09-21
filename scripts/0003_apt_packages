@@ -17,13 +17,16 @@ sudo apt install -y \
 	arandr \
 	curl \
 	docker-ce \
+  dolphin \
 	emacs26 \
 	git \
 	i3 \
 	lxappearance \
 	gtk-chtheme \
+  konsole \
 	qt4-qtconfig \
 	neovim \
+  pcmanfm \
 	python3-pip \
 	python-pip \
   rxvt-unicode \
