@@ -3,12 +3,12 @@
 *italicFont: xft:Source Code Pro:style=Oblique:size=16:antialias=true:hinting=true
 *boldItalicFont: xft:Source Code Pro:style=Bold Oblique:size=16:antialias=true:hinting=true
 
-emacs*font: Source Code Pro:size=16:antialias=true:hinting=true
+! emacs*font: Source Code Pro:size=16:antialias=true:hinting=true
+emacs*font: Source Code Pro-18
 emacs*boldFont: Source Code Pro:size=16:antialias=true:hinting=true
 emacs*italicFont: Source Code Pro:style=Oblique:size=16:antialias=true:hinting=true
 emacs*boldItalicFont: Source Code Pro:style=Bold Oblique:size=16:antialias=true:hinting=true
 
-URxvt*font: xft:Source Code Pro:style=Regular:size=16:antialias=true:hinting=true
 
 ! XFT and Font settings
 Xft*dpi:       96
@@ -17,34 +17,11 @@ Xft*hinting:   true
 Xft*hintstyle: hintfull
 Xft*rgba:      rgb
 
-! zenburn
-URxvt*termName: rxvt-256color
-URxvt*xftAntialias: true
-URxvt*background: #3f3f3f
-URxvt*foreground: #dcdccc
-URxvt*cursorColor: #aaaaaa
-URxvt*colorUL: #366060
-URxvt*underlineColor: #dfaf8f
-URxvt*color0: #3f3f3f
-URxvt*color1: #cc9393
-URxvt*color2: #7f9f7f
-URxvt*color3: #d0bf8f
-URxvt*color4: #6ca0a3
-URxvt*color5: #dc8cc3
-URxvt*color6: #93e0e3
-URxvt*color7: #dcdccc
-URxvt*color8: #000000
-URxvt*color9: #dca3a3
-URxvt*color10: #bfebbf
-URxvt*color11: #f0dfaf
-URxvt*color12: #8cd0d3
-URxvt*color13: #dc8cc3
-URxvt*color14: #93e0e3
-URxvt*color15: #ffffff
-
 !! URXVT
 ! https://wiki.archlinux.org/index.php/rxvt-unicode
 ! URxvt*.termName: rxvt-unicode-256color
+URxvt*font: xft:Source Code Pro:style=Regular:size=16:antialias=true:hinting=true
+URxvt*termName: rxvt-256color
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 URxvt.scrollBar: false
@@ -82,30 +59,9 @@ XTerm.VT100.faceSize5:  28
 ! Huge:
 XTerm.VT100.faceSize6:  32
 
-! General colors
- ! *background: #0F0F0F
- ! *foreground: #F5DEB3
- ! *color0: #0F0F0F
- ! *color1: #9e1828
- ! *color2: #aece92
- ! *color3: #968a38
- ! *color4: #414171
- ! *color5: #963c59
- ! *color6: #418179
- ! *color7: #bebebe
- ! *color8: #666666
- ! *color9: #cf6171
- ! *color10: #c5f779
- ! *color11: #fff796
- ! *color12: #4186be
- ! *color13: #cf9ebe
- ! *color14: #71bebe
- ! *color15: #efefef
- ! *cursorColor: magenta
-
 ! UXTerm
 UXTerm*bellIsUrgent: true
- URxvt*tintColor: gray10
+ ! URxvt*tintColor: gray10
 URxvt*internalBorder: 0
 URxvt*jumpScroll: true
 URxvt*urgentOnBell: true
@@ -116,3 +72,58 @@ URxvt*secondaryScroll: true
 URxvt*scrollBar: false
 ! URxvt*scrollTtyKeypress: true
 ! URxvt*scrollWithBuffer: true
+
+! Base16 OneDark
+! Scheme: Lalit Magant (http://github.com/tilal6991)
+
+#define base00 #282c34
+#define base01 #353b45
+#define base02 #3e4451
+#define base03 #545862
+#define base04 #565c64
+#define base05 #abb2bf
+#define base06 #b6bdca
+#define base07 #c8ccd4
+#define base08 #e06c75
+#define base09 #d19a66
+#define base0A #e5c07b
+#define base0B #98c379
+#define base0C #56b6c2
+#define base0D #61afef
+#define base0E #c678dd
+#define base0F #be5046
+
+*foreground:   base05
+#ifdef background_opacity
+*background:   [background_opacity]base00
+#else
+*background:   base00
+#endif
+*cursorColor:  base05
+
+*color0:       base00
+*color1:       base08
+*color2:       base0B
+*color3:       base0A
+*color4:       base0D
+*color5:       base0E
+*color6:       base0C
+*color7:       base05
+
+*color8:       base03
+*color9:       base08
+*color10:      base0B
+*color11:      base0A
+*color12:      base0D
+*color13:      base0E
+*color14:      base0C
+*color15:      base07
+
+! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
+! use 'shell' template to set these if necessary
+*color16:      base09
+*color17:      base0F
+*color18:      base01
+*color19:      base02
+*color20:      base04
+*color21:      base06

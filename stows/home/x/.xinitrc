@@ -9,8 +9,8 @@ xrdb -load ~/.Xresources
 #   $ xset q
 # xset r rate 280 50
 
-# feh --recursive --randomize --bg-fill ~/.wallpaper &
-feh --bg-fill ~/.wallpaper/background.jpg &
+# feh --bg-fill ~/.wallpaper/background.jpg &
+feh --bg-fill ~/.wallpaper/gnuemacsref.png &
 
 xautolock -time 1 -locker slock &
 
