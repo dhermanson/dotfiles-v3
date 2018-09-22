@@ -42,7 +42,6 @@ sudo apt install -y \
 	stow \
 	tmux \
   tree \
-  volumeicon-alsa \
   xsettingsd \
   xterm \
 	zsh

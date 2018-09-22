@@ -11,9 +11,10 @@
 
 set $mod Mod4
 
-bindsym XF86AudioMute exec --no-startup-id amixer -q sset Master toggle
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 3%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 3%-
+# https://faq.i3wm.org/question/125/how-to-change-the-systems-volume.1.html
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
+bindsym XF86AudioMute exec amixer -q -D pulse set Master toggle
 bindsym XF86ScreenSaver exec slock
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -170,30 +171,39 @@ bindsym $mod+r mode "resize"
 
 bindsym $mod+backslash exec emacsclient -c
 
-
-# STYLES
-# colors
-client.focused              #688060 #688060 #303030 #ffcfaf
-client.focused_inactive     #3f3f3f #3F3F3F #7f9f7f #3f3f3f
-client.unfocused            #3f3f3f #3F3F3F #DCDCCC #3f3f3f
-client.urgent               #dca3a3 #dca3a3 #DCDCCC #3f3f3f
-
-
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command i3status
-    colors {
-        background #3f3f3f
-        statusline #dcdccc
 
-        focused_workspace  #93b3a3 #3f3f3f #93b3a3
-        active_workspace   #ffcfaf #3f3f3f #ffcfaf
-        inactive_workspace #636363 #3f3f3f #dcdccc
-        urgent_workspace   #dca3a3 #3f3f3f #dca3a3
-    }
+	# The command for the status line
+	status_command i3status
+
+	# The position of the bar (top/bottom)
+	position bottom
+
+	# font for the bar. ISO 10646 = Unicode
+	# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+
+	# Specifies whether workspace buttons should be shown or not
+	workspace_buttons yes
+
+	colors {
+		background #0F0F0F
+		statusline #F5DEB3
+
+		focused_workspace  #F5DEB3 #666666
+		active_workspace   #F5DEB3 #0F0F0F
+		inactive_workspace #F5DEB3 #1E1E1E
+		urgent_workspace   #ffffff #900000
+	}
+
 }
 
-# exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
-
-# exec_always --no-startup-id gnome-power-manager
+# Colors
+# class                 border  backgr. text
+client.focused          #525252 #1E1E1E #F5DEB3
+client.focused_inactive #333333 #0F0F0F #E3CCA1
+client.unfocused        #333333 #010101 #85753A
+client.urgent           #856E23 #900000 #F5DEB3

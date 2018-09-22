@@ -9,7 +9,8 @@ xrdb -load ~/.Xresources
 #   $ xset q
 # xset r rate 280 50
 
-feh --recursive --randomize --bg-fill ~/.wallpaper &
+# feh --recursive --randomize --bg-fill ~/.wallpaper &
+feh --bg-fill ~/.wallpaper/background.jpg &
 
 xautolock -time 1 -locker slock &
 
@@ -29,10 +30,6 @@ fi
 
 if [ -x /usr/bin/pasystray ]; then
     pasystray &
-fi
-
-if [ -x /usr/bin/volumeicon ]; then
-    volumeicon &
 fi
 
 if [ -x /usr/bin/nm-applet ]; then
