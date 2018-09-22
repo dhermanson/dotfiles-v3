@@ -20,16 +20,17 @@ sudo apt install -y \
   dolphin \
 	emacs26 \
   exuberant-ctags \
+  feh \
 	git \
-	i3 \
-	lxappearance \
 	gtk-chtheme \
+	i3 \
   konsole \
-	qt4-qtconfig \
+	lxappearance \
 	neovim \
   pcmanfm \
 	python3-pip \
 	python-pip \
+	qt4-qtconfig \
   rxvt-unicode \
 	stow \
 	tmux \

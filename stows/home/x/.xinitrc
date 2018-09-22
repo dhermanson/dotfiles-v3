@@ -1,6 +1,8 @@
 xmodmap ~/.Xmodmap
 xrdb -load ~/.Xresources
 
+feh --recursive --randomize --bg-fill ~/.wallpaper &
+
 exec emacs --daemon &
 exec nm-applet &
 
