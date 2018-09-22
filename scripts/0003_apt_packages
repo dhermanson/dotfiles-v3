@@ -15,25 +15,34 @@ sudo apt install -y \
 # packages
 sudo apt install -y \
 	arandr \
+  blueman \
 	curl \
 	docker-ce \
   dolphin \
+  dunst \
 	emacs26 \
   exuberant-ctags \
   feh \
 	git \
+  gnome-power-manager \
+  gnome-settings-daemon \
 	gtk-chtheme \
 	i3 \
   konsole \
 	lxappearance \
 	neovim \
+  oxygen-icon-theme \
+  pasystray \
   pcmanfm \
 	python3-pip \
 	python-pip \
 	qt4-qtconfig \
   rxvt-unicode \
+  slock \
 	stow \
 	tmux \
   tree \
+  volumeicon-alsa \
+  xsettingsd \
   xterm \
 	zsh
