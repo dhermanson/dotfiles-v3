@@ -38,6 +38,7 @@ sudo apt install -y \
 	python-pip \
 	qt4-qtconfig \
   rxvt-unicode \
+  scrot \
   slock \
 	stow \
 	tmux \

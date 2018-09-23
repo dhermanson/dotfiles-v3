@@ -10,6 +10,8 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $moda Mod1
+set $modb ctrl
 
 # https://faq.i3wm.org/question/125/how-to-change-the-systems-volume.1.html
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
@@ -162,15 +164,23 @@ mode "resize" {
         bindsym q mode "default"
 }
 
-bindsym $mod+r mode "resize"
+mode "$mode_screenshot" {
+    bindsym           a exec scrot -e    'mkdir -p ~/screenshots && mv $f ~/screenshots/'; mode "default"
+    bindsym           u exec scrot -u -e 'mkdir -p ~/screenshots && mv $f ~/screenshots/'; mode "default"
+    bindsym --release s exec scrot -s -e 'mkdir -p ~/screenshots && mv $f ~/screenshots/'; mode "default"
+    
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym q mode "default"
+}
 
-# # Start i3bar to display a workspace bar (plus the system information i3status
-# # finds out, if available)
-# bar {
-#         status_command i3status
-# }
 
 bindsym $mod+backslash exec emacsclient -c
+
+set $mode_screenshot Screenshot: [a]ll screens | foc[u]sed window | [s]elect area 
+
+bindsym $mod+r mode "resize"
+bindsym $mod+$moda+$modb+s      mode "$mode_screenshot"
 
 # class                 border  bground text    indicator child_border
 client.focused          #5D4D7A #5D4D7A #FFFFFF #A45BAD   #5D4D7A

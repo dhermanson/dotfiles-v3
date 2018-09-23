@@ -12,7 +12,7 @@ xrdb -load ~/.Xresources
 # feh --bg-fill ~/.wallpaper/background.jpg &
 feh --bg-fill ~/.wallpaper/gnuemacsref.png &
 
-xautolock -time 1 -locker slock &
+xautolock -time 5 -locker slock &
 
 # eval "$(ssh-agent)"
 # eval "$(gpg-agent --daemon)"
