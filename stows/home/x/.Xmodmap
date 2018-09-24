@@ -8,7 +8,7 @@ clear      mod4
 clear      mod5
 keycode      37 = Hyper_L
 ! left alt to Super_L
-keycode      64 = Super_L
+!keycode      64 = Super_L
 ! caps lock to Control_l
 keycode      66 = Control_L
 ! printscrn to Super_L

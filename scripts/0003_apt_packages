@@ -16,6 +16,7 @@ sudo apt install -y \
 sudo apt install -y \
 	arandr \
   blueman \
+  calibre \
 	curl \
 	docker-ce \
   dolphin \
@@ -27,9 +28,13 @@ sudo apt install -y \
   gnome-power-manager \
   gnome-settings-daemon \
 	gtk-chtheme \
+  haskell-platform \
 	i3 \
   konsole \
 	lxappearance \
+  mpd \
+  mpc \
+  ncmpcpp \
 	neovim \
   oxygen-icon-theme \
   pasystray \

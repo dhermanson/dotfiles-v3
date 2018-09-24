@@ -10,7 +10,7 @@ xrdb -load ~/.Xresources
 # xset r rate 280 50
 
 # feh --bg-fill ~/.wallpaper/background.jpg &
-feh --bg-fill ~/.wallpaper/gnuemacsref.png &
+feh --bg-center ~/.wallpaper/gnu.png &
 
 xautolock -time 5 -locker slock &
 
