@@ -19,6 +19,7 @@ myKeys =
     , ("M-x m s", spawn "mpc pause") 
     , ("M-x m l", spawn "konsole -e ncmpcpp") 
     , ("M-x m a", spawn "konsole -e alsamixer") 
+    , ("M-x m n", spawn "konsole -e ncmpcpp") 
     , ("M-\\", spawn "emacsclient -c") 
     ]
     ++
