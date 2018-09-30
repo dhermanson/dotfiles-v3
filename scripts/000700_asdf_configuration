@@ -7,8 +7,15 @@ asdf global nodejs 8.12.0
 
 # java
 asdf plugin-add java
-asdf install java oracle-10.0.2
-asdf global java oracle-10.0.2
+asdf install java oracle-8.181
+asdf global java oracle-8.181
+# asdf install java oracle-10.0.2
+# asdf global java oracle-10.0.2
+
+# gradle
+asdf plugin-add gradle
+asdf install gradle 4.9
+asdf global gradle 4.9
 
 # ruby
 asdf plugin-add ruby

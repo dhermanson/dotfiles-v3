@@ -1,0 +1,6 @@
+#! /bin/bash
+
+nix-env -i \
+        mongodb \
+        neovim \
+        universal-ctags

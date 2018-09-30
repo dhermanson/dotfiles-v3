@@ -1,0 +1,104 @@
+{
+  packageOverrides = super: let self = super.pkgs; in
+  {
+    myHaskellEnv = self.haskell.packages.ghc843.ghcWithPackages
+                     (haskellPackages: with haskellPackages; [
+                       # haskell platform: core libraries
+                       array
+                       base
+                       blaze
+                       bytestring
+                       Cabal
+                       containers
+                       deepseq
+                       directory
+                       filepath
+                       ghc
+                       hpc
+                       mtl
+                       parsec
+                       pretty
+                       process
+                       stm
+                       template-haskell
+                       text
+                       time
+                       transformers
+                       unix
+                       xhtml
+
+                       # haskell platform: additional platform libraries
+                       alex
+                       cabal-install
+                       # haddock
+                       happy
+                       hscolour
+                       stack
+
+                       # haskell platform: libraries with full platform
+                       async
+                       attoparsec
+                       call-stack
+                       case-insensitive
+                       fgl
+                       fixed
+                       GLURaw
+                       GLUT
+                       half
+                       hashable
+                       haskell-src
+                       html
+                       HTTP
+                       HUnit
+                       integer-logarithms
+                       mtl
+                       network
+                       network-uri
+                       ObjectName
+                       OpenGL
+                       OpenGLRaw
+                       parallel
+                       parsec
+                       primitive
+                       QuickCheck
+                       random
+                       regex-base
+                       regex-compat
+                       regex-posix
+                       scientific
+                       split
+                       StateVar
+                       stm
+                       syb
+                       text
+                       tf-random
+                       transformers
+                       unordered-containers
+                       vector
+                       xhtml
+                       zlib
+
+                       # tools
+                       pandoc
+                       pandoc-types
+                       pandoc-citeproc
+                       # pandoc-include
+
+                       #fixes
+                       basement
+                       ghc-paths
+
+                       # pandoc deps
+                       ghc-prim
+                       aeson
+                       base-compat
+                       dlist
+                       tagged
+                       th-abstraction
+                       time-locale-compat
+                       uuid-types
+                       
+
+                     ]);
+  };
+}

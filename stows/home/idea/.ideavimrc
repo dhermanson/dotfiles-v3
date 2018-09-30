@@ -1,0 +1,11 @@
+set relativenumber
+set vim-surround
+
+nmap <A-h> <C-w>h
+nmap <A-j> <C-w>j
+nmap <A-k> <C-w>k
+nmap <A-l> <C-w>l
+map <Space>r :action ReformatCode<CR>
+nnoremap <A-C-s> :action NewScratchFile<CR>
+
+nnoremap <C-A-r> :action ShowIntentionActions<CR>

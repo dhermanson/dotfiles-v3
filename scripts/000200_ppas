@@ -14,10 +14,13 @@ sudo add-apt-repository \
    $(lsb_release -cs) \
    stable"
 
-# add neovim ppa
-sudo add-apt-repository ppa:neovim-ppa/stable
+# # add neovim ppa # use nix instead
+# sudo add-apt-repository ppa:neovim-ppa/stable
 
 # add emacs ppa
 sudo add-apt-repository ppa:kelleyk/emacs
+
+# add dbeaver ppa
+sudo add-apt-repository ppa:serge-rider/dbeaver-ce
 
 sudo apt-get update

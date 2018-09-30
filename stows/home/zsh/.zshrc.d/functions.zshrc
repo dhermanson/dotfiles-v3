@@ -16,7 +16,7 @@ fd() {
   toplevel=$(git rev-parse --show-toplevel)
   retval=$?
   if [ $retval -eq 0 ]; then
-    relative_to_toplevel=$(find $toplevel -path '*/\.*' -type d 2> /dev/null | xargs -- realpath --relative-to=$toplevel | fzf +m) &&
+    relative_to_toplevel=$(find $toplevel -path '*/\.*' -prune -o -type d -print 2> /dev/null | xargs -- realpath --relative-to=$toplevel | fzf +m) &&
     dir=$toplevel/$relative_to_toplevel
   else
     dir=$(find ${1:-.} -path '*/\.*' -prune \

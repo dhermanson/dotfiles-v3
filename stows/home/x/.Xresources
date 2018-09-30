@@ -1,13 +1,13 @@
-*font: xft:Source Code Pro:style=Reguler:size=16:antialias=true:hinting=true
-*boldFont: xft:Source Code Pro:style=Bold:size=16:antialias=true:hinting=true
-*italicFont: xft:Source Code Pro:style=Oblique:size=16:antialias=true:hinting=true
-*boldItalicFont: xft:Source Code Pro:style=Bold Oblique:size=16:antialias=true:hinting=true
+! *font: xft:Source Code Pro:style=Reguler:size=14:antialias=true:hinting=true
+! *boldFont: xft:Source Code Pro:style=Bold:size=14:antialias=true:hinting=true
+! *italicFont: xft:Source Code Pro:style=Oblique:size=14:antialias=true:hinting=true
+! *boldItalicFont: xft:Source Code Pro:style=Bold Oblique:size=14:antialias=true:hinting=true
 
-! emacs*font: Source Code Pro:size=16:antialias=true:hinting=true
-emacs*font: Source Code Pro-18
-emacs*boldFont: Source Code Pro:size=16:antialias=true:hinting=true
-emacs*italicFont: Source Code Pro:style=Oblique:size=16:antialias=true:hinting=true
-emacs*boldItalicFont: Source Code Pro:style=Bold Oblique:size=16:antialias=true:hinting=true
+! emacs*font: Source Code Pro:size=14:antialias=true:hinting=true
+emacs*font: Source Code Pro-14
+emacs*boldFont: Source Code Pro:size=14:antialias=true:hinting=true
+emacs*italicFont: Source Code Pro:style=Oblique:size=14:antialias=true:hinting=true
+emacs*boldItalicFont: Source Code Pro:style=Bold Oblique:size=14:antialias=true:hinting=true
 
 
 ! XFT and Font settings
