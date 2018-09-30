@@ -11,15 +11,10 @@ my_x_session_setup () {
 
     xautolock -time 5 -locker slock &
 
-    exec emacs --daemon &
 
     if [ -x /usr/bin/dropbox ]; then
         /usr/bin/dropbox start &
     fi
-
-    # music player daemon
-    mpd &
-
     # notification daemon
     dunst &
 
@@ -31,8 +26,6 @@ my_x_session_setup () {
         /usr/bin/xsettingsd &
     fi
 
-    exec redshift &
-
     dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 
     # From https://wiki.archlinux.org/index.php/GNOME/Keyring#xinitrc_method
@@ -41,16 +34,29 @@ my_x_session_setup () {
         export SSH_AUTH_SOCK
     fi
 
-    # keyboard setup
-    xmodmap ~/.Xmodmap
+
+    # make KDE apps work properly in non-kde environment
+    export KDE_SESSION_UID=1000
+    export KDE_SESSION_VERSION=5
+    export XDG_CURRENT_DESKTOP=KDE
 }
+
+exec emacs --daemon &
+
+# music player daemon
+mpd &
+
+exec redshift &
+
+# keyboard setup
+xmodmap ~/.Xmodmap &
 
 case $session in
     gnome)
-        exec gnome-session
+        exec dbus-launch gnome-session
         ;;
     kde)
-        exec startkde
+        exec dbus-launch startkde
         ;;
     i3)
         my_x_session_setup
