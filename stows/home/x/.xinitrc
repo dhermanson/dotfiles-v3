@@ -17,6 +17,9 @@ my_x_session_setup () {
         /usr/bin/dropbox start &
     fi
 
+    # music player daemon
+    mpd &
+
     # notification daemon
     dunst &
 
@@ -38,16 +41,10 @@ my_x_session_setup () {
         export SSH_AUTH_SOCK
     fi
 
-    #exec gnome-session
-    # exec dbus-launch i3 -V >> ~/i3log-$(date +'%F-%k-%M-%S') 2>&1
-    # exec dbus-launch i3
-
     # keyboard setup
     xmodmap ~/.Xmodmap
 }
 
-
-echo $session
 case $session in
     gnome)
         exec gnome-session
@@ -57,6 +54,7 @@ case $session in
         ;;
     i3)
         my_x_session_setup
+        # exec dbus-launch i3 -V >> ~/i3log-$(date +'%F-%k-%M-%S') 2>&1
         exec dbus-launch i3
         ;;
     xmonad) 

@@ -15,6 +15,10 @@ myKeys =
     [
       ("M-x s l", spawn "$HOME/.screenlayout/laptop_only.sh") 
     , ("M-x s h", spawn "$HOME/.screenlayout/home.sh") 
+    , ("M-x m p", spawn "mpc play") 
+    , ("M-x m s", spawn "mpc pause") 
+    , ("M-x m l", spawn "konsole -e ncmpcpp") 
+    , ("M-x m a", spawn "konsole -e alsamixer") 
     , ("M-\\", spawn "emacsclient -c") 
     ]
     ++
