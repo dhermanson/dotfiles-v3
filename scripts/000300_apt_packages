@@ -16,7 +16,7 @@ sudo apt install -y \
 sudo apt install -y \
      acpi \
      arandr \
-     blueman \
+     # blueman \
      calibre \
      conky \
      curl \
@@ -26,32 +26,42 @@ sudo apt install -y \
      dzen2 \
      dunst \
      emacs26 \
-     # exuberant-ctags \
      feh \
      git \
+     gnome-dictionary \
      gnome-power-manager \
      gnome-settings-daemon \
+     graphviz \
+     # golang-1.10-go \
      gtk-chtheme \
      # haskell-platform \
      i3 \
-     kde-plasma-desktop \
+     jq \
+     # kde-plasma-desktop \
+     kde-standard \
      konsole \
      lxappearance \
+     libmariadbclient18 \
+     # mariadb-server \
      # mongodb \
      # mongodb-clients \
      mpd \
      mplayer \
      mpc \
+     mycli \
+     mysql-workbench \
      ncmpcpp \
      neovim \
      oxygen-icon-theme \
      pasystray \
      pcmanfm \
+     # percona-xtradb-cluster-server-5.7 \
      python3-pip \
      python-pip \
-     qt4-qtconfig \
+     # qt4-qtconfig \
      ranger \
      redshift \
+     repo \
      rofi \
      rxvt-unicode \
      scrot \
@@ -60,6 +70,7 @@ sudo apt install -y \
      tmux \
      tree \
      unclutter \
+     xclip \
      xmonad \
      xmobar \
      xsettingsd \

@@ -4,10 +4,8 @@ my_x_session_setup () {
     # load resources
     xrdb -load ~/.Xresources
 
-    # Key repeat
-    xset r rate 250 40
 
-    feh --bg-fill ~/.wallpaper/gnu.png &
+    # feh --bg-fill ~/.wallpaper/gnu.png &
 
     xautolock -time 5 -locker slock &
 
@@ -40,6 +38,9 @@ my_x_session_setup () {
     export KDE_SESSION_VERSION=5
     export XDG_CURRENT_DESKTOP=KDE
 }
+
+# Key repeat
+xset r rate 250 40
 
 exec emacs --daemon &
 

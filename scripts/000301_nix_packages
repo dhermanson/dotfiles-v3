@@ -1,6 +1,8 @@
 #! /bin/bash
 
 nix-env -i \
+        kotlin \
         mongodb \
         neovim \
+        neovim-qt \
         universal-ctags

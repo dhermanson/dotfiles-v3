@@ -21,3 +21,8 @@ asdf global gradle 4.9
 asdf plugin-add ruby
 asdf install ruby 2.5.1
 asdf global ruby 2.5.1
+
+# dotnet core
+asdf plugin-add dotnet-core https://github.com/emersonsoares/asdf-dotnet-core.git
+asdf install dotnet-core 2.1.403
+asdf global dotnet-core 2.1.403

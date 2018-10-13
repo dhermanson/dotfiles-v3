@@ -23,4 +23,7 @@ sudo add-apt-repository ppa:kelleyk/emacs
 # add dbeaver ppa
 sudo add-apt-repository ppa:serge-rider/dbeaver-ce
 
+# golang
+# sudo add-apt-repository ppa:gophers/archive
+
 sudo apt-get update

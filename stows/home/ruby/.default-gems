@@ -2,3 +2,4 @@ bundler
 gem-ctags
 jekyll
 pry
+pry-doc

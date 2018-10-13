@@ -5,9 +5,17 @@ import XMonad.Hooks.SetWMName
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook
+import XMonad.Layout.SubLayouts
+import XMonad.Layout.WindowNavigation
+import XMonad.Layout.BoringWindows
+import XMonad.Layout.Tabbed
  
 -- The main function.
 main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
+
+-- myLayout = addTabs shrinkText def
+--          $ subLayout [0,1,2] (Simplest ||| Tall 1 0.2 0.5 ||| Circle)
+--          $ Tall 1 0.2 0.5 ||| Full
 
 modm = mod4Mask
  

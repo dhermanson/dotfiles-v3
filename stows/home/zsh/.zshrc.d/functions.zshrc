@@ -2,11 +2,23 @@
 #     create_emacs_frame_or_use_existing "$@"
 # }
 
+function jc {
+    curl -s -H "Accept: application/json" "$@" | python -m json.tool | pygmentize -l json
+}
+
 function e() {
     if [ $# -eq 0 ]; then
         file=$(fzf) && create_emacs_frame_or_use_existing $file
     else
         create_emacs_frame_or_use_existing $@
+    fi
+}
+
+function i() {
+    if [ $# -eq 0 ]; then
+        file=$(fzf) && touch $file && idea $file
+    else
+        touch $@ && idea $@
     fi
 }
 

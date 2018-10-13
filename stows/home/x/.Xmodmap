@@ -13,6 +13,7 @@ keycode      37 = Hyper_L
 keycode      66 = Control_L
 ! printscrn to Super_L
 keycode     107 = Super_L
+! keycode     107 = Control_L
 ! page up to Hyper_L
 keycode     112 = Hyper_L
 add     control = Control_L Control_R
