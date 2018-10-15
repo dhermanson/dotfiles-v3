@@ -12,4 +12,4 @@ sudo fc-cache -fv
 chsh -s $(which zsh)
 
 # install fzf
-~/.fzf/install
+# ~/.fzf/install

@@ -1,0 +1,9 @@
+#! /usr/bin/env bash
+
+repo_root=$(git rev-parse --show-toplevel)
+composer_installer=$repo_root/scripts/php/composer-installer.php
+install_dir=$HOME/.local/bin
+
+mkdir -p $install_dir
+
+php $composer_installer --install-dir=$install_dir --filename=composer

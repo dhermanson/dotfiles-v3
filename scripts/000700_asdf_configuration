@@ -22,6 +22,12 @@ asdf plugin-add ruby
 asdf install ruby 2.5.1
 asdf global ruby 2.5.1
 
+# php
+asdf plugin-add php
+asdf install php 7.1.23
+asdf install php 7.2.11
+asdf global php 7.2.11
+
 # dotnet core
 asdf plugin-add dotnet-core https://github.com/emersonsoares/asdf-dotnet-core.git
 asdf install dotnet-core 2.1.403

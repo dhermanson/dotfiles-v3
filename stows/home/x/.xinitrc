@@ -1,4 +1,4 @@
-session=${1:-xmonad}
+session=${1:-i3}
 
 my_x_session_setup () {
     # load resources
