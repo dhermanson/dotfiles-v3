@@ -64,6 +64,7 @@ sudo apt install -y \
   # percona-xtradb-cluster-server-5.7 \
   python3-pip \
   python-pip \
+  pwgen \
   # qt4-qtconfig \
   ranger \
   redshift \

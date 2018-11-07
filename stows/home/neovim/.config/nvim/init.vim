@@ -37,6 +37,7 @@ Plug 'roxma/nvim-yarp'
 " Plug 'sheerun/vim-polyglot'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'udalov/kotlin-vim'
 
 Plug 'phpactor/phpactor' ,  {'do': 'composer install', 'for': 'php'}
 
@@ -157,11 +158,13 @@ colorscheme gruvbox
 highlight SignColumn ctermbg=236
 highlight VertSplit ctermbg=236
 highlight Comment cterm=italic
+let g:airline_theme='gruvbox'
 let g:airline#extensions#ale#enabled = 1
 let g:airline_powerline_fonts = 0
 let g:airline_left_sep=''		
 let g:airline_right_sep=''		
 let g:airline_symbols = {}		
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keyboard Mappings

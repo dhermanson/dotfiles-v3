@@ -1,11 +1,14 @@
-session=${1:-i3}
+session=${1:-xmonad}
+screenlayout=${2:-home}
 
 my_x_session_setup () {
     # load resources
     xrdb -load ~/.Xresources
 
+    ./.screenlayout/$screenlayout
 
     # feh --bg-fill ~/.wallpaper/gnu.png &
+    feh --bg-fill /usr/share/backgrounds/warty-final-ubuntu.png &
 
     xautolock -time 5 -locker slock &
 
@@ -15,6 +18,9 @@ my_x_session_setup () {
     fi
     # notification daemon
     dunst &
+
+    # start network manager applet
+    nm-applet &
 
     # cursor hiding daemon
     unclutter &

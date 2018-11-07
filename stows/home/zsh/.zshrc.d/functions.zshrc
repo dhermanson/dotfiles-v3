@@ -22,6 +22,13 @@ function i() {
     fi
 }
 
+function deh-open-current-dir-in-emacs-magit() {
+    emacsclient -c -n .
+    sleep 0.5
+    emacsclient -e "(projectile-vc)"
+    emacsclient -e "(delete-other-windows)"
+}
+
 # fd - cd to selected directory (scope to git repo if in one)
 fd() {
   local dir

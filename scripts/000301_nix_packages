@@ -1,6 +1,7 @@
 #! /bin/bash
 
 nix-env -i \
+        cscope \
         kotlin \
         mongodb \
         neovim \
