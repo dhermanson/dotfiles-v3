@@ -30,9 +30,10 @@ Config { font = "xft:Monaco:style=Regular:size=14:antialias=true:hinting=true"
                     , Run Swap [] 10
                     , Run Com "uname" ["-s","-r"] "" 36000
                     , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                    , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%cpu% | %memory% * %swap% | %eth0% - %eth1% }\
+       , template = "%StdinReader% | %cpu% | %memory% * %swap% | %eth0% - %eth1% }\
                     \{ <fc=#ee9a00>%date%</fc>| %KFAR% | %uname%"
        }

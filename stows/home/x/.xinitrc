@@ -22,8 +22,8 @@ my_x_session_setup () {
     # start network manager applet
     nm-applet &
 
-    # cursor hiding daemon
-    unclutter &
+    # start urxvt daemon
+    urxvtd &
 
     if [ -x /usr/bin/xsettingsd ]; then
         touch ~/.xsettingsd
