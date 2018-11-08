@@ -10,7 +10,7 @@ import XMonad.Layout.Spacing
 import XMonad.Actions.CycleWS
 
 main = do
-  xmproc <- spawnPipe "xmobar"
+  xmproc <- spawnPipe ("xmobar -x 2 " ++ myXmobarrc)
   
   xmonad $ defaultConfig {
     manageHook = myManageHook,
@@ -41,6 +41,8 @@ myKeys = [
   [((m .|. myModMask, key), screenWorkspace sc >>= flip whenJust (windows . f))
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0,2,1]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
+
+myXmobarrc = "~/.xmonad/xmobar.hs"
 
 myModMask = mod4Mask
 

@@ -34,5 +34,5 @@ Config { font = "xft:Monaco:style=Regular:size=14:antialias=true:hinting=true"
        , sepChar = "%"
        , alignSep = "}{"
        , template = "%cpu% | %memory% * %swap% | %eth0% - %eth1% }\
-                    \{ <fc=#ee9a00>%date%</fc>| %EGPF% | %uname%"
+                    \{ <fc=#ee9a00>%date%</fc>| %KFAR% | %uname%"
        }

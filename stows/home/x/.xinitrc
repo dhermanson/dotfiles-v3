@@ -46,7 +46,8 @@ my_x_session_setup () {
 }
 
 # Key repeat
-xset r rate 250 40
+# xset r rate 250 40
+xset r rate 250 60
 
 exec emacs --daemon &
 
