@@ -3,7 +3,7 @@
 # }
 
 function jc {
-    curl -s -H "Accept: application/json" "$@" | python -m json.tool | pygmentize -l json
+    curl -s -H "Accept: application/json" "$@" | python -m json.tool
 }
 
 function e() {
