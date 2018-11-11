@@ -27,20 +27,22 @@ main = do
 
 myKeys = [
     ((mod4Mask, xK_backslash), spawn "emacsclient -c"),
+    ((mod4Mask .|. shiftMask .|. mod1Mask .|. controlMask, xK_l), spawn "~/.screenlayout/laptop_only"),
     ((mod4Mask .|. mod1Mask .|. controlMask, xK_l), spawn "slock"),
     ((mod4Mask .|. mod1Mask .|. controlMask, xK_s), spawn "mpc pause"),
     ((mod4Mask .|. mod1Mask .|. controlMask, xK_p), spawn "mpc play"),
     ((mod4Mask .|. mod1Mask .|. controlMask, xK_minus), spawn "amixer -q set Master 2dB- unmute"),
-    ((mod4Mask .|. shiftMask .|. mod1Mask .|. controlMask, xK_equal), spawn "amixer -q set Master 2dB+ unmute"),
-    ((mod4Mask .|. mod1Mask .|. controlMask, xK_equal), spawn "urxvt -e alsamixer"),
+    ((mod4Mask .|. mod1Mask .|. controlMask, xK_equal), spawn "amixer -q set Master 2dB+ unmute"),
+    ((mod4Mask .|. shiftMask .|. mod1Mask .|. controlMask, xK_equal), spawn "urxvt -e alsamixer"),
     ((mod4Mask .|. mod1Mask .|. controlMask, xK_t), sendMessage ToggleStruts),
     ((mod4Mask .|. controlMask, xK_j), nextWS),
     ((mod4Mask .|. controlMask, xK_k), prevWS)
   ]
-  ++
-  [((m .|. myModMask, key), screenWorkspace sc >>= flip whenJust (windows . f))
-        | (key, sc) <- zip [xK_w, xK_e, xK_r] [0,2,1]
-        , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
+  -- ++
+  -- [((m .|. myModMask, key), screenWorkspace sc >>= flip whenJust (windows . f))
+  --       | (key, sc) <- zip [xK_w, xK_e, xK_r] [0,2,1]
+  --       -- | (key, sc) <- zip [xK_w, xK_e, xK_r] [1,2,0]
+  --       , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
 myXmobarrc = "~/.xmonad/xmobar.hs"
 
