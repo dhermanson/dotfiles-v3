@@ -307,3 +307,7 @@ function! ConfirmBDeleteBang()
   endif
 endfunction
 
+source $HOME/.config/nvim/tmux.vim
+
+autocmd FileType ruby call deh#lang#ruby#setup_buffer()
+autocmd FileType php call deh#lang#php#setup_buffer()
