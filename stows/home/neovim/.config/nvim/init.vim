@@ -93,6 +93,7 @@ let g:tagbar_autoclose = 0
 
 " nerdtree
 let g:NERDTreeQuitOnOpen=0
+let NERDTreeShowHidden=1
 
 " gitgutter
 let g:gitgutter_enabled=1
