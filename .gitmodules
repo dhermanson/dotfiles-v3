@@ -4,3 +4,6 @@
 [submodule "tpm"]
 	path = stows/home/tmux/.tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "stows/home/php/tags/php/phpstorm-stubs"]
+	path = stows/home/php/tags/php/phpstorm-stubs
+	url = https://github.com/JetBrains/phpstorm-stubs

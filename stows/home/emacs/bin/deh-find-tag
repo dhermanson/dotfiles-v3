@@ -1,0 +1,25 @@
+#! /usr/bin/env ruby
+
+unless File.file?("TAGS")
+  exit 1
+end
+
+upcoming_filename = false
+upcoming_tag = false
+filename = nil
+
+File.readlines("TAGS").each do |line|
+  if line == "\f\n"
+    upcoming_filename = true
+    upcoming_tag = false
+  elsif upcoming_filename == true
+    filename = line.strip.split(',')[0]
+    upcoming_tag = true
+    upcoming_filename = false
+  elsif upcoming_tag == true
+    description, rest = line.split("\u007F")
+    tag, rest = rest.split("\u0001")
+    linenum = rest.split(",")[0]
+    puts "#{filename}:#{tag}:#{description}:#{linenum}"
+  end
+end

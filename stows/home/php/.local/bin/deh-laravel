@@ -50,6 +50,20 @@ command :dbopen do |c|
   end
 end
 
+command :dbschema do |c|
+  c.syntax = 'deh-laravel dbopen'
+  c.description = 'Run schemaspy against the database specified in the .env file'
+  c.option '--env-file STRING', String, 'Specify the env file'
+  c.action do |args, options|
+    options.default \
+      :env_file => ".env"
+
+    d = load_env options.env_file
+
+    run_schemaspy d
+  end
+end
+
 def load_env env_file
   if !File.exists? env_file
     puts "#{ env_file } does not exist"
@@ -64,6 +78,20 @@ def load_env env_file
     host: '127.0.0.1',
     port: ENV['DB_PORT']
   }
+end
+
+def run_schemaspy d
+  require 'fileutils'
+  require 'pathname'
+
+  project_dir = `git rev-parse --show-toplevel`.strip
+  directory = File.join(project_dir, '.derick/schema')
+  FileUtils.mkdir_p directory
+  unless d[:db].nil? and d[:user].nil? and d[:pass].nil? and directory.nil?
+    cmd = %Q( deh-schemaspy #{directory} #{d[:db]} #{d[:user]} #{d[:pass]} )
+    result = `#{cmd}`
+    puts result
+  end
 end
 
 def create_database d

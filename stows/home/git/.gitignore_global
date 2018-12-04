@@ -4,3 +4,5 @@
 .derick-project-env
 .tool-versions
 .tern-port
+.ctags-php
+.ctags-php-vendor

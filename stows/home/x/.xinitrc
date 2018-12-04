@@ -1,23 +1,32 @@
 session=${1:-xmonad}
-screenlayout=${2:-home}
+screenlayout=${2:-laptop_only}
 
 my_x_session_setup () {
     # load resources
     xrdb -load ~/.Xresources
 
+    # Set up an icon tray
+    # stalonetray &
+    # trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 15 --height 28 --transparent true --tint 0x000000 &
+
     ./.screenlayout/$screenlayout
+
+    # trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 15 --height 28 --alpha 0 --transparent true --tint 0x000000 &
 
     # feh --bg-fill ~/.wallpaper/gnu.png &
     feh --bg-fill /usr/share/backgrounds/warty-final-ubuntu.png &
 
-    xautolock -time 5 -locker slock &
+    xautolock -time 60 -locker slock &
 
 
     if [ -x /usr/bin/dropbox ]; then
         /usr/bin/dropbox start &
     fi
+
     # notification daemon
     dunst &
+
+    # unclutter &
 
     # start network manager applet
     nm-applet &
@@ -25,9 +34,15 @@ my_x_session_setup () {
     # start urxvt daemon
     urxvtd &
 
+    # start udiskie to handle media
+    udiskie &
+
+    # start power manager
+    # xfce4-power-manager & # this doesn't add an icon to the tray
+
     if [ -x /usr/bin/xsettingsd ]; then
         touch ~/.xsettingsd
-        /usr/bin/xsettingsd &
+        #/usr/bin/xsettingsd &
     fi
 
     dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
@@ -61,22 +76,27 @@ xmodmap ~/.Xmodmap &
 
 case $session in
     gnome)
-        exec dbus-launch gnome-session
+        # exec dbus-launch gnome-session
+        exec gnome-session
         ;;
     kde)
-        exec dbus-launch startkde
+        # exec dbus-launch startkde
+        exec startkde
         ;;
     i3)
         my_x_session_setup
         # exec dbus-launch i3 -V >> ~/i3log-$(date +'%F-%k-%M-%S') 2>&1
-        exec dbus-launch i3
+        # exec dbus-launch i3
+        exec i3
         ;;
     xmonad) 
         my_x_session_setup
-        exec dbus-launch xmonad
+        #exec dbus-launch xmonad
+        exec xmonad
         ;;
     *) 
         my_x_session_setup
-        exec dbus-launch $1
+        # exec dbus-launch $1
+        exec $1
         ;;
 esac

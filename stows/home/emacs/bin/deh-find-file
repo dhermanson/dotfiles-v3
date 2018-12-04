@@ -1,0 +1,6 @@
+#! /bin/bash
+
+result=$(rg --files | fzf) || exit $?
+file=`pwd`/$result
+
+create_emacs_frame_or_use_existing $file

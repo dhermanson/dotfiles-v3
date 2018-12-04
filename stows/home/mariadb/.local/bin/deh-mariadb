@@ -1,0 +1,36 @@
+#! /usr/bin/env ruby
+
+require 'rubygems'
+require 'commander/import'
+
+program :name, 'Mariadb Wrapper'
+program :version, '1.0.0'
+program :description, 'My mariadb helper utilities'
+
+command :start do |c|
+  c.syntax = 'deh-mariadb start'
+  c.description = 'Start mariadb'
+  c.action do |args, options|
+    start_mariadb
+  end
+end
+
+command :stop do |c|
+  c.syntax = 'deh-mariadb stop'
+  c.description = 'Stop mariadb'
+  c.action do |args, options|
+    stop_mariadb
+  end
+end
+
+def start_mariadb
+  cmd = %Q( docker run --rm -it -e MYSQL_ROOT_PASSWORD=password -p 3306:3306 -d --name mariadb mariadb )
+  result = `#{cmd}`
+  puts result
+end
+
+def stop_mariadb
+  cmd = %Q( docker stop mariadb )
+  result = `#{cmd}`
+  puts result
+end

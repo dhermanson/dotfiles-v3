@@ -4,4 +4,5 @@ pip3 install \
      grip \
      neovim \
      neovim-remote \
+     udiskie \
      Pygments

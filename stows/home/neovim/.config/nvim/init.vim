@@ -30,19 +30,31 @@ Plug 'tpope/vim-unimpaired'
 Plug 'airblade/vim-gitgutter'
 Plug 'schickling/vim-bufonly'
 
-Plug 'ncm2/ncm2' " completion
-Plug 'roxma/nvim-yarp'
+Plug 'roxma/nvim-yarp' " a dependency of 'ncm2'
+Plug 'ncm2/ncm2' " v2 of the nvim-completion-manager
+" Plug 'ncm2/nvim-typescript', {'do': './install.sh'} " typescript completion source
+" LanguageServer client for NeoVim.
+Plug 'autozimu/LanguageClient-neovim', {
+  \ 'branch': 'next',
+  \ 'do': 'bash install.sh',
+  \ }
 
 " Languages
 " Plug 'sheerun/vim-polyglot'
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
+" Plug 'vim-pandoc/vim-pandoc'
+" Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'udalov/kotlin-vim'
+Plug 'HerringtonDarkholme/yats.vim'
 
-Plug 'phpactor/phpactor' ,  {'do': 'composer install', 'for': 'php'}
+" Plug 'phpactor/phpactor' ,  {'do': 'composer install', 'for': 'php'}
+Plug 'arnaud-lb/vim-php-namespace', { 'for': 'php' }
+Plug 'jwalton512/vim-blade'
 
 " api blueprint
 Plug 'kylef/apiblueprint.vim', { 'for': 'apiblueprint' }
+
+" html-ish
+Plug 'mattn/emmet-vim'
 
 " Initialize plugin system
 call plug#end()
@@ -88,6 +100,12 @@ let g:gitgutter_enabled=1
 " vim-pandoc
 let g:pandoc#modules#disabled = ["chdir", "folding"] " don't automatically change directory
 
+" language client
+let g:LanguageClient_serverCommands = {
+  \ 'javascript': ['javascript-typescript-stdio'],
+  \ 'typescript': ['javascript-typescript-stdio']
+  \ }
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Basic Settings
@@ -117,7 +135,6 @@ set nohlsearch
 set cursorline
 set nosplitbelow
 set splitright
-set completeopt=longest,menuone
 set ignorecase
 set nolazyredraw
 
@@ -212,8 +229,8 @@ nnoremap Q @q
 vnoremap Q :norm @q<cr>
 
 " delete buffer
-nnoremap <Leader>q :bdelete\|bd #<CR>
-nnoremap <M-q> :bdelete\|bd #<CR>
+nnoremap <Leader>q :bdelete<CR>
+nnoremap <M-q> :bdelete<CR>
 nnoremap <M-Q> :call ConfirmBDeleteBang()<CR>
 " close buffer
 nnoremap <M-c> <C-w>c
@@ -234,6 +251,10 @@ nnoremap <Leader>gl :Glog<CR>
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gw :Gwrite<CR>
 nnoremap <Leader>gc :Commits<CR>
+
+" ale
+nnoremap <silent> <M-g><M-p> :ALEPrevious<CR>
+nnoremap <silent> <M-g><M-n> :ALENext<CR>
 
 " ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"

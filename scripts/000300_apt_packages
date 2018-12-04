@@ -74,11 +74,15 @@ sudo apt install -y \
   scrot \
   slock \
   sqlite3 \
+  stalonetray \
   stow \
   tmux \
   tree \
+  trayer \
   unclutter \
+  xbacklight \
   xclip \
+  # xfce4-power-manager \
   xmonad \
   xmobar \
   xsettingsd \

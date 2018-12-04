@@ -1,0 +1,8 @@
+#! /bin/bash
+
+output=$1
+db=$2
+user=$3
+password=$4
+
+docker run -it --rm --link mariadb -v $output:/data mnuessler/schemaspy -hq -t mysql -host "mariadb:3306" -db $db -u $user -p $password -norows -o /data
