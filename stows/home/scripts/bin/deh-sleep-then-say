@@ -1,0 +1,2 @@
+#! /bin/bash
+ruby -e "puts 60 * $1" | xargs -I % sh -c "sleep %; espeak -p 25 '$2'"

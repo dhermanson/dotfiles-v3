@@ -1,5 +1,6 @@
-#! /bin/bash
-repo_root=$(git rev-parse --show-toplevel)
+# /bin/bash
+# repo_root=$(git rev-parse --show-toplevel)
+repo_root=$(cat $HOME/.config/deh/dotfiles-repo-root)
 
 pushd
 cd $repo_root/stows/home/asdf/.asdf

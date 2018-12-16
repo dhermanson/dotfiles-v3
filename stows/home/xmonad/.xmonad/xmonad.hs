@@ -31,7 +31,7 @@ main = do
 
 myKeys = [
     -- multimedia
-    ((0, XF86.xF86XK_MonBrightnessUp), spawn "emacsclient -c"),
+    -- ((0, XF86.xF86XK_MonBrightnessUp), spawn "emacsclient -c"),
     ((0, XF86.xF86XK_AudioLowerVolume ), spawn "amixer -q set Master 2dB- unmute"),
     ((0, XF86.xF86XK_AudioRaiseVolume ), spawn "amixer -q set Master 2dB+ unmute"),
     ((0, XF86.xF86XK_AudioMute ), spawn "amixer -q set Master toggle && amixer -q set Headphone toggle"),

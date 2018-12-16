@@ -12,4 +12,4 @@ asdf_update_java_home() {
   fi
 }
 
-asdf_update_java_home
+# asdf_update_java_home

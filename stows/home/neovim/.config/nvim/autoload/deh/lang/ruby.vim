@@ -11,6 +11,11 @@ let g:deh#lang#ruby_repl_command = 'pry'
 " TODO: delete any outstanding repls when vim closed
 function! g:deh#lang#ruby#setup_buffer()
 
+  " TODO: make a ruby object here
+  " let b:deh#repl#impl = new rubyobject()
+  " then all of these mappings aren't lang specific
+  " i can make my ruby object implement interfaces
+  
   " tmux interaction
   nnoremap <buffer> <silent> <M-s> :call SendLineToTmuxPane(line('.'), g:deh#lang#ruby_repl_session_name)<CR>
   inoremap <buffer> <silent> <M-s> <C-o>:call SendLineToTmuxPane(line('.'), g:deh#lang#ruby_repl_session_name)<CR>
@@ -38,5 +43,3 @@ function! g:deh#lang#ruby#kill_repl()
   let g:deh#lang#ruby_repl_session_name = ''
   let g:deh#lang#ruby_repl_session_exists = 0
 endfunction
-
-

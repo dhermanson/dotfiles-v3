@@ -20,7 +20,7 @@ sudo apt install -y \
   autoconf \
   acpi \
   arandr \
-  # blueman \
+  blueman \
   calibre \
   conky \
   curl \
@@ -30,6 +30,7 @@ sudo apt install -y \
   dzen2 \
   dunst \
   emacs26 \
+  espeak \
   feh \
   git \
   gnome-dictionary \

@@ -26,6 +26,9 @@ my_x_session_setup () {
     # notification daemon
     dunst &
 
+    # bluetooth
+    blueman-applet &
+
     # unclutter &
 
     # start network manager applet
