@@ -4,59 +4,48 @@ endif
 
 let g:deh#repl#loaded = 1
 
-" b:current_syntax
-
 if !exists("g:deh#repl#repls")
   let g:deh#repl#repls = {}
 endif
 
-function! s:is_lang_defined(lang)
-  return has_key(g:deh#repl#repls, a:lang)
+function! s:repl_is_defined_for(lang)
+  if has_key(g:deh#repl#repls, a:lang)
+    return 1
+  else
+    echom "no repl defined for " . a:lang
+    return 0
+  endif
 endfunction
 
 function! g:deh#repl#start()
-  if !<SID>is_lang_defined(b:current_syntax)
-    echom "no repl defined for current language"
-    return
+  if <SID>repl_is_defined_for(b:current_syntax)
+    let repl = g:deh#repl#repls[b:current_syntax]
+    call repl.start()
   endif
 
-  let repl = g:deh#repl#repls[b:current_syntax]
-  call repl.start()
 endfunction
 
 function! g:deh#repl#stop()
-  if !<SID>is_lang_defined(b:current_syntax)
-    echom "no repl defined for current language"
-    return
+  if <SID>repl_is_defined_for(b:current_syntax)
+    let repl = g:deh#repl#repls[b:current_syntax]
+    call repl.stop()
   endif
-
-  let repl = g:deh#repl#repls[b:current_syntax]
-  call repl.stop()
 endfunction
 
 function! g:deh#repl#send_current_line()
-  if !<SID>is_lang_defined(b:current_syntax)
-    echom "no repl defined for current language"
-    return
+  if <SID>repl_is_defined_for(b:current_syntax)
+    let repl = g:deh#repl#repls[b:current_syntax]
+    call repl.send_current_line()
   endif
 
-  let repl = g:deh#repl#repls[b:current_syntax]
-  call repl.send_current_line()
 endfunction
 
 function! g:deh#repl#send_selected_lines()
-  if !<SID>is_lang_defined(b:current_syntax)
-    echom "no repl defined for current language"
-    return
+  if <SID>repl_is_defined_for(b:current_syntax)
+    let repl = g:deh#repl#repls[b:current_syntax]
+    call repl.send_selected_lines()
   endif
-
-  let repl = g:deh#repl#repls[b:current_syntax]
-  call repl.send_selected_lines()
 endfunction
 
 
 " TODO: make an command that kills all repls on vim exit
-
-
-" TODO: make the TmuxRepl object have a method to test if session exists
-"       `tmux has-session -t=session-name`
