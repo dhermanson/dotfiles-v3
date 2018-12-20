@@ -107,6 +107,13 @@ let g:LanguageClient_serverCommands = {
   \ 'typescript': ['javascript-typescript-stdio']
   \ }
 
+" repl
+let g:deh#repl#repls = {
+    \   "ruby": g:deh#repl#TmuxRepl#new("ruby-repl", "pry"),
+    \   "python": g:deh#repl#TmuxRepl#new("python-repl", "python3"),
+    \   "php": g:deh#repl#TmuxRepl#new("php-repl", "psysh")
+    \ }
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Basic Settings
@@ -282,6 +289,12 @@ nnoremap <M-;> :NERDTreeFocus<CR>
 nnoremap <M-'> :NERDTreeToggle<CR>
 nnoremap <M-:> :NERDTreeFind<CR>
 
+nnoremap <silent> <M-s> :call deh#repl#send_current_line()<CR>
+inoremap <silent> <M-s> <C-o>:call deh#repl#send_current_line()<CR>
+vnoremap <silent> <M-s> :\<C-u>call deh#repl#send_selected_lines()<CR>
+nnoremap <silent> <M-r><M-k> :call deh#repl#stop()<CR>
+nnoremap <silent> <M-r><M-o> :call deh#repl#start()<CR>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Functions
@@ -307,8 +320,3 @@ function! ConfirmBDeleteBang()
     execute "bdelete!"
   endif
 endfunction
-
-source $HOME/.config/nvim/tmux.vim
-
-autocmd FileType ruby call deh#lang#ruby#setup_buffer()
-autocmd FileType php call deh#lang#php#setup_buffer()
