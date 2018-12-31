@@ -41,8 +41,9 @@ Plug 'autozimu/LanguageClient-neovim', {
 
 " Languages
 " Plug 'sheerun/vim-polyglot'
-" Plug 'vim-pandoc/vim-pandoc'
-" Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'pangloss/vim-javascript'
 Plug 'udalov/kotlin-vim'
 Plug 'HerringtonDarkholme/yats.vim'
 
@@ -111,7 +112,8 @@ let g:LanguageClient_serverCommands = {
 let g:deh#repl#repls = {
     \   "ruby": g:deh#repl#TmuxRepl#new("ruby-repl", "pry"),
     \   "python": g:deh#repl#TmuxRepl#new("python-repl", "python3"),
-    \   "php": g:deh#repl#TmuxRepl#new("php-repl", "psysh")
+    \   "php": g:deh#repl#TmuxRepl#new("php-repl", "psysh"),
+    \   "javascript": g:deh#repl#TmuxRepl#new("js-repl", "node")
     \ }
 
 
@@ -145,6 +147,7 @@ set nosplitbelow
 set splitright
 set ignorecase
 set nolazyredraw
+set hidden
 
 " no bells
 set noerrorbells visualbell t_vb=
