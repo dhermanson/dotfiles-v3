@@ -32,6 +32,7 @@ Plug 'schickling/vim-bufonly'
 
 Plug 'roxma/nvim-yarp' " a dependency of 'ncm2'
 Plug 'ncm2/ncm2' " v2 of the nvim-completion-manager
+Plug 'ncm2/ncm2-ultisnips'
 " Plug 'ncm2/nvim-typescript', {'do': './install.sh'} " typescript completion source
 " LanguageServer client for NeoVim.
 Plug 'autozimu/LanguageClient-neovim', {
@@ -41,8 +42,8 @@ Plug 'autozimu/LanguageClient-neovim', {
 
 " Languages
 " Plug 'sheerun/vim-polyglot'
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
+" Plug 'vim-pandoc/vim-pandoc'
+" Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'udalov/kotlin-vim'
 Plug 'HerringtonDarkholme/yats.vim'
@@ -84,9 +85,6 @@ let g:delimitMate_expand_cr=1
 let g:delimitMate_expand_space=1
 let g:delimitMate_jump_expansion=1
 
-" ultisnips
-let g:UltiSnipsSnippetsDir = $HOME . "/.config/nvim/ultisnips"
-
 " tagbar
 let g:tagbar_autopreview = 0
 let g:tagbar_expand = 1
@@ -100,7 +98,7 @@ let NERDTreeShowHidden=1
 let g:gitgutter_enabled=1
 
 " vim-pandoc
-let g:pandoc#modules#disabled = ["chdir", "folding"] " don't automatically change directory
+" let g:pandoc#modules#disabled = ["chdir", "folding"] " don't automatically change directory
 
 " language client
 let g:LanguageClient_serverCommands = {
@@ -268,6 +266,8 @@ nnoremap <silent> <M-g><M-p> :ALEPrevious<CR>
 nnoremap <silent> <M-g><M-n> :ALENext<CR>
 
 " ultisnips
+let g:UltiSnipsSnippetsDir = $HOME . "/.config/nvim/ultisnips"
+let g:UltiSnipsSnippetDirectories = [$HOME . "/.config/nvim/ultisnips", "UltiSnips"]
 let g:UltiSnipsExpandTrigger="<tab>"
 "let g:UltiSnipsListSnippets="<c-l>"
 let g:UltiSnipsJumpForwardTrigger="<m-n>"

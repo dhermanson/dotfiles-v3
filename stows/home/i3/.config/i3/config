@@ -180,12 +180,11 @@ mode "$mode_screenshot" {
 }
 
 
-bindsym $mod+backslash exec emacsclient -c
 
 set $mode_screenshot Screenshot: [a]ll screens | foc[u]sed window | [s]elect area 
 
 bindsym $mod+z mode "resize"
-bindsym $mod+$moda+$modb+s      mode "$mode_screenshot"
+# bindsym $mod+$moda+$modb+s      mode "$mode_screenshot"
 
 # class                 border  bground text    indicator child_border
 client.focused          #5D4D7A #5D4D7A #FFFFFF #A45BAD   #5D4D7A
@@ -213,3 +212,21 @@ bar {
         binding_mode       #2F343A #E0211D #FFFFFF
     }
 }
+# did this fix my jetbrains issue?
+for_window [class="^jetbrains-.+"][window_type=dialog] focus
+# for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
+for_window [class="URxvt" instance="urxvtfloat"] floating enable border pixel 10
+
+bindsym $mod+backslash exec emacsclient -c
+bindsym $mod+$modb+h workspace prev
+bindsym $mod+$modb+l workspace next
+bindsym $mod+$modb+d workspace prev
+bindsym $mod+$modb+f workspace next
+bindsym $mod+$moda+$modb+s exec mpc pause
+bindsym $mod+$moda+$modb+p exec mpc play
+bindsym $mod+$moda+$modb+minus exec amixer -q set Master 2dB- unmute
+bindsym $mod+$moda+$modb+plus exec amixer -q set Master 2dB+ unmute
+bindsym $mod+$moda+$modb+x exec xmodmap ~/.Xmodmap
+bindsym Shift+$mod+$moda+$modb+l exec ~/.screenlayout/laptop_only
+# need to use release for slock. see https://i3wm.org/docs/userguide.html#keybindings
+bindsym --release $mod+$moda+$modb+l exec deh-lock-and-suspend

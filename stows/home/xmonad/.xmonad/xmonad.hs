@@ -14,6 +14,8 @@ import XMonad.Util.Cursor
 
 main = do
   xmproc <- spawnPipe ("xmobar -x 1 " ++ myXmobarrc)
+  -- xmproc <- spawnPipe ("xmobar " ++ myXmobarrc)
+  spawn "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 15 --height 28 --alpha 0 --transparent true --tint 0x000000"
   -- xmproc <- spawnPipe ("xmobar -x 2 " ++ myXmobarrc)
   
   xmonad $ defaultConfig {
@@ -26,12 +28,14 @@ main = do
     handleEventHook = myHandleEventHook,
     startupHook = myStartupHook,
     modMask = myModMask,
-    terminal = myTerminal
+    terminal = myTerminal,
+    borderWidth = myBorderWidth,
+    normalBorderColor  = myNormalBorderColor,
+    focusedBorderColor = myFocusedBorderColor
   } `additionalKeys` myKeys
 
 myKeys = [
     -- multimedia
-    -- ((0, XF86.xF86XK_MonBrightnessUp), spawn "emacsclient -c"),
     ((0, XF86.xF86XK_AudioLowerVolume ), spawn "amixer -q set Master 2dB- unmute"),
     ((0, XF86.xF86XK_AudioRaiseVolume ), spawn "amixer -q set Master 2dB+ unmute"),
     ((0, XF86.xF86XK_AudioMute ), spawn "amixer -q set Master toggle && amixer -q set Headphone toggle"),
@@ -60,7 +64,7 @@ myKeys = [
   ]
   ++
   [((m .|. myModMask, key), screenWorkspace sc >>= flip whenJust (windows . f))
-        -- | (key, sc) <- zip [xK_w, xK_e, xK_r] [0,2,1]
+        -- | (key, sc) <- zip [xK_w, xK_e, xK_r] [0,1,2]
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [1,0,2]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
@@ -78,9 +82,13 @@ myManageHook = composeAll
 myStartupHook = do
   setDefaultCursor xC_left_ptr
   setWMName "LG3D"
-  spawn "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 15 --height 28 --alpha 0 --transparent true --tint 0x000000"
 
 myTerminal = "urxvt"
+
+myBorderWidth = 5
+
+myNormalBorderColor  = "#282828"
+myFocusedBorderColor = "#b16286"
 
 -- this seems to keep xmobar from being hidden
 -- https://unix.stackexchange.com/questions/288037/xmobar-does-not-appear-on-top-of-window-stack-when-xmonad-starts/303242#303242

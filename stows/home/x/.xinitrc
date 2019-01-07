@@ -14,7 +14,7 @@ my_x_session_setup () {
     # trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 15 --height 28 --alpha 0 --transparent true --tint 0x000000 &
 
     # feh --bg-fill ~/.wallpaper/gnu.png &
-    feh --bg-fill /usr/share/backgrounds/warty-final-ubuntu.png &
+    # feh --bg-fill /usr/share/backgrounds/warty-final-ubuntu.png &
 
     xautolock -time 60 -locker slock &
 
