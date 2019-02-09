@@ -6,6 +6,7 @@ Config { font = "xft:Monaco:style=Regular:size=14:antialias=true:hinting=true"
        , fgColor = "grey"
        , alpha = 255
        , position = TopW L 90
+       -- , position = Static { xpos = 0, ypos = 0, width = 1346, height = 20 },
        , textOffset = -1
        , iconOffset = -1
        , lowerOnStart = True
@@ -14,7 +15,7 @@ Config { font = "xft:Monaco:style=Regular:size=14:antialias=true:hinting=true"
        , hideOnStart = False
        , iconRoot = "."
        , allDesktops = True
-       , overrideRedirect = False
+       , overrideRedirect = True
        , commands = [ Run Network "eth0" ["-L","0","-H","32",
                                           "--normal","green","--high","red"] 10
                     , Run Network "eth1" ["-L","0","-H","32",

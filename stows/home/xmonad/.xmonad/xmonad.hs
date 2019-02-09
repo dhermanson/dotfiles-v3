@@ -11,21 +11,28 @@ import XMonad.Layout.Spacing
 import XMonad.Actions.CycleWS
 import XMonad.Hooks.ManageHelpers
 import XMonad.Util.Cursor
+import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.Place
+-- import DBus.Client
 
-main = do
-  xmproc <- spawnPipe ("xmobar -x 1 " ++ myXmobarrc)
-  -- xmproc <- spawnPipe ("xmobar " ++ myXmobarrc)
-  spawn "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 15 --height 28 --alpha 0 --transparent true --tint 0x000000"
-  -- xmproc <- spawnPipe ("xmobar -x 2 " ++ myXmobarrc)
+-- main = do
+--   xmproc <- spawnPipe ("xmobar -x 1 " ++ myXmobarrc)
+--   -- xmproc <- spawnPipe ("xmobar " ++ myXmobarrc)
+--   -- xmproc <- spawnPipe ("xmobar -x 2 " ++ myXmobarrc)
+--   -- spawn "stalonetray"
   
-  xmonad $ defaultConfig {
+--   xmonad $ 
+
+main = xmonad =<< statusBar ("xmobar " ++ myXmobarrc) myPP toggleStrutsKey (ewmh myConfig)
+
+myConfig = defaultConfig {
     manageHook = myManageHook,
     layoutHook = myLayoutHook,
-    logHook = dynamicLogWithPP xmobarPP
-      { ppOutput = hPutStrLn xmproc,
-        ppTitle = xmobarColor "green" "" . shorten 50
-      },
-    handleEventHook = myHandleEventHook,
+    -- logHook = dynamicLogWithPP xmobarPP
+    --   { ppOutput = hPutStrLn xmproc,
+    --     ppTitle = xmobarColor "green" "" . shorten 50
+    --   },
+    -- handleEventHook = myHandleEventHook,
     startupHook = myStartupHook,
     modMask = myModMask,
     terminal = myTerminal,
@@ -33,6 +40,25 @@ main = do
     normalBorderColor  = myNormalBorderColor,
     focusedBorderColor = myFocusedBorderColor
   } `additionalKeys` myKeys
+
+-- key binding to toggle the gap for the bar
+toggleStrutsKey XConfig {XMonad.modMask = mod4Mask} = (mod4Mask, xK_b)
+normalBorderCol, focusedBorderCol, currentCol, layoutCol :: String
+currentCol       = "#fff"
+layoutCol        = "#aaa"
+normalBorderCol  = "#000"
+-- focusedBorderCol = "#4af" -- and current window's title in status bar
+focusedBorderCol = "#b16286" -- and current window's title in status bar
+myNormalBorderColor  = "#282828"
+myFocusedBorderColor = "#b16286"
+
+-- what's displayed in the status bar
+myPP :: PP
+myPP = defaultPP
+        { ppCurrent = xmobarColor currentCol "" . wrap "[" "]"
+        , ppLayout = xmobarColor layoutCol ""
+        , ppTitle = xmobarColor focusedBorderCol ""
+        }
 
 myKeys = [
     -- multimedia
@@ -59,12 +85,28 @@ myKeys = [
     ((mod4Mask .|. mod1Mask .|. controlMask, xK_t), sendMessage ToggleStruts),
 
     -- workspaces
+    -- ((modm,xK_j     ), windows W.focusDown)
+    -- ((mod4Mask .|. controlMask, xK_j), nextWS),
     ((mod4Mask .|. controlMask, xK_j), nextWS),
-    ((mod4Mask .|. controlMask, xK_k), prevWS)
+    ((mod4Mask, xK_Up), windows W.focusUp),
+    ((mod4Mask, xK_Down), windows W.focusDown),
+    ((mod4Mask, xK_Right), nextWS),
+    -- ((mod4Mask .|. controlMask, xK_j), windows W.focusDown),
+    -- ((mod4Mask .|. controlMask, xK_n), nextWS),
+    -- ((mod4Mask .|. controlMask, xK_k), prevWS),
+    ((mod4Mask .|. controlMask, xK_k), prevWS),
+    ((mod4Mask, xK_Left), prevWS),
+    -- ((mod4Mask .|. controlMask, xK_p), prevWS),
+    -- ((mod4Mask, xK_n), nextWS),
+    -- ((mod4Mask, xK_p), prevWS),
+    -- ((mod4Mask, xK_f), nextWS),
+    -- ((mod4Mask, xK_b), prevWS),
+    ((mod4Mask,               xK_semicolon     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
   ]
   ++
   [((m .|. myModMask, key), screenWorkspace sc >>= flip whenJust (windows . f))
         -- | (key, sc) <- zip [xK_w, xK_e, xK_r] [0,1,2]
+        -- | (key, sc) <- zip [xK_w, xK_e, xK_r] [0,2,1]
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [1,0,2]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
@@ -74,21 +116,27 @@ myModMask = mod4Mask
 
 myManageHook = composeAll
   [
-    appName =? "urxvtfloat" --> doCenterFloat
+    appName =? "urxvtfloat" --> doCenterFloat,
+    appName =? "urxvtreplfloat" --> placeHook lowerRight <+> doFloat,
+    appName =? "urxvtreplowndesktop" --> doShift (show 6)
+    -- appName =? "urxvtreplfloat" --> doRectFloat (W.RationalRect 0 0.5 1 0.5)
   ]
-  <+> manageDocks
   <+> manageHook defaultConfig
+  <+> manageDocks
+ where
+      upperRight = (withGaps (20,20,20,20) (fixed (1, 0.05)))
+      lowerRight = (withGaps (20,20,20,20) (fixed (1, 0.95)))
+
 
 myStartupHook = do
   setDefaultCursor xC_left_ptr
+  -- spawn "trayer --edge top --align right --SetDockType true --SetPartialStrut false --expand true --width 15 --height 28 --alpha 0 --transparent true --tint 0x000000"
   setWMName "LG3D"
 
 myTerminal = "urxvt"
 
-myBorderWidth = 5
+myBorderWidth = 4
 
-myNormalBorderColor  = "#282828"
-myFocusedBorderColor = "#b16286"
 
 -- this seems to keep xmobar from being hidden
 -- https://unix.stackexchange.com/questions/288037/xmobar-does-not-appear-on-top-of-window-stack-when-xmonad-starts/303242#303242
@@ -101,3 +149,4 @@ myLayoutHook = avoidStruts $ layoutHook defaultConfig
 --     nmaster = 1
 --     ratio = 1/2
 --     delta = 3/100
+

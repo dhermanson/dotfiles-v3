@@ -64,6 +64,20 @@ command :dbschema do |c|
   end
 end
 
+command :artisan do |c|
+  c.syntax = 'deh-laravel artisan'
+  c.description = 'Run an artisan command'
+  c.option '--env-file STRING', String, 'Specify the env file'
+  c.action do |args, options|
+    options.default \
+      :env_file => ".env"
+
+    d = load_env options.env_file
+
+    run_artisan d
+  end
+end
+
 def load_env env_file
   if !File.exists? env_file
     puts "#{ env_file } does not exist"
@@ -73,11 +87,18 @@ def load_env env_file
   Dotenv.load env_file
   {
     db: ENV['DB_DATABASE'],
-    user: ENV['DB_USERNAME'],
-    pass: ENV['DB_PASSWORD'],
+    user: ENV['DB_USERNAME'] || "root",
+    pass: ENV['DB_PASSWORD'] || "password",
     host: '127.0.0.1',
-    port: ENV['DB_PORT']
+    port: ENV['DB_PORT'] || "3306"
   }
+end
+
+def run_artisan d
+
+  
+
+  puts "running artisan"
 end
 
 def run_schemaspy d

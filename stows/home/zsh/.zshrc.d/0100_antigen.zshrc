@@ -8,6 +8,7 @@ antigen use oh-my-zsh
 # Bungles from the default repo (robbyrussel's oh-my-zsh)
 antigen bundle git
 antigen bundle gradle
+antigen bundle mvn
 antigen bundle tmux
 
 # Syntax highlighting bundle.

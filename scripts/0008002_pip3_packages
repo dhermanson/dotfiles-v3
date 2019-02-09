@@ -2,6 +2,7 @@
 
 pip3 install \
      grip \
+     ipython \
      neovim \
      neovim-remote \
      udiskie \

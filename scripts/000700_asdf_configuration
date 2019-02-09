@@ -8,9 +8,14 @@ asdf global nodejs 8.12.0
 # java
 asdf plugin-add java
 # java 11 is currently not on asdf, so i uninstalled those below so that /usr/local/bin/java would have priority
-# asdf install java oracle-8.181
+asdf install java oracle-8.181
 # asdf install java oracle-10.0.2
 # asdf global java oracle-10.0.2
+
+# maven
+asdf plugin-add maven
+asdf install maven 3.6.0
+asdf global maven 3.6.0
 
 # gradle
 asdf plugin-add gradle
@@ -18,9 +23,16 @@ asdf install gradle 4.9
 asdf install gradle 5.1
 asdf global gradle 5.1
 
+# python
+asdf plugin-add python
+asdf install python 3.7.2
+asdf global python 3.7.2
+
+
 # ruby
 asdf plugin-add ruby
 asdf install ruby 2.5.1
+asdf install ruby jruby-9.2.0.0
 asdf global ruby 2.5.1
 
 # php

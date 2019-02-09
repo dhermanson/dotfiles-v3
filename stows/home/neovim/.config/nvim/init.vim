@@ -9,6 +9,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-easy-align'
 Plug 'easymotion/vim-easymotion'
 Plug 'majutsushi/tagbar'
 Plug 'mileszs/ack.vim'
@@ -23,9 +24,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-tbone'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-unimpaired'
+Plug 'embear/vim-localvimrc'
 " Plug 'tpope/vim-vinegar'
 Plug 'airblade/vim-gitgutter'
 Plug 'schickling/vim-bufonly'
@@ -44,9 +47,12 @@ Plug 'autozimu/LanguageClient-neovim', {
 " Plug 'sheerun/vim-polyglot'
 " Plug 'vim-pandoc/vim-pandoc'
 " Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'pangloss/vim-javascript'
-Plug 'udalov/kotlin-vim'
-Plug 'HerringtonDarkholme/yats.vim'
+Plug 'pangloss/vim-javascript' "javascript
+Plug 'udalov/kotlin-vim' "kotlin
+Plug 'HerringtonDarkholme/yats.vim' "typescript
+Plug 'lervag/vimtex' "latex
+Plug 'aklt/plantuml-syntax' "plantuml
+Plug 'chr4/nginx.vim' " nginx
 
 " Plug 'phpactor/phpactor' ,  {'do': 'composer install', 'for': 'php'}
 Plug 'arnaud-lb/vim-php-namespace', { 'for': 'php' }
@@ -76,9 +82,10 @@ let g:ackprg = 'rg --vimgrep --no-heading '
 " ncm2
 autocmd BufEnter * call ncm2#enable_for_buffer()
 
-
 " ale
 let g:ale_lint_on_enter=0
+let g:ale_echo_cursor=0
+let g:ale_virtualtext_cursor=0
 
 " delimitmate
 let g:delimitMate_expand_cr=1
@@ -103,15 +110,23 @@ let g:gitgutter_enabled=1
 " language client
 let g:LanguageClient_serverCommands = {
   \ 'javascript': ['javascript-typescript-stdio'],
-  \ 'typescript': ['javascript-typescript-stdio']
+  \ 'typescript': ['javascript-typescript-stdio'],
+  \ 'java': ['jdtls']
   \ }
 
 " repl
+    " \   "php": g:deh#repl#TmuxRepl#new("php-repl", "psysh"),
 let g:deh#repl#repls = {
     \   "ruby": g:deh#repl#TmuxRepl#new("ruby-repl", "pry"),
-    \   "python": g:deh#repl#TmuxRepl#new("python-repl", "python3"),
-    \   "php": g:deh#repl#TmuxRepl#new("php-repl", "psysh"),
-    \   "javascript": g:deh#repl#TmuxRepl#new("js-repl", "node")
+    \   "python": g:deh#repl#TmuxRepl#new("python-repl", "bash -c '. ./venv/bin/activate; python3'"),
+    \   "php": g:deh#repl#TmuxRepl#new("php-repl", "php artisan tinker"),
+    \   "javascript": g:deh#repl#TmuxRepl#new("js-repl", "node"),
+    \   "zsh": g:deh#repl#TmuxRepl#new("zsh-repl", "zsh"),
+    \   "sh": g:deh#repl#TmuxRepl#new("sh-repl", "bash"),
+    \   "bash": g:deh#repl#TmuxRepl#new("sh-repl", "bash"),
+    \   "posix": g:deh#repl#TmuxRepl#new("posix-repl", "bash"),
+    \   "markdown": g:deh#repl#TmuxRepl#new("markdown-repl", "bash"),
+    \   "kotlin": g:deh#repl#TmuxRepl#new("kotlin-repl", "kotlinc"),
     \ }
 
 
@@ -137,7 +152,7 @@ set mouse=a
 set complete=.,w,b,u
 set autowriteall
 set nocursorline
-set nocursorcolumn
+" set nocursorcolumn
 set noswapfile
 set nohlsearch
 set cursorline
@@ -209,11 +224,6 @@ nnoremap <Leader>.sv :source $MYVIMRC<CR>
 " save
 inoremap <M-w> <C-o>:w<CR>
 nnoremap <M-w> :w<CR>
-
-" escape on jk
-inoremap jk <Esc>
-onoremap jk <Esc>
-cnoremap jk <C-c>
 
 " leave only this window open
 nnoremap <M-o> <C-w>o
@@ -294,9 +304,47 @@ nnoremap <M-:> :NERDTreeFind<CR>
 
 nnoremap <silent> <M-s> :call deh#repl#send_current_line()<CR>
 inoremap <silent> <M-s> <C-o>:call deh#repl#send_current_line()<CR>
-vnoremap <silent> <M-s> :\<C-u>call deh#repl#send_selected_lines()<CR>
-nnoremap <silent> <M-r><M-k> :call deh#repl#stop()<CR>
-nnoremap <silent> <M-r><M-o> :call deh#repl#start()<CR>
+vnoremap <silent> <M-s> :<C-u>call deh#repl#send_selected_lines()<CR>
+" nnoremap <silent> <M-r><M-k> :call deh#repl#stop()<CR>
+" nnoremap <silent> <M-r><M-o> :call deh#repl#start()<CR>
+nnoremap <silent> <leader>rk :call deh#repl#stop()<CR>
+nnoremap <silent> <leader>ro :call deh#repl#start()<CR>
+
+" vim-easy-align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+vnoremap <silent> <M-a><M-a> :EasyAlign<CR>
+vnoremap <M-a><M-r> :EasyAlign //<left>
+vnoremap <silent> <M-a>\| :EasyAlign *\|<CR>
+vnoremap <silent> <M-a><M-t> :EasyAlign *\|<CR>
+vnoremap <silent> <M-a><M-d> :EasyAlign dr<CR>
+vnoremap <silent> <M-a><M-j> :EasyAlign :<CR>
+
+" languageclient
+let g:LanguageClient_selectionUI="fzf"
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <M-d><M-m> :call LanguageClient_contextMenu()<CR>
+nnoremap <silent> <M-d><M-h> :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> <M-d><M-d> :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <M-d><M-t> :call LanguageClient#textDocument_typeDefinition()<CR>
+nnoremap <silent> <M-d><M-i> :call LanguageClient#textDocument_implementation()<CR>
+nnoremap <silent> <M-d><M-s> :call LanguageClient#textDocument_documentSymbol()<CR>
+nnoremap <silent> <M-d><M-r> :call LanguageClient#textDocument_references()<CR>
+nnoremap <silent> <M-d><M-a> :call LanguageClient#textDocument_codeAction()<CR>
+nnoremap <silent> <M-d><M-c> :call LanguageClient#textDocument_formatting()<CR>
+nnoremap <silent> <M-d><M-n> :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> <M-d><M-f> :call LanguageClient#workspace_symbol()<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Filetypes
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" markdown
+" autocmd FileType markdown setlocal commentstring=<!--\ %s\ -->
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -323,3 +371,70 @@ function! ConfirmBDeleteBang()
     execute "bdelete!"
   endif
 endfunction
+
+
+
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""PUT THIS SOMEWHERE ELSE""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+au InsertEnter * call ncm2#enable_for_buffer()
+au Filetype tex call ncm2#register_source({
+      \ 'name' : 'vimtex-cmds',
+      \ 'priority': 8, 
+      \ 'complete_length': -1,
+      \ 'scope': ['tex'],
+      \ 'matcher': {'name': 'prefix', 'key': 'word'},
+      \ 'word_pattern': '\w+',
+      \ 'complete_pattern': g:vimtex#re#ncm2#cmds,
+      \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+      \ })
+au Filetype tex call ncm2#register_source({
+      \ 'name' : 'vimtex-labels',
+      \ 'priority': 8, 
+      \ 'complete_length': -1,
+      \ 'scope': ['tex'],
+      \ 'matcher': {'name': 'combine',
+      \             'matchers': [
+      \               {'name': 'substr', 'key': 'word'},
+      \               {'name': 'substr', 'key': 'menu'},
+      \             ]},
+      \ 'word_pattern': '\w+',
+      \ 'complete_pattern': g:vimtex#re#ncm2#labels,
+      \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+      \ })
+au Filetype tex call ncm2#register_source({
+      \ 'name' : 'vimtex-files',
+      \ 'priority': 8, 
+      \ 'complete_length': -1,
+      \ 'scope': ['tex'],
+      \ 'matcher': {'name': 'combine',
+      \             'matchers': [
+      \               {'name': 'abbrfuzzy', 'key': 'word'},
+      \               {'name': 'abbrfuzzy', 'key': 'abbr'},
+      \             ]},
+      \ 'word_pattern': '\w+',
+      \ 'complete_pattern': g:vimtex#re#ncm2#files,
+      \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+      \ })
+au Filetype tex call ncm2#register_source({
+      \ 'name' : 'bibtex',
+      \ 'priority': 8, 
+      \ 'complete_length': -1,
+      \ 'scope': ['tex'],
+      \ 'matcher': {'name': 'combine',
+      \             'matchers': [
+      \               {'name': 'prefix', 'key': 'word'},
+      \               {'name': 'abbrfuzzy', 'key': 'abbr'},
+      \               {'name': 'abbrfuzzy', 'key': 'menu'},
+      \             ]},
+      \ 'word_pattern': '\w+',
+      \ 'complete_pattern': g:vimtex#re#ncm2#bibtex,
+      \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+      \ })

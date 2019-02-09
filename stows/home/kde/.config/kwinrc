@@ -35,18 +35,31 @@ CommandWindow3=Activate and pass click
 CommandWindowWheel=Scroll
 
 [Plugins]
+blurEnabled=false
+contrastEnabled=false
 coverswitchEnabled=true
 cubeslideEnabled=false
 desktopchangeosdEnabled=false
 desktopgridEnabled=false
-flipswitchEnabled=true
+flipswitchEnabled[$d]
 highlightwindowEnabled=true
+kwin4_effect_dialogparentEnabled=false
 kwin4_effect_fadeEnabled=false
 kwin4_effect_fadedesktopEnabled=false
+kwin4_effect_frozenappEnabled=false
+kwin4_effect_loginEnabled=false
+kwin4_effect_logoutEnabled=false
 kwin4_effect_maximizeEnabled=false
+kwin4_effect_morphingpopupsEnabled=false
+kwin4_effect_translucencyEnabled=false
+kwin4_effect_windowapertureEnabled=false
 minimizeanimationEnabled=false
+presentwindowsEnabled=false
+screenedgeEnabled=false
 slideEnabled=false
+slidingpopupsEnabled=false
 windowgeometryEnabled=false
+zoomEnabled=false
 
 [Script-desktopchangeosd]
 PopupHideDelay=1000
@@ -63,7 +76,7 @@ LayoutName=org.kde.breezedark.desktop
 MinimizedMode=0
 MultiScreenMode=0
 ShowDesktopMode=0
-ShowTabBox=true
+ShowTabBox=false
 SwitchingMode=0
 
 [TabBoxAlternative]

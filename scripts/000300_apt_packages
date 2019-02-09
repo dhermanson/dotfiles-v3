@@ -19,9 +19,11 @@ sudo apt install curl build-essential libjpeg-dev libpng-dev openssl libcurl4-op
 sudo apt install -y \
   acpi \
   arandr \
+  auctex \
   autoconf \
-  blueman \
+  # blueman \
   calibre \
+  compton \
   conky \
   curl \
   dbeaver-ce \
@@ -48,6 +50,7 @@ sudo apt install -y \
   kde-standard \
   konsole \
   libmariadbclient18 \
+  libreswan \
   libsqlite3-dev \
   lxappearance \
   mariadb-client \
@@ -61,10 +64,12 @@ sudo apt install -y \
   # mysql-workbench \
   ncmpcpp \
   neovim \
+  openbox \
   oxygen-icon-theme \
   pasystray \
   pcmanfm \
   # percona-xtradb-cluster-server-5.7 \
+  pnmixer \
   pwgen \
   python3-pip \
   python-pip \
@@ -79,10 +84,19 @@ sudo apt install -y \
   sqlite3 \
   stalonetray \
   stow \
+  taffybar \
+  texlive \
+  texlive-fonts-extra
+  texlive-latex-extra \
+  texlive-xetex \
+  tig \
+  tint2 \
   tmux \
   trayer \
   tree \
   unclutter \
+  virtualbox \
+  wmctrl \
   xbacklight \
   xclip \
   # xfce4-power-manager \

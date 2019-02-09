@@ -41,10 +41,15 @@ function! g:deh#repl#send_current_line()
 endfunction
 
 function! g:deh#repl#send_selected_lines()
+  let curline = line("'>")
+  execute 'normal mz'
   if <SID>repl_is_defined_for(b:current_syntax)
+
     let repl = g:deh#repl#repls[b:current_syntax]
     call repl.send_selected_lines()
   endif
+  " execute 'normal `z'
+  exe 'normal ' l:curline . 'G$'
 endfunction
 
 

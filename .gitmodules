@@ -7,3 +7,6 @@
 [submodule "stows/home/php/tags/php/phpstorm-stubs"]
 	path = stows/home/php/tags/php/phpstorm-stubs
 	url = https://github.com/JetBrains/phpstorm-stubs
+[submodule "stows/home/java/repos/eclipse/eclipse.jdt.ls"]
+	path = stows/home/java/repos/eclipse/eclipse.jdt.ls
+	url = https://github.com/eclipse/eclipse.jdt.ls

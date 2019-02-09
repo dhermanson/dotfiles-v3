@@ -6,3 +6,5 @@
 .tern-port
 .ctags-php
 .ctags-php-vendor
+.lvimrc
+*.env

@@ -33,6 +33,7 @@ set_from_resource $font i3wm.font pango:DejaVu Sans Mono 10
 font $font
 
 focus_follows_mouse yes
+focus_on_window_activation yes
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -215,11 +216,14 @@ bar {
 # did this fix my jetbrains issue?
 for_window [class="^jetbrains-.+"][window_type=dialog] focus
 # for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
-for_window [class="URxvt" instance="urxvtfloat"] floating enable border pixel 10
+for_window [class="URxvt" instance="urxvtfloat"] floating enable
+for_window [class="URxvt" instance="urxvtfloat"] focus
 
 bindsym $mod+backslash exec emacsclient -c
+bindsym $mod+$moda+$modb+backslash exec create_emacs_frame_or_use_existing ~/.config/i3/config
 bindsym $mod+$modb+h workspace prev
 bindsym $mod+$modb+l workspace next
+bindsym $mod+o exec pcmanfm
 bindsym $mod+$modb+d workspace prev
 bindsym $mod+$modb+f workspace next
 bindsym $mod+$moda+$modb+s exec mpc pause
@@ -228,5 +232,7 @@ bindsym $mod+$moda+$modb+minus exec amixer -q set Master 2dB- unmute
 bindsym $mod+$moda+$modb+plus exec amixer -q set Master 2dB+ unmute
 bindsym $mod+$moda+$modb+x exec xmodmap ~/.Xmodmap
 bindsym Shift+$mod+$moda+$modb+l exec ~/.screenlayout/laptop_only
+
+
 # need to use release for slock. see https://i3wm.org/docs/userguide.html#keybindings
 bindsym --release $mod+$moda+$modb+l exec deh-lock-and-suspend
