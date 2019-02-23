@@ -19,6 +19,7 @@ sudo apt install curl build-essential libjpeg-dev libpng-dev openssl libcurl4-op
 sudo apt install -y \
   acpi \
   arandr \
+  ark \
   auctex \
   autoconf \
   # blueman \
@@ -64,6 +65,7 @@ sudo apt install -y \
   # mysql-workbench \
   ncmpcpp \
   neovim \
+  nitrogen \
   openbox \
   oxygen-icon-theme \
   pasystray \
@@ -96,6 +98,7 @@ sudo apt install -y \
   tree \
   unclutter \
   virtualbox \
+  volumeicon-alsa \
   wmctrl \
   xbacklight \
   xclip \

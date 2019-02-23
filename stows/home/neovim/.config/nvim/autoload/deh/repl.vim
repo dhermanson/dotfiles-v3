@@ -18,24 +18,46 @@ function! s:repl_is_defined_for(lang)
 endfunction
 
 function! g:deh#repl#start()
-  if <SID>repl_is_defined_for(b:current_syntax)
-    let repl = g:deh#repl#repls[b:current_syntax]
+  if <SID>repl_is_defined_for(&filetype)
+    let repl = g:deh#repl#repls[&filetype]
     call repl.start()
   endif
 
 endfunction
 
 function! g:deh#repl#stop()
-  if <SID>repl_is_defined_for(b:current_syntax)
-    let repl = g:deh#repl#repls[b:current_syntax]
+  if <SID>repl_is_defined_for(&filetype)
+    let repl = g:deh#repl#repls[&filetype]
     call repl.stop()
   endif
 endfunction
 
+function! g:deh#repl#restart()
+  if <SID>repl_is_defined_for(&filetype)
+    let repl = g:deh#repl#repls[&filetype]
+    call repl.restart()
+  endif
+endfunction
+
+function! g:deh#repl#stop_session()
+  if <SID>repl_is_defined_for(&filetype)
+    let repl = g:deh#repl#repls[&filetype]
+    call repl.stop_session()
+  endif
+endfunction
+
 function! g:deh#repl#send_current_line()
-  if <SID>repl_is_defined_for(b:current_syntax)
-    let repl = g:deh#repl#repls[b:current_syntax]
+  if <SID>repl_is_defined_for(&filetype)
+    let repl = g:deh#repl#repls[&filetype]
     call repl.send_current_line()
+  endif
+
+endfunction
+
+function! g:deh#repl#select()
+  if <SID>repl_is_defined_for(&filetype)
+    let repl = g:deh#repl#repls[&filetype]
+    call repl.select()
   endif
 
 endfunction
@@ -43,9 +65,9 @@ endfunction
 function! g:deh#repl#send_selected_lines()
   let curline = line("'>")
   execute 'normal mz'
-  if <SID>repl_is_defined_for(b:current_syntax)
+  if <SID>repl_is_defined_for(&filetype)
 
-    let repl = g:deh#repl#repls[b:current_syntax]
+    let repl = g:deh#repl#repls[&filetype]
     call repl.send_selected_lines()
   endif
   " execute 'normal `z'

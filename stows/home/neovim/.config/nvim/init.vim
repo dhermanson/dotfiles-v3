@@ -83,8 +83,12 @@ let g:ackprg = 'rg --vimgrep --no-heading '
 autocmd BufEnter * call ncm2#enable_for_buffer()
 
 " ale
-let g:ale_lint_on_enter=0
-let g:ale_echo_cursor=0
+let g:ale_linters = {
+      \   'php': ['phpstan']
+  \}
+let g:ale_php_phpstan_executable = "./vendor/bin/phpstan"
+let g:ale_lint_on_enter=1
+" let g:ale_echo_cursor=0
 let g:ale_virtualtext_cursor=0
 
 " delimitmate
@@ -116,13 +120,23 @@ let g:LanguageClient_serverCommands = {
 
 " repl
     " \   "php": g:deh#repl#TmuxRepl#new("php-repl", "psysh"),
+    " \   "python": g:deh#repl#TmuxRepl#new("python-repl", "bash -c '. ./venv/bin/activate; python3'"),
+    " TODO: move away from hard-coding repls per language
+    "       and towards a system where any language can select an arbitrary
+    "       tmux pane as a general repl. also add support for different types
+    "       of repls. use something like emacs's hydra-mode to have each repl
+    "       implementation display what it can do, and provide its own
+    "       keybindings. also capture output of the resulting command and
+    "       insert it into a vim register. that would be handy for things like
+    "       sql repls where you want the results of queries
 let g:deh#repl#repls = {
     \   "ruby": g:deh#repl#TmuxRepl#new("ruby-repl", "pry"),
-    \   "python": g:deh#repl#TmuxRepl#new("python-repl", "bash -c '. ./venv/bin/activate; python3'"),
+    \   "sql": g:deh#repl#TmuxRepl#new("sql-repl", "bash"),
     \   "php": g:deh#repl#TmuxRepl#new("php-repl", "php artisan tinker"),
+    \   "python": g:deh#repl#TmuxRepl#new("python-repl", "python3"),
     \   "javascript": g:deh#repl#TmuxRepl#new("js-repl", "node"),
     \   "zsh": g:deh#repl#TmuxRepl#new("zsh-repl", "zsh"),
-    \   "sh": g:deh#repl#TmuxRepl#new("sh-repl", "bash"),
+    \   "sh": g:deh#repl#TmuxRepl#new("sh-repl", "sh"),
     \   "bash": g:deh#repl#TmuxRepl#new("sh-repl", "bash"),
     \   "posix": g:deh#repl#TmuxRepl#new("posix-repl", "bash"),
     \   "markdown": g:deh#repl#TmuxRepl#new("markdown-repl", "bash"),
@@ -307,7 +321,10 @@ inoremap <silent> <M-s> <C-o>:call deh#repl#send_current_line()<CR>
 vnoremap <silent> <M-s> :<C-u>call deh#repl#send_selected_lines()<CR>
 " nnoremap <silent> <M-r><M-k> :call deh#repl#stop()<CR>
 " nnoremap <silent> <M-r><M-o> :call deh#repl#start()<CR>
-nnoremap <silent> <leader>rk :call deh#repl#stop()<CR>
+nnoremap <silent> <leader>rkp :call deh#repl#stop()<CR>
+nnoremap <silent> <leader>rks :call deh#repl#stop_session()<CR>
+nnoremap <silent> <leader>rs :call deh#repl#select()<CR>
+nnoremap <silent> <leader>rr :call deh#repl#restart()<CR>
 nnoremap <silent> <leader>ro :call deh#repl#start()<CR>
 
 " vim-easy-align

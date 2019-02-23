@@ -31,9 +31,11 @@ URxvt.iso14755: false
 URxvt.iso14755_52: false
 URxvt.scrollBar: false
 /* URxvt.perl-ext: */
-URxvt.perl-ext-common: resize-font,fullscreen
+URxvt.perl-ext-common: resize-font,fullscreen,dolphin
 URxvt.keysym.F11: perl:fullscreen:switch
 URxvt.keysym.Mod3-f: perl:fullscreen:switch
+URxvt.keysym.Mod3-e: perl:dolphin:open
+URxvt.iconFile: /usr/share/icons/Tango/scalable/apps/terminal.svg
 
 ! xterm
 XTerm.termName: xterm-256color

@@ -13,7 +13,8 @@ my_x_session_setup () {
 
     # feh --bg-fill ~/.wallpaper/gnu.png &
     # feh --bg-fill /usr/share/backgrounds/warty-final-ubuntu.png &
-    feh --bg-center ~/Pictures/mountains.jpg
+    # feh --bg-center ~/Pictures/mountains.jpg
+    nitrogen --restore &
 
     xautolock -time 60 -locker slock &
 
@@ -31,7 +32,8 @@ my_x_session_setup () {
     # unclutter &
 
     # start network manager applet
-    nm-applet &
+    # nm-applet &
+    # volumeicon &
 
     # start udiskie to handle media
     udiskie &
@@ -55,7 +57,7 @@ my_x_session_setup () {
     compton -c -C &
 
     # make KDE apps work properly in non-kde environment
-    export KDE_SESSION_UID=1000
+    # export KDE_SESSION_UID=1000
     export KDE_SESSION_VERSION=5
     export XDG_CURRENT_DESKTOP=KDE
 }
@@ -97,15 +99,19 @@ case $session in
         ;;
     xmonad) 
         my_x_session_setup
-        # pnmixer &
         exec dbus-launch xmonad
+        ;;
+    bspwm) 
+        my_x_session_setup
+        sxhkd &
+        exec dbus-launch bspwm
         ;;
     openbox) 
         my_x_session_setup
-        pnmixer &
-        tint2 &
+        # pnmixer &
+        # tint2 &
         # xfce4-panel &
-        exec dbus-launch openbox
+        exec dbus-launch openbox-session
         ;;
     *) 
         my_x_session_setup
