@@ -72,7 +72,7 @@ function! g:deh#repl#TmuxRepl#new(prefix, command)
   function! obj.select()
     call fzf#run({
           \ 'source':  'tmux list-panes -as -F "#{pane_id} #{session_name}:#{window_index}:#{window_name} (pane #{pane_index})"',
-          \ 'options': '--ansi -i -n 1 --with-nth 2,3,4 --preview-window="up:75%" --preview="tmux capture-pane -p -t {1} | tail -n 30"',
+          \ 'options': '--ansi -i -n 1 --with-nth 2,3,4 --preview-window="up:75%" --preview="tmux capture-pane -e -p -t {1} " --bind=alt-j:preview-page-down,alt-k:preview-page-up',
           \ 'sink': { result -> self.handle_repl_selection(result) }})
   endfunction
 
