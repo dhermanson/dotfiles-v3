@@ -32,7 +32,8 @@ function! g:deh#repl#TmuxRepl#new(prefix, command)
   endfunction
 
   function! obj._create_new_session()
-    call system("urxvt -name urxvtreplfloat -geometry 100x30 -c ". getcwd() . " -e tmux new -s " . self._session_name . " "  . self._command . " &")
+    call system("urxvt -name urxvtreplfloat -c ". getcwd() . " -e tmux new -s " . self._session_name . " "  . self._command . " &")
+    " call system("urxvt -name urxvtreplfloat -geometry 100x30 -c ". getcwd() . " -e tmux new -s " . self._session_name . " "  . self._command . " &")
     sleep 300m
     let self._pane = systemlist('tmux list-panes -t ' . self._session_name . ' -F "#{pane_id}"')[0]
   endfunction
@@ -70,10 +71,9 @@ function! g:deh#repl#TmuxRepl#new(prefix, command)
 
   function! obj.select()
     call fzf#run({
-          \ 'source':  'tmux list-panes -as -F "#{pane_id} #{session_name}:#{window_name}:#{pane_index}"',
-          \ 'options': '-n 1 --with-nth 2',
-          \ 'sink': { result -> self.handle_repl_selection(result) },
-          \ 'down':    '30%' })
+          \ 'source':  'tmux list-panes -as -F "#{pane_id} #{session_name}:#{window_index}:#{window_name} (pane #{pane_index})"',
+          \ 'options': '--ansi -i -n 1 --with-nth 2,3,4 --preview-window="up:75%" --preview="tmux capture-pane -p -t {1} | tail -n 30"',
+          \ 'sink': { result -> self.handle_repl_selection(result) }})
   endfunction
 
   " Private Functions
