@@ -440,7 +440,7 @@
     </keybind>
     <keybind key="W-C-A-backslash">
       <action name="Execute">
-        <command>create_emacs_frame_or_use_existing ~/.config/openbox/rc.xml</command>
+        <command>emacsclient -c ~/.config/openbox/rc.xml</command>
       </action>
     </keybind>
     <keybind key="W-C-A-a">

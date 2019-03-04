@@ -14,8 +14,8 @@ export _JAVA_AWT_WM_NONREPARENTING=1 # fix java guis
 
 # kde stuff
 # export KDE_SESSION_UID=1000
-# export KDE_SESSION_VERSION=5
-# export XDG_CURRENT_DESKTOP=KDE
+export KDE_SESSION_VERSION=5
+export XDG_CURRENT_DESKTOP=KDE
 
 export PATH=$PATH:/usr/local/go/bin:$HOME/bin:$HOME/.local/bin:$HOME/.config/composer/vendor/bin
 

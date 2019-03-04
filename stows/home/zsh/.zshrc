@@ -9,7 +9,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
-for file in $HOME/.zshrc.d/*.zshrc;
+for file in $HOME/.zshrc.d/*.zsh;
 do
  source $file
 done

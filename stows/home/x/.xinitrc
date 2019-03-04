@@ -108,6 +108,8 @@ case $session in
         ;;
     openbox) 
         my_x_session_setup
+        export KDE_SESSION_VERSION=5
+        export XDG_CURRENT_DESKTOP=KDE
         # pnmixer &
         # tint2 &
         # xfce4-panel &

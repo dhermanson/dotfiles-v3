@@ -16,6 +16,14 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Load the theme.
 antigen theme robbyrussell
+# antigen theme candy
+# antigen theme gozilla
+# antigen theme terminalparty
+# antigen theme refined
+# antigen theme bira
+# antigen theme gnzh
+# antigen theme mh
+# antigen theme agnoster
 
 # Tell Antigen that you're done.
 antigen apply

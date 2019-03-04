@@ -3,6 +3,9 @@
 require 'rubygems'
 require 'commander/import'
 require 'dotenv'
+require 'json'
+require 'readline'
+require 'open3'
 
 program :name, 'Laravel Helpers'
 program :version, '1.0.0'
@@ -95,10 +98,32 @@ def load_env env_file
 end
 
 def run_artisan d
+  raw_output = `php artisan --no-ansi list --format=json`
+  parsed = JSON.parse raw_output
+  commands = parsed["commands"].
+    map {|command| command["name"] }.
+    sort {|a, b| b <=> a}
 
-  
+  fzf_command = 'fzf --preview-window=right:70% --preview="php artisan --ansi {} --help"'
+  commands_input = commands.join "\n"
 
-  puts "running artisan"
+  # result, status = Open3.capture2('fzf --preview-window=up:70% --preview="php artisan --ansi {} --help"', stdin_data: commands.join("\n"))
+  result, status = Open3.capture2(fzf_command, stdin_data: commands_input)
+  unless status.success?
+    exit 1
+  end
+
+  selection = result.chomp
+
+  system "clear"
+  system "php artisan --ansi #{selection} --help"
+  system "echo ------------------------------"
+
+  args = Readline.readline ">>> php artisan #{selection} ", true
+  system "clear"
+
+  exec "php artisan #{selection} #{args}"
+
 end
 
 def run_schemaspy d
@@ -120,7 +145,8 @@ def create_database d
     if d[:db].nil?
       puts "No database configured"
     else
-      create = %Q( mysql -h #{d[:host]} -P #{d[:port]} -u #{d[:user]} --password=#{d[:pass]} -e 'create database `#{d[:db]}` character set utf8mb4 collate utf8mb4_unicode_ci')
+      # create = %Q( mysql -h #{d[:host]} -P #{d[:port]} -u #{d[:user]} --password=#{d[:pass]} -e 'create database `#{d[:db]}` character set utf8mb4 collate utf8mb4_unicode_ci')
+      create = %Q( mysql -h #{d[:host]} -P #{d[:port]} -u #{d[:user]} --password=#{d[:pass]} -e 'create database `#{d[:db]}`')
       grant = %Q( mysql -h #{d[:host]} -P #{d[:port]} -u #{d[:user]} --password=#{d[:pass]} -e 'grant all on `#{d[:db]}`.`*` to `#{d[:user]}`@`%`' )
       system create
       system grant
