@@ -64,6 +64,9 @@ Plug 'kylef/apiblueprint.vim', { 'for': 'apiblueprint' }
 " html-ish
 Plug 'mattn/emmet-vim'
 
+" vue
+Plug 'posva/vim-vue'
+
 " Initialize plugin system
 call plug#end()
 
@@ -131,15 +134,15 @@ let g:LanguageClient_serverCommands = {
     "       sql repls where you want the results of queries
 let g:deh#repl#repls = {
     \   "ruby": g:deh#repl#TmuxRepl#new("ruby-repl", "pry"),
-    \   "sql": g:deh#repl#TmuxRepl#new("sql-repl", "bash"),
+    \   "sql": g:deh#repl#TmuxRepl#new("sql-repl", "zsh"),
     \   "php": g:deh#repl#TmuxRepl#new("php-repl", "php artisan tinker"),
     \   "python": g:deh#repl#TmuxRepl#new("python-repl", "python3"),
     \   "javascript": g:deh#repl#TmuxRepl#new("js-repl", "node"),
     \   "zsh": g:deh#repl#TmuxRepl#new("zsh-repl", "zsh"),
-    \   "sh": g:deh#repl#TmuxRepl#new("sh-repl", "sh"),
-    \   "bash": g:deh#repl#TmuxRepl#new("sh-repl", "bash"),
-    \   "posix": g:deh#repl#TmuxRepl#new("posix-repl", "bash"),
-    \   "markdown": g:deh#repl#TmuxRepl#new("markdown-repl", "bash"),
+    \   "sh": g:deh#repl#TmuxRepl#new("sh-repl", "zsh"),
+    \   "bash": g:deh#repl#TmuxRepl#new("bash-repl", "zsh"),
+    \   "posix": g:deh#repl#TmuxRepl#new("posix-repl", "zsh"),
+    \   "markdown": g:deh#repl#TmuxRepl#new("markdown-repl", "zsh"),
     \   "kotlin": g:deh#repl#TmuxRepl#new("kotlin-repl", "kotlinc"),
     \ }
 
@@ -227,6 +230,10 @@ let g:airline_symbols = {}
 " leader keys
 let mapleader=" "
 let maplocalleader = ","
+
+if has('nvim')
+  tnoremap <silent> <M-Backspace> <C-\><C-n>
+endif
 
 " map empty project mapping to noop...cuz sometimes i forget what i'm doing
 nnoremap <Leader>p <Nop>
@@ -319,12 +326,12 @@ nnoremap <M-:> :NERDTreeFind<CR>
 nnoremap <silent> <M-s> :call deh#repl#send_current_line()<CR>
 inoremap <silent> <M-s> <C-o>:call deh#repl#send_current_line()<CR>
 vnoremap <silent> <M-s> :<C-u>call deh#repl#send_selected_lines()<CR>
-" nnoremap <silent> <M-r><M-k> :call deh#repl#stop()<CR>
-" nnoremap <silent> <M-r><M-o> :call deh#repl#start()<CR>
-nnoremap <silent> <leader>rkp :call deh#repl#stop()<CR>
-nnoremap <silent> <leader>rks :call deh#repl#stop_session()<CR>
-nnoremap <silent> <leader>rs :call deh#repl#select()<CR>
+" DON'T MAP THE SESSION STOPS OR RESTARTS RIGHT NOW
+nnoremap <silent> <leader>rk :call deh#repl#stop()<CR>
+" nnoremap <silent> <leader>rks :call deh#repl#stop_session()<CR>
 nnoremap <silent> <leader>rr :call deh#repl#restart()<CR>
+nnoremap <silent> <leader>rp :call deh#repl#select_pane()<CR>
+nnoremap <silent> <leader>rs :call deh#repl#select_session()<CR>
 nnoremap <silent> <leader>ro :call deh#repl#start()<CR>
 
 " vim-easy-align

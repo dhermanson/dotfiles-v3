@@ -64,16 +64,28 @@ function! g:deh#repl#TmuxRepl#new(prefix, command)
     call <SID>SendLinesToTmuxPane(line("'<"), line("'>"), self._pane)
   endfunction
 
-  function! obj.handle_repl_selection(result)
+  function! obj.handle_repl_pane_selection(result)
     let l:pane_id = split(a:result)[0]
     let self._pane = l:pane_id
   endfunction
 
-  function! obj.select()
+  function! obj.select_pane()
     call fzf#run({
           \ 'source':  'tmux list-panes -as -F "#{pane_id} #{session_name}:#{window_index}:#{window_name} (pane #{pane_index})"',
           \ 'options': '--ansi -i -n 1 --with-nth 2,3,4 --preview-window="up:75%" --preview="tmux capture-pane -e -p -t {1} " --bind=alt-j:preview-page-down,alt-k:preview-page-up',
-          \ 'sink': { result -> self.handle_repl_selection(result) }})
+          \ 'sink': { result -> self.handle_repl_pane_selection(result) }})
+  endfunction
+
+  function! obj.handle_repl_session_selection(session_name)
+    let self._session_name = a:session_name
+    echom self._session_name
+  endfunction
+
+  function! obj.select_session()
+    call fzf#run({
+          \ 'source':  'tmux list-sessions -F "#{session_name}"',
+          \ 'options': '--ansi -i',
+          \ 'sink': { result -> self.handle_repl_session_selection(result) }})
   endfunction
 
   " Private Functions

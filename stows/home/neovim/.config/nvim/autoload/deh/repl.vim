@@ -54,10 +54,18 @@ function! g:deh#repl#send_current_line()
 
 endfunction
 
-function! g:deh#repl#select()
+function! g:deh#repl#select_pane()
   if <SID>repl_is_defined_for(&filetype)
     let repl = g:deh#repl#repls[&filetype]
-    call repl.select()
+    call repl.select_pane()
+  endif
+
+endfunction
+
+function! g:deh#repl#select_session()
+  if <SID>repl_is_defined_for(&filetype)
+    let repl = g:deh#repl#repls[&filetype]
+    call repl.select_session()
   endif
 
 endfunction
