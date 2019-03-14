@@ -17,10 +17,10 @@ function! s:repl_is_defined_for(lang)
   endif
 endfunction
 
-function! g:deh#repl#start()
+function! g:deh#repl#start(type)
   if <SID>repl_is_defined_for(&filetype)
     let repl = g:deh#repl#repls[&filetype]
-    call repl.start()
+    call repl.start(a:type)
   endif
 
 endfunction

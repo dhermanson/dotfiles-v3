@@ -1,0 +1,6 @@
+#! /usr/bin/env bash
+
+WORDFILE="/usr/share/dict/words"
+WORD=`shuf -n1 $WORDFILE | tr -cd '[:alpha:]\n'`
+echo $WORD
+

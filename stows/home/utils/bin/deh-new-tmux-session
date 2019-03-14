@@ -1,0 +1,2 @@
+#! /usr/bin/env bash
+deh-random-word | xargs -I '{}' urxvtc -e tmux new -s '{}' 

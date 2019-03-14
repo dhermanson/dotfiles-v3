@@ -329,10 +329,12 @@ vnoremap <silent> <M-s> :<C-u>call deh#repl#send_selected_lines()<CR>
 " DON'T MAP THE SESSION STOPS OR RESTARTS RIGHT NOW
 nnoremap <silent> <leader>rk :call deh#repl#stop()<CR>
 " nnoremap <silent> <leader>rks :call deh#repl#stop_session()<CR>
-nnoremap <silent> <leader>rr :call deh#repl#restart()<CR>
+" nnoremap <silent> <leader>rr :call deh#repl#restart()<CR>
 nnoremap <silent> <leader>rp :call deh#repl#select_pane()<CR>
 nnoremap <silent> <leader>rs :call deh#repl#select_session()<CR>
-nnoremap <silent> <leader>ro :call deh#repl#start()<CR>
+nnoremap <silent> <leader>ro :call deh#repl#start('other-window')<CR>
+nnoremap <silent> <leader>rj :call deh#repl#start('below')<CR>
+nnoremap <silent> <leader>rl :call deh#repl#start('right')<CR>
 
 " vim-easy-align
 " Start interactive EasyAlign in visual mode (e.g. vipga)

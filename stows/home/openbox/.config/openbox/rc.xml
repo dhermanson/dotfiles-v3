@@ -495,7 +495,7 @@
     </keybind>
     <keybind key="W-Return">
       <action name="Execute">
-        <command>urxvtc</command>
+        <command>deh-new-tmux-session</command>
       </action>
     </keybind>
     <keybind key="W-backslash">
@@ -818,8 +818,13 @@
         <action name="Resize"/>
       </mousebind>
       <mousebind button="W-Right" action="Drag">
-        <!-- <action name="Focus"/> -->
-        <!-- <action name="Raise"/> -->
+        <action name="Focus"/>
+        <action name="Raise"/>
+        <action name="Resize"/>
+      </mousebind>
+      <mousebind button="W-S-Left" action="Drag">
+        <action name="Focus"/>
+        <action name="Raise"/>
         <action name="Resize"/>
       </mousebind>
       <mousebind button="A-Middle" action="Press">

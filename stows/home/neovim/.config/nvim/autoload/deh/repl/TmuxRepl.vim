@@ -2,7 +2,7 @@ function! g:deh#repl#TmuxRepl#new(prefix, command)
   let obj = {}
 
   " Private members
-  let obj._command = a:command
+  let obj._command = shellescape(a:command)
   let obj._session_name = <SID>CreateTmuxSessionName(a:prefix)
   let obj._pane = obj._session_name
 
@@ -12,13 +12,24 @@ function! g:deh#repl#TmuxRepl#new(prefix, command)
     return v:shell_error == 0
   endfunction
 
-  function! obj.start()
+  function! obj.start(type)
     " call self.stop()
     "
-    if self.has_running_session()
-      call self._add_pane_to_existing_session()
+    if a:type == 'other-window'
+      if self.has_running_session()
+        call self._add_pane_to_existing_session()
+      else
+        call self._create_new_session()
+      endif
     else
-      call self._create_new_session()
+      if a:type == 'right'
+        call self._create_split('-h')
+      elseif a:type == 'below'
+        call self._create_split('-v')
+      else
+        throw "unknown split direction"
+      end
+
     endif
     " call <SID>CreateNewTmuxPane(self._command, self._session_name)
   endfunction
@@ -36,6 +47,13 @@ function! g:deh#repl#TmuxRepl#new(prefix, command)
     " call system("urxvt -name urxvtreplfloat -geometry 100x30 -c ". getcwd() . " -e tmux new -s " . self._session_name . " "  . self._command . " &")
     sleep 300m
     let self._pane = systemlist('tmux list-panes -t ' . self._session_name . ' -F "#{pane_id}"')[0]
+  endfunction
+
+  function! obj._create_split(type)
+    call system("tmux splitw " . a:type . " " . self._command)
+    let self._pane = systemlist("tmux display-message -p '#{pane_id}'")[0]
+    " let self._session_name = systemlist("tmux display-message -p '#{session_name}'")[0]
+    call system("tmux last-pane")
   endfunction
 
   function! obj.stop()
