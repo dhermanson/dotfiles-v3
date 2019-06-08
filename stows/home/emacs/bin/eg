@@ -1,12 +1,19 @@
 #!/bin/bash
 
-tempfile=$(mktemp "/tmp/grepresult.XXXXXXXXXX")
+# tempfile=$(mktemp ".grep.XXXXXX")
+# tempfile=$(mktemp ".grep.XXXXXX")
+tempfile=".grep.result"
 rg --hidden \
+  --glob "!.grep.*" \
   --glob "!TAGS" \
   --vimgrep "$@" > $tempfile
 
 rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
   
+                          # (compilation-mode 1))
+                          # (find-file \"$tempfile\"))
 emacsclient --eval "(kill-matching-buffers \"\\\\.grep\\\\..*\" t t) " 2>&1 > /dev/null
 
 ec $tempfile
+
+emacsclient --eval "(grep-mode)" 2>&1 > /dev/null

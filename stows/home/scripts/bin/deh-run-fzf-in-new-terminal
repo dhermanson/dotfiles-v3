@@ -6,7 +6,7 @@ require 'tempfile'
 
 file = Tempfile.new('fzf-result-')
 
-system "urxvtc 2> /dev/null -name urxvtfloat -e sh -c 'fzf > #{ file.path }'"
+system "urxvt 2> /dev/null -name urxvtfloat -e sh -c 'fzf > #{ file.path }'"
 
 content = File.read file
 
