@@ -32,7 +32,7 @@ bindsym XF86ScreenSaver exec slock
 set_from_resource $font i3wm.font pango:DejaVu Sans Mono 10
 font $font
 
-focus_follows_mouse yes
+focus_follows_mouse no
 focus_on_window_activation yes
 
 # Before i3 v4.8, we used to recommend this one as the default:
@@ -224,9 +224,13 @@ bindsym $mod+backslash exec emacsclient -c
 bindsym $mod+$moda+$modb+backslash exec create_emacs_frame_or_use_existing ~/.config/i3/config
 bindsym $mod+$modb+h workspace prev
 bindsym $mod+$modb+l workspace next
+bindsym $mod+$modb+Left workspace prev
+bindsym $mod+$modb+Right workspace next
 bindsym $mod+o exec pcmanfm
-bindsym $mod+$modb+d workspace prev
+bindsym $mod+$modb+b workspace prev
 bindsym $mod+$modb+f workspace next
+bindsym $mod+$moda+b workspace prev
+bindsym $mod+$moda+f workspace next
 bindsym $mod+$moda+$modb+s exec mpc pause
 bindsym $mod+$moda+$modb+p exec mpc play
 bindsym $mod+$moda+$modb+minus exec amixer -q set Master 2dB- unmute

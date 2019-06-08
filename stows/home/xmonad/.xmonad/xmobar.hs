@@ -5,7 +5,8 @@ Config { font = "xft:Monaco:style=Regular:size=14:antialias=true:hinting=true"
        , bgColor = "black"
        , fgColor = "grey"
        , alpha = 255
-       , position = TopW L 90
+       , position = TopW L 100
+       -- , position = TopW L 90
        -- , position = Static { xpos = 0, ypos = 0, width = 1346, height = 20 },
        , textOffset = -1
        , iconOffset = -1

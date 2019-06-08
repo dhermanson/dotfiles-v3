@@ -33,15 +33,19 @@ Plug 'embear/vim-localvimrc'
 Plug 'airblade/vim-gitgutter'
 Plug 'schickling/vim-bufonly'
 
+" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+
 Plug 'roxma/nvim-yarp' " a dependency of 'ncm2'
 Plug 'ncm2/ncm2' " v2 of the nvim-completion-manager
 Plug 'ncm2/ncm2-ultisnips'
-" Plug 'ncm2/nvim-typescript', {'do': './install.sh'} " typescript completion source
+Plug 'ncm2/ncm2-tagprefix'
 " LanguageServer client for NeoVim.
 Plug 'autozimu/LanguageClient-neovim', {
   \ 'branch': 'next',
   \ 'do': 'bash install.sh',
   \ }
+
+Plug 'kana/vim-textobj-user'
 
 " Languages
 " Plug 'sheerun/vim-polyglot'
@@ -54,6 +58,9 @@ Plug 'lervag/vimtex' "latex
 Plug 'aklt/plantuml-syntax' "plantuml
 Plug 'chr4/nginx.vim' " nginx
 
+" ruby
+Plug 'nelstrom/vim-textobj-rubyblock'
+
 " Plug 'phpactor/phpactor' ,  {'do': 'composer install', 'for': 'php'}
 Plug 'arnaud-lb/vim-php-namespace', { 'for': 'php' }
 Plug 'jwalton512/vim-blade'
@@ -64,8 +71,18 @@ Plug 'kylef/apiblueprint.vim', { 'for': 'apiblueprint' }
 " html-ish
 Plug 'mattn/emmet-vim'
 
+" go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 " vue
 Plug 'posva/vim-vue'
+
+" yaml
+Plug 'stephpy/vim-yaml'
+
+" groovy
+Plug 'vim-scripts/groovyindent-unix'
+Plug 'vim-scripts/groovy.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -83,13 +100,17 @@ let g:ackprg = 'rg --vimgrep --no-heading '
 
 
 " ncm2
-autocmd BufEnter * call ncm2#enable_for_buffer()
+if has('nvim')
+  autocmd BufEnter * call ncm2#enable_for_buffer()
+endif
 
 " ale
 let g:ale_linters = {
       \   'php': ['phpstan']
   \}
-let g:ale_php_phpstan_executable = "./vendor/bin/phpstan"
+let g:ale_php_phpstan_level = 4
+" " let g:ale_php_phpstan_executable = "./vendor/bin/phpstan"
+" let g:ale_php_phpstan_executable = $HOME."/tools/phpstan"
 let g:ale_lint_on_enter=1
 " let g:ale_echo_cursor=0
 let g:ale_virtualtext_cursor=0
@@ -106,7 +127,8 @@ let g:tagbar_autoclose = 0
 
 " nerdtree
 let g:NERDTreeQuitOnOpen=0
-let NERDTreeShowHidden=1
+let g:NERDTreeShowHidden=1
+let g:NERDTreeIgnore = ['\.png$']
 
 " gitgutter
 let g:gitgutter_enabled=1
@@ -115,11 +137,11 @@ let g:gitgutter_enabled=1
 " let g:pandoc#modules#disabled = ["chdir", "folding"] " don't automatically change directory
 
 " language client
-let g:LanguageClient_serverCommands = {
-  \ 'javascript': ['javascript-typescript-stdio'],
-  \ 'typescript': ['javascript-typescript-stdio'],
-  \ 'java': ['jdtls']
-  \ }
+" let g:LanguageClient_serverCommands = {
+"   \ 'javascript': ['javascript-typescript-stdio'],
+"   \ 'typescript': ['javascript-typescript-stdio'],
+"   \ 'java': ['jdtls']
+"   \ }
 
 " repl
     " \   "php": g:deh#repl#TmuxRepl#new("php-repl", "psysh"),
@@ -309,11 +331,20 @@ nnoremap <Leader>.es :UltiSnipsEdit<CR>
 nnoremap <Leader>f :Files<CR>
 inoremap <M-f> <Esc>:Files<CR>
 nnoremap <M-f> :Files<CR>
+
+" TODO: put this somewhere else...i might not even like it to begin with
+  " \ {'source': 'find '.(empty(<f-args>) ? '.' : <f-args>).' -type d',
+command! -nargs=* -complete=dir SearchForDirUnderDir call fzf#run(fzf#wrap(
+  \ {'source': "git ls-files --cached --others --exclude-standard | xargs -n 1 dirname | uniq ",
+  \  'sink': 'e'}))
+
+nnoremap <M-d> :SearchForDirUnderDir .<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <M-b> :Buffers<CR>
 inoremap <M-b> <Esc>:Buffers<CR>
 nnoremap <Leader>k :Tags<CR>
-nnoremap <Leader>l :CtrlPBufTag<CR>
+" nnoremap <Leader>l :CtrlPBufTag<CR>
+nnoremap <Leader>l :BTags<CR>
 
 " vim-bufonly
 nnoremap <M-O> :BufOnly<CR>
@@ -353,17 +384,17 @@ vnoremap <silent> <M-a><M-j> :EasyAlign :<CR>
 let g:LanguageClient_selectionUI="fzf"
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <M-d><M-m> :call LanguageClient_contextMenu()<CR>
-nnoremap <silent> <M-d><M-h> :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> <M-d><M-d> :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <M-d><M-t> :call LanguageClient#textDocument_typeDefinition()<CR>
-nnoremap <silent> <M-d><M-i> :call LanguageClient#textDocument_implementation()<CR>
-nnoremap <silent> <M-d><M-s> :call LanguageClient#textDocument_documentSymbol()<CR>
-nnoremap <silent> <M-d><M-r> :call LanguageClient#textDocument_references()<CR>
-nnoremap <silent> <M-d><M-a> :call LanguageClient#textDocument_codeAction()<CR>
-nnoremap <silent> <M-d><M-c> :call LanguageClient#textDocument_formatting()<CR>
-nnoremap <silent> <M-d><M-n> :call LanguageClient#textDocument_rename()<CR>
-nnoremap <silent> <M-d><M-f> :call LanguageClient#workspace_symbol()<CR>
+" nnoremap <silent> <M-d><M-m> :call LanguageClient_contextMenu()<CR>
+" nnoremap <silent> <M-d><M-h> :call LanguageClient#textDocument_hover()<CR>
+" nnoremap <silent> <M-d><M-d> :call LanguageClient#textDocument_definition()<CR>
+" nnoremap <silent> <M-d><M-t> :call LanguageClient#textDocument_typeDefinition()<CR>
+" nnoremap <silent> <M-d><M-i> :call LanguageClient#textDocument_implementation()<CR>
+" nnoremap <silent> <M-d><M-s> :call LanguageClient#textDocument_documentSymbol()<CR>
+" nnoremap <silent> <M-d><M-r> :call LanguageClient#textDocument_references()<CR>
+" nnoremap <silent> <M-d><M-a> :call LanguageClient#textDocument_codeAction()<CR>
+" nnoremap <silent> <M-d><M-c> :call LanguageClient#textDocument_formatting()<CR>
+" nnoremap <silent> <M-d><M-n> :call LanguageClient#textDocument_rename()<CR>
+" nnoremap <silent> <M-d><M-f> :call LanguageClient#workspace_symbol()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetypes
@@ -398,69 +429,6 @@ function! ConfirmBDeleteBang()
   endif
 endfunction
 
-
-
-
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""PUT THIS SOMEWHERE ELSE""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-au InsertEnter * call ncm2#enable_for_buffer()
-au Filetype tex call ncm2#register_source({
-      \ 'name' : 'vimtex-cmds',
-      \ 'priority': 8, 
-      \ 'complete_length': -1,
-      \ 'scope': ['tex'],
-      \ 'matcher': {'name': 'prefix', 'key': 'word'},
-      \ 'word_pattern': '\w+',
-      \ 'complete_pattern': g:vimtex#re#ncm2#cmds,
-      \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-      \ })
-au Filetype tex call ncm2#register_source({
-      \ 'name' : 'vimtex-labels',
-      \ 'priority': 8, 
-      \ 'complete_length': -1,
-      \ 'scope': ['tex'],
-      \ 'matcher': {'name': 'combine',
-      \             'matchers': [
-      \               {'name': 'substr', 'key': 'word'},
-      \               {'name': 'substr', 'key': 'menu'},
-      \             ]},
-      \ 'word_pattern': '\w+',
-      \ 'complete_pattern': g:vimtex#re#ncm2#labels,
-      \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-      \ })
-au Filetype tex call ncm2#register_source({
-      \ 'name' : 'vimtex-files',
-      \ 'priority': 8, 
-      \ 'complete_length': -1,
-      \ 'scope': ['tex'],
-      \ 'matcher': {'name': 'combine',
-      \             'matchers': [
-      \               {'name': 'abbrfuzzy', 'key': 'word'},
-      \               {'name': 'abbrfuzzy', 'key': 'abbr'},
-      \             ]},
-      \ 'word_pattern': '\w+',
-      \ 'complete_pattern': g:vimtex#re#ncm2#files,
-      \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-      \ })
-au Filetype tex call ncm2#register_source({
-      \ 'name' : 'bibtex',
-      \ 'priority': 8, 
-      \ 'complete_length': -1,
-      \ 'scope': ['tex'],
-      \ 'matcher': {'name': 'combine',
-      \             'matchers': [
-      \               {'name': 'prefix', 'key': 'word'},
-      \               {'name': 'abbrfuzzy', 'key': 'abbr'},
-      \               {'name': 'abbrfuzzy', 'key': 'menu'},
-      \             ]},
-      \ 'word_pattern': '\w+',
-      \ 'complete_pattern': g:vimtex#re#ncm2#bibtex,
-      \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-      \ })
+" au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml
+" autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+" au TextChangedI * call ncm2#auto_trigger()

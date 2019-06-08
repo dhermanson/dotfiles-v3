@@ -13,6 +13,8 @@ import XMonad.Hooks.ManageHelpers
 import XMonad.Util.Cursor
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.Place
+import XMonad.Actions.TagWindows
+import XMonad.Prompt
 -- import DBus.Client
 
 -- main = do
@@ -84,6 +86,13 @@ myKeys = [
     ((mod4Mask .|. shiftMask .|. mod1Mask .|. controlMask, xK_equal), spawn "urxvt -e alsamixer"),
     ((mod4Mask .|. mod1Mask .|. controlMask, xK_t), sendMessage ToggleStruts),
 
+    -- layouts
+    
+    -- ((mod4Mask, xK_bracketleft), spawn "rofi -show run"),
+    ((mod4Mask, xK_p), spawn "rofi -show run"),
+    --  Reset the layouts on the current workspace to default
+    -- ((mod4Mask , xK_bracketleft ), setLayout $ XMonad.layoutHook defaultConfig),
+
     -- workspaces
     -- ((modm,xK_j     ), windows W.focusDown)
     -- ((mod4Mask .|. controlMask, xK_j), nextWS),
@@ -101,7 +110,10 @@ myKeys = [
     -- ((mod4Mask, xK_p), prevWS),
     -- ((mod4Mask, xK_f), nextWS),
     -- ((mod4Mask, xK_b), prevWS),
-    ((mod4Mask,               xK_semicolon     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
+    ((mod4Mask,               xK_semicolon     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\""),
+    ((mod4Mask, xK_i), withFocused (addTag "abc")),
+    ((mod4Mask, xK_o), withFocused (delTag "abc")),
+    ((mod4Mask, xK_d), focusUpTaggedGlobal "abc")
   ]
   ++
   [((m .|. myModMask, key), screenWorkspace sc >>= flip whenJust (windows . f))

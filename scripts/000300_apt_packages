@@ -22,7 +22,6 @@ sudo apt install -y \
   ark \
   auctex \
   autoconf \
-  # blueman \
   calibre \
   compton \
   conky \
@@ -41,28 +40,23 @@ sudo apt install -y \
   gnome-dictionary \
   gnome-power-manager \
   gnome-settings-daemon \
-  # golang-1.10-go \
   graphviz \
   gtk-chtheme \
-  # haskell-platform \
   i3 \
   jq \
-  # kde-plasma-desktop \
   kde-standard \
   konsole \
   libmariadbclient18 \
   libreswan \
   libsqlite3-dev \
   lxappearance \
+  lua5.3 \
   mariadb-client \
-  # mariadb-server \
-  # mongodb \
-  # mongodb-clients \
   mpc \
   mpd \
   mplayer \
   mycli \
-  # mysql-workbench \
+  nautilus \
   ncmpcpp \
   neovim \
   nitrogen \
@@ -70,12 +64,10 @@ sudo apt install -y \
   oxygen-icon-theme \
   pasystray \
   pcmanfm \
-  # percona-xtradb-cluster-server-5.7 \
   pnmixer \
   pwgen \
   python3-pip \
   python-pip \
-  # qt4-qtconfig \
   ranger \
   redshift \
   repo \
@@ -88,7 +80,7 @@ sudo apt install -y \
   stow \
   taffybar \
   texlive \
-  texlive-fonts-extra
+  texlive-fonts-extra \
   texlive-latex-extra \
   texlive-xetex \
   tig \
@@ -102,9 +94,9 @@ sudo apt install -y \
   wmctrl \
   xbacklight \
   xclip \
-  # xfce4-power-manager \
   xmobar \
   xmonad \
   xsettingsd \
   xterm \
+  yamllint \
   zsh

@@ -1,0 +1,13 @@
+#! /bin/bash
+
+# groovy
+#     f  functions
+#     v  private variables
+#     u  public variables
+#     c  classes
+
+ctags -R --groovy-kinds=fcu --languages=groovy "$@"
+# ctags -R --groovy-kinds=fcu --languages=groovy "$@"
+# ctags -R --groovy-kinds=pcm --languages=groovy "$@"
+
+

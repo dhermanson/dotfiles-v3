@@ -1,5 +1,6 @@
 export EDITOR="emacsclient"
-export TERMINAL="urxvt"
+export TERMINAL="urxvtc"
+# export TERMINAL="konsole"
 
 ##############################
 # fixes emacs issue
@@ -8,16 +9,26 @@ export TERMINAL="urxvt"
 # export GDK_DPI_SCALE=1
 ##############################
 
-export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 export _JAVA_AWT_WM_NONREPARENTING=1 # fix java guis
 
 # kde stuff
 # export KDE_SESSION_UID=1000
-export KDE_SESSION_VERSION=5
-export XDG_CURRENT_DESKTOP=KDE
+# export KDE_SESSION_VERSION=5
+# export XDG_CURRENT_DESKTOP=KDE
 
-export PATH=$PATH:/usr/local/go/bin:$HOME/bin:$HOME/.local/bin:$HOME/.config/composer/vendor/bin
+# local executables
+export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/.local/bin
+
+# php
+export PATH=$PATH:$HOME/.config/composer/vendor/bin
 
 # golang
 export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$GOPATH/bin
+
+# java home
+export JAVA_HOME=/usr/lib/jvm/java-11-oracle

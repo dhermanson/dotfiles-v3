@@ -1,6 +1,17 @@
 #! /bin/bash
 
-result=$(rg --files | fzf) || exit $?
+result=$(rg --files --no-ignore --hidden --follow --glob "!.git/*" | fzf) || exit $?
 file=`pwd`/$result
 
 create_emacs_frame_or_use_existing $file
+
+# PIPE=$(mktemp -u)
+# mkfifo $PIPE
+
+# echo "here"
+# $(urxvt -name urxvtfloat -e sh -c "fzf > $PIPE" 2> /dev/null) 
+
+# # head -n1 $PIPE
+
+# rm $PIPE
+# echo "here"

@@ -8,3 +8,8 @@
 .ctags-php-vendor
 .lvimrc
 *.env
+tmp.*
+.compilation.*
+.grep.*
+.derick-makefile
+TAGS

@@ -14,17 +14,17 @@ my_x_session_setup () {
     # feh --bg-fill ~/.wallpaper/gnu.png &
     # feh --bg-fill /usr/share/backgrounds/warty-final-ubuntu.png &
     # feh --bg-center ~/Pictures/mountains.jpg
-    nitrogen --restore &
+    # nitrogen --restore &
 
-    xautolock -time 60 -locker slock &
+    # xautolock -time 60 -locker slock &
 
 
-    if [ -x /usr/bin/dropbox ]; then
-        /usr/bin/dropbox start &
-    fi
+    # if [ -x /usr/bin/dropbox ]; then
+    #     /usr/bin/dropbox start &
+    # fi
 
     # notification daemon
-    dunst &
+    # dunst &
 
     # bluetooth
     # blueman-applet &
@@ -36,7 +36,7 @@ my_x_session_setup () {
     # volumeicon &
 
     # start udiskie to handle media
-    udiskie &
+    # udiskie &
 
     # start power manager
     # xfce4-power-manager & # this doesn't add an icon to the tray
@@ -54,33 +54,42 @@ my_x_session_setup () {
         export SSH_AUTH_SOCK
     fi
 
-    compton -c -C &
+    # compton -c -C &
 
     # make KDE apps work properly in non-kde environment
     # export KDE_SESSION_UID=1000
-    export KDE_SESSION_VERSION=5
-    export XDG_CURRENT_DESKTOP=KDE
+    # export KDE_SESSION_VERSION=5
+    # export XDG_CURRENT_DESKTOP=KDE
 }
 
+[ -f /etc/xprofile ] && . /etc/xprofile
+[ -f ~/.xprofile ] && . ~/.xprofile
+
 # load resources
-xrdb -load ~/.Xresources
+# xrdb -load ~/.Xresources
 
 # start urxvt daemon
-urxvtd &
+# urxvtd &
 
 # Key repeat
 # xset r rate 250 40
-xset r rate 250 60
+# xset r rate 250 60
 
-exec emacs --daemon &
+# exec emacs --daemon &
 
 # music player daemon
-mpd &
+# mpd &
 
-exec redshift &
+while xsetroot -name "`date` `uptime | sed 's/.*,//'`"
+do
+    sleep 1
+done &
+# exec dwm
+
+# exec redshift &
 
 # keyboard setup
-xmodmap ~/.Xmodmap &
+# xmodmap ~/.Xmodmap &
 
 case $session in
     gnome)
@@ -99,7 +108,7 @@ case $session in
         ;;
     xmonad) 
         my_x_session_setup
-        exec dbus-launch xmonad
+        exec dbus-launch xmonad-session
         ;;
     bspwm) 
         my_x_session_setup
@@ -108,8 +117,8 @@ case $session in
         ;;
     openbox) 
         my_x_session_setup
-        export KDE_SESSION_VERSION=5
-        export XDG_CURRENT_DESKTOP=KDE
+        # export KDE_SESSION_VERSION=5
+        # export XDG_CURRENT_DESKTOP=KDE
         # pnmixer &
         # tint2 &
         # xfce4-panel &

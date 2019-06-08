@@ -10,3 +10,6 @@
 [submodule "stows/home/java/repos/eclipse/eclipse.jdt.ls"]
 	path = stows/home/java/repos/eclipse/eclipse.jdt.ls
 	url = https://github.com/eclipse/eclipse.jdt.ls
+[submodule "stows/home/groovy/tags/groovy/github/apache/groovy"]
+	path = stows/home/groovy/tags/groovy/github/apache/groovy
+	url = https://github.com/apache/groovy.git

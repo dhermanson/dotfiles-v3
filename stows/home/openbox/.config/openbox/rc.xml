@@ -244,51 +244,61 @@
     <keybind key="W-S-1">
       <action name="SendToDesktop">
         <to>1</to>
+        <follow>no</follow>
       </action>
     </keybind>
     <keybind key="W-S-2">
       <action name="SendToDesktop">
         <to>2</to>
+        <follow>no</follow>
       </action>
     </keybind>
     <keybind key="W-S-3">
       <action name="SendToDesktop">
         <to>3</to>
+        <follow>no</follow>
       </action>
     </keybind>
     <keybind key="W-S-4">
       <action name="SendToDesktop">
         <to>4</to>
+        <follow>no</follow>
       </action>
     </keybind>
     <keybind key="W-S-5">
       <action name="SendToDesktop">
         <to>5</to>
+        <follow>no</follow>
       </action>
     </keybind>
     <keybind key="W-S-6">
       <action name="SendToDesktop">
         <to>6</to>
+        <follow>no</follow>
       </action>
     </keybind>
     <keybind key="W-S-7">
       <action name="SendToDesktop">
         <to>7</to>
+        <follow>no</follow>
       </action>
     </keybind>
     <keybind key="W-S-8">
       <action name="SendToDesktop">
         <to>8</to>
+        <follow>no</follow>
       </action>
     </keybind>
     <keybind key="W-S-9">
       <action name="SendToDesktop">
         <to>9</to>
+        <follow>no</follow>
       </action>
     </keybind>
     <keybind key="W-S-0">
       <action name="SendToDesktop">
         <to>10</to>
+        <follow>no</follow>
       </action>
     </keybind>
     <keybind key="W-Left">
@@ -488,14 +498,34 @@
         <command>~/.screenlayout/laptop_only</command>
       </action>
     </keybind>
+    <keybind key="W-C-A-S-h">
+      <action name="Execute">
+        <command>~/.screenlayout/home.sh</command>
+      </action>
+    </keybind>
+    <keybind key="W-C-A-S-w">
+      <action name="Execute">
+        <command>~/.screenlayout/work.sh</command>
+      </action>
+    </keybind>
+    <keybind key="W-C-A-S-r">
+      <action name="Execute">
+        <command>nitrogen --restore</command>
+      </action>
+    </keybind>
     <keybind key="W-space">
       <action name="Execute">
         <command>rofi -show run</command>
       </action>
     </keybind>
-    <keybind key="W-Return">
+    <keybind key="W-S-Return">
       <action name="Execute">
         <command>deh-new-tmux-session</command>
+      </action>
+    </keybind>
+    <keybind key="W-Return">
+      <action name="Execute">
+        <command>urxvtc</command>
       </action>
     </keybind>
     <keybind key="W-backslash">
@@ -532,7 +562,8 @@
         </finalactions>
       </action>
     </keybind>
-    <keybind key="W-bracketleft">
+    <keybind key="W-j">
+    <!-- <keybind key="W-bracketleft"> -->
       <action name="NextWindow">
         <raise>yes</raise>
         <finalactions>
@@ -582,7 +613,8 @@
         </finalactions>
       </action>
     </keybind>
-    <keybind key="W-bracketright">
+    <keybind key="W-k">
+    <!-- <keybind key="W-bracketright"> -->
       <action name="PreviousWindow">
         <raise>yes</raise>
         <finalactions>
@@ -704,18 +736,18 @@
     <!--     <wrap>no</wrap> -->
     <!--   </action> -->
     <!-- </keybind> -->
-    <keybind key="W-k">
-      <action name="DirectionalCycleWindows">
-        <raise>yes</raise>
-        <direction>up</direction>
-      </action>
-    </keybind>
-    <keybind key="W-j">
-      <action name="DirectionalCycleWindows">
-        <raise>yes</raise>
-        <direction>down</direction>
-      </action>
-    </keybind>
+    <!-- <keybind key="W-k"> -->
+    <!--   <action name="DirectionalCycleWindows"> -->
+    <!--     <raise>yes</raise> -->
+    <!--     <direction>up</direction> -->
+    <!--   </action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="W-j"> -->
+    <!--   <action name="DirectionalCycleWindows"> -->
+    <!--     <raise>yes</raise> -->
+    <!--     <direction>down</direction> -->
+    <!--   </action> -->
+    <!-- </keybind> -->
     <!-- <keybind key="W-j"> -->
     <!--   <action name="NextWindow"> -->
     <!--     <raise>yes</raise> -->
@@ -764,9 +796,9 @@
         <!-- TODO: learn how to use this startupnotify thing below -->
         <startupnotify>
           <enabled>true</enabled>
-          <name>Dolphin</name>
+          <name>dolphin</name>
         </startupnotify>
-        <command>dolphin</command>
+        <command>deh-file-manager</command>
       </action>
     </keybind>
     <!-- Launch scrot when Print is pressed -->

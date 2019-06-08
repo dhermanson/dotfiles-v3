@@ -1,0 +1,3 @@
+#! /bin/bash
+
+ctags -R --Java-kinds=acegi --languages=java "$@"

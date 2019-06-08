@@ -7,3 +7,4 @@ let s:cpo_save = &cpo
 set cpo&vim
 
 setlocal shiftwidth=4 tabstop=4 expandtab softtabstop=4
+setlocal tags=~/ctags/groovy-language.ctags,.ctags-groovy

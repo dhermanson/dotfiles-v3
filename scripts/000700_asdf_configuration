@@ -37,10 +37,11 @@ asdf global ruby 2.5.1
 
 # php
 asdf plugin-add php
+asdf install php 5.6.40
 asdf install php 7.0.33
 asdf install php 7.1.23
 asdf install php 7.2.11
-asdf global php 7.0.33
+asdf global php 7.2.11
 
 # dotnet core
 asdf plugin-add dotnet-core https://github.com/emersonsoares/asdf-dotnet-core.git

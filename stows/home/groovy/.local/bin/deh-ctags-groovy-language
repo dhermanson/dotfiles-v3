@@ -1,0 +1,30 @@
+#! /bin/bash
+
+rm $HOME/ctags/groovy-language.ctags
+
+ctags -R --Java-kinds=acegi --languages=java \
+  -f $HOME/ctags/groovy-language.ctags \
+  /home/derick/tags/groovy/github/apache/groovy/src/main/java/groovy
+
+ctags -R --groovy-kinds=fcu --languages=groovy \
+# ctags -R --groovy-kinds=pcm --languages=groovy \
+  -f $HOME/ctags/groovy-language.ctags \
+  -a \
+  /home/derick/tags/groovy/github/apache/groovy/src/main/groovy/groovy
+
+# -a is append
+# ctags -R --groovy-kinds=fcu --languages=groovy "$@"
+
+
+
+# ctags --list-kinds --language=Java
+# Java
+#     a  annotation declarations
+#     c  classes
+#     e  enum constants
+#     f  fields
+#     g  enum types
+#     i  interfaces
+#     l  local variables [off]
+#     m  methods
+#     p  packages
