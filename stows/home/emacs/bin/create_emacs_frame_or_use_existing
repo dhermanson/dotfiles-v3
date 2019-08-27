@@ -1,8 +1,21 @@
 #! /bin/bash
 
-emacsclient -n -e "(if (> (length (frame-list)) 1) 't)" | grep t
-if [ "$?" = "1" ]; then
+if [[ -z "${EMACS_SERVER_NAME}" ]]; then
+  # default case
+  emacsclient -n -e "(if (> (length (frame-list)) 1) 't)" | grep t
+  if [ "$?" = "1" ]; then
     emacsclient -c -n -a "" "$@"
-else
+  else
     emacsclient -n -a "" "$@"
+  fi
+else
+  # case when environment variable exists
+  # emacsclient -s $EMACS_SERVER_NAME -n -e "(if (> (length (frame-list)) 1) 't)" | grep t
+  # if [ "$?" = "1" ]; then
+  #   emacsclient -s $EMACS_SERVER_NAME -c -n -a "" "$@"
+  # else
+    emacsclient -s $EMACS_SERVER_NAME -n -a "" "$@"
+  # fi
 fi
+
+

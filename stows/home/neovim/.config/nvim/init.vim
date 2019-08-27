@@ -4,6 +4,11 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Colors / Interface
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'challenger-deep-theme/vim'
+Plug 'jnurmine/Zenburn'
+" Plug 'icymind/NeoSolarized'
 
 " Essentials
 Plug 'scrooloose/nerdtree'
@@ -32,6 +37,7 @@ Plug 'embear/vim-localvimrc'
 " Plug 'tpope/vim-vinegar'
 Plug 'airblade/vim-gitgutter'
 Plug 'schickling/vim-bufonly'
+Plug 'qpkorr/vim-bufkill'
 
 " Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 
@@ -83,6 +89,8 @@ Plug 'stephpy/vim-yaml'
 " groovy
 Plug 'vim-scripts/groovyindent-unix'
 Plug 'vim-scripts/groovy.vim'
+
+Plug 'gurpreetatwal/vim-avro'
 
 " Initialize plugin system
 call plug#end()
@@ -168,6 +176,9 @@ let g:deh#repl#repls = {
     \   "kotlin": g:deh#repl#TmuxRepl#new("kotlin-repl", "kotlinc"),
     \ }
 
+" fzf
+let g:fzf_prefer_tmux = 0
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Basic Settings
@@ -175,8 +186,14 @@ let g:deh#repl#repls = {
 set nocompatible
 syntax on
 filetype plugin indent on
+" filetype detect
+
+" runtime macros/matchit.vim
+" packadd! matchit
+
 set termguicolors
 set t_Co=256
+" set background=light
 set background=dark
 set completeopt=noinsert,menuone,noselect " ncm2 needs these set this way
 set timeout timeoutlen=1000 ttimeoutlen=100
@@ -200,6 +217,7 @@ set splitright
 set ignorecase
 set nolazyredraw
 set hidden
+set foldmethod=marker
 
 " no bells
 set noerrorbells visualbell t_vb=
@@ -219,12 +237,9 @@ if !has('nvim')
   set ttymouse=xterm2
 endif
 
-augroup my_cursor_line " only show cursorline in active buffer
-  autocmd!
-  autocmd WinEnter,BufWinEnter * set cul
-  autocmd WinLeave,BufWinLeave * set nocul
 augroup END
 
+" let g:loaded_matchit = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors / Interface
@@ -239,11 +254,14 @@ highlight SignColumn ctermbg=236
 highlight VertSplit ctermbg=236
 highlight Comment cterm=italic
 let g:airline_theme='gruvbox'
-let g:airline#extensions#ale#enabled = 1
-let g:airline_powerline_fonts = 0
-let g:airline_left_sep=''		
-let g:airline_right_sep=''		
-let g:airline_symbols = {}		
+let g:airline_powerline_fonts = 1
+
+" colorscheme zenburn
+" let g:airline_theme='zenburn'
+" let g:airline#extensions#ale#enabled = 1
+" let g:airline_left_sep=''		
+" let g:airline_right_sep=''		
+" let g:airline_symbols = {}		
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -291,11 +309,13 @@ nnoremap Q @q
 vnoremap Q :norm @q<cr>
 
 " delete buffer
-nnoremap <Leader>q :bdelete<CR>
-nnoremap <M-q> :bdelete<CR>
-nnoremap <M-Q> :call ConfirmBDeleteBang()<CR>
+" nnoremap <Leader>q :bdelete<CR>
+nnoremap <silent> <M-q> :BD<CR>
+" nnoremap <Leader>q :bdelete<CR>
+" nnoremap <M-q> :bdelete<CR>
+" nnoremap <M-Q> :call ConfirmBDeleteBang()<CR>
 " close buffer
-nnoremap <M-c> <C-w>c
+nnoremap <silent> <M-c> <C-w>c
 
 " ack
 nnoremap <Leader>a :Ack! 
@@ -306,7 +326,8 @@ omap <silent> / <Plug>(easymotion-tn)
 map <Leader>; <Plug>(easymotion-bd-f)
 
 " fugitive
-nnoremap <Leader>gs :Gstatus<CR>
+" nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gs :call system("magit")<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>ge :Gedit<CR>
 nnoremap <Leader>gl :Glog<CR>
@@ -402,6 +423,21 @@ nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 
 " markdown
 " autocmd FileType markdown setlocal commentstring=<!--\ %s\ -->
+
+augroup deh_augroup
+  autocmd!
+  " xml
+  autocmd FileType xml setlocal shiftwidth=4 tabstop=4 expandtab softtabstop=4
+
+  " avro
+  autocmd BufRead,BufNewFile *.avsc set filetype=json
+  autocmd BufRead,BufNewFile *.avro set filetype=json
+
+
+  " cursor columns
+  autocmd WinEnter,BufWinEnter * set cul
+  autocmd WinLeave,BufWinLeave * set nocul
+augroup END
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

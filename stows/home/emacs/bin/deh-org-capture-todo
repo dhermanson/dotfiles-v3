@@ -1,0 +1,7 @@
+#! /bin/bash
+
+# open in new window
+emacsclient -c -n -e "(progn (org-capture nil \"t\") (delete-other-windows) (x-focus-frame (selected-frame)))"
+
+# # open in existing window
+# emacsclient -n -e "(progn (magit-status) (delete-other-windows) (x-focus-frame (selected-frame)))"

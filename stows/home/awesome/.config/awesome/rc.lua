@@ -46,8 +46,8 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "zenburn/theme.lua")
-beautiful.init(gears.filesystem.get_themes_dir() .. "xresources/theme.lua")
--- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+-- beautiful.init(gears.filesystem.get_themes_dir() .. "xresources/theme.lua")
+beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "sky/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
@@ -65,7 +65,6 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    awful.layout.suit.floating,
     awful.layout.suit.tile,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.left,
@@ -76,8 +75,9 @@ awful.layout.layouts = {
     awful.layout.suit.spiral.dwindle,
     awful.layout.suit.magnifier,
     awful.layout.suit.corner.nw,
-    awful.layout.suit.max.fullscreen,
     awful.layout.suit.max,
+    awful.layout.suit.max.fullscreen,
+    awful.layout.suit.floating,
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
@@ -290,8 +290,8 @@ globalkeys = gears.table.join(
         end,
         {description = "focus previous by index", group = "client"}
     ),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
-              {description = "show main menu", group = "awesome"}),
+    -- awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
+    --           {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
@@ -369,19 +369,22 @@ globalkeys = gears.table.join(
     --           {description = "show the menubar", group = "launcher"})
      
     -- My mods
-    awful.key({ modkey }, "space", function() awful.util.spawn("rofi -show run") end),
+    awful.key({ modkey, "Control"}, "space", function() awful.util.spawn("rofi -show run -width 95") end),
     awful.key({ modkey, "Control", "Mod1" }, "x", function() awful.util.spawn("xmodmap " .. home .. "/.Xmodmap") end),
     awful.key({ modkey, "Control", "Mod1" }, "p", function() awful.util.spawn("mpc play") end),
-    awful.key({ modkey, "Control", "Mod1" }, "s", function() awful.util.spawn("mpc pause") end),
+    awful.key({ modkey, "Shift", "Control", "Mod1" }, "p", function() awful.util.spawn("mpc pause") end),
     awful.key({ modkey, "Control", "Mod1" }, "-", function() awful.util.spawn("amixer -q set Master 2dB- unmute") end),
     awful.key({ modkey, "Control", "Mod1" }, "=", function() awful.util.spawn("amixer -q set Master 2dB+ unmute") end),
     awful.key({ modkey, "Control", "Mod1" }, "l", function() awful.util.spawn("deh-lock-and-suspend") end),
+    awful.key({ modkey, "Control", "Mod1" }, "s", function() awful.util.spawn_with_shell("sleep 0.6 && deh-scrot") end),
     awful.key({ modkey, "Shift", "Control", "Mod1" }, "l", function() awful.util.spawn(home .. "/.screenlayout/laptop_only") end),
     awful.key({ modkey, "Control", "Mod1" }, "h", function() awful.util.spawn(home .. "/.screenlayout/home.sh") end),
     awful.key({ modkey, "Control", "Mod1" }, "w", function() awful.util.spawn(home .. "/.screenlayout/work.sh") end),
     awful.key({ modkey, "Shift", "Control", "Mod1" }, "r", function() awful.util.spawn("nitrogen --restore") end),
     awful.key({ modkey }, '\\', function() awful.util.spawn("emacsclient -c") end),
-    awful.key({ modkey }, "e", function() awful.util.spawn("deh-file-manager") end)
+    awful.key({ modkey }, "e", function() awful.util.spawn("deh-file-manager") end),
+    awful.key({ modkey }, "space", function () awful.util.spawn("rofi -show window -width 95") end,  {description = "switch windows", group = "client"})
+
 )
 
 clientkeys = gears.table.join(
@@ -548,6 +551,8 @@ awful.rules.rules = {
     { rule_any = {
         name = {
           "deh-find-file",
+          "deh-tmux-find-file",
+          "alacritty",
         },
       }, properties = { floating = true, placement = awful.placement.centered }},
 

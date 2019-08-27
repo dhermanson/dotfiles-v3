@@ -20,6 +20,8 @@ antigen theme robbyrussell
 # antigen theme gozilla
 # antigen theme terminalparty
 # antigen theme refined
+# antigen theme gentoo
+# antigen theme sorin
 # antigen theme bira
 # antigen theme gnzh
 # antigen theme mh

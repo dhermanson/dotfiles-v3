@@ -17,6 +17,7 @@ sudo apt install curl build-essential libjpeg-dev libpng-dev openssl libcurl4-op
 
 # packages
 sudo apt install -y \
+  silversearcher-ag \
   acpi \
   arandr \
   ark \
@@ -36,6 +37,7 @@ sudo apt install -y \
   espeak \
   feh \
   filezilla \
+  # fonts-powerline \
   git \
   gnome-dictionary \
   gnome-power-manager \

@@ -6,7 +6,9 @@ sudo systemctl set-default multi-user.target # to revert: sudo systemctl set-def
 sudo usermod -aG docker ${USER}
 
 # setup fonts
-sudo fc-cache -fv
+# sudo fc-cache -fv
+fc-cache -fv ~/.local/share/fonts/
+# list fonts with "fc-list -v"
 
 # use zsh
 chsh -s $(which zsh)

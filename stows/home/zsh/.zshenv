@@ -9,7 +9,8 @@ export TERMINAL="urxvtc"
 # export GDK_DPI_SCALE=1
 ##############################
 
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+# export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
 export _JAVA_AWT_WM_NONREPARENTING=1 # fix java guis
 
@@ -31,4 +32,8 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
 
 # java home
-export JAVA_HOME=/usr/lib/jvm/java-11-oracle
+# export JAVA_HOME=/usr/lib/jvm/java-11-oracle
+# export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
+# export JAVA_HOME=/usr/lib/jvm/jdk-11.0.3+7
+export JAVA_HOME=/usr/lib/jvm/jdk8u212-b04
+# export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64

@@ -8,9 +8,9 @@ emacs --daemon &
 redshift &
 urxvtd &
 udiskie &
-compton -c -C &
-nm-applet &
-volumeicon &
+# compton -c -C &
+# nm-applet &
+# volumeicon &
 nitrogen --restore &
 # pnmixer &
 # xfce4-power-manager &

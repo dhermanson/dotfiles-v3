@@ -448,6 +448,13 @@
         <command>scrot -s</command>
       </action>
     </keybind>
+    <keybind key="W-m">
+        <keybind key="n">
+            <keybind key="t">
+                <action name="Execute"><command>deh-org-capture-todo</command></action>
+            </keybind>
+        </keybind>
+    </keybind>
     <keybind key="W-C-A-backslash">
       <action name="Execute">
         <command>emacsclient -c ~/.config/openbox/rc.xml</command>
