@@ -8,10 +8,10 @@
 ! emacs*boldFont: Source Code Pro:size=16:antialias=true:hinting=true
 ! emacs*italicFont: Source Code Pro:style=Oblique:size=16:antialias=true:hinting=true
 ! emacs*boldItalicFont: Source Code Pro:style=Bold Oblique:size=16:antialias=true:hinting=true
-emacs*font: Monaco-18
-emacs*boldFont: xft:Monaco:style=Regular:size=18:antialias=true:hinting=true
-emacs*italicFont: xft:Monaco:style=Oblique:size=18:antialias=true:hinting=true
-emacs*boldItalicFont: xft:Monaco:style=Bold Oblique:size=18:antialias=true:hinting=true
+emacs*font: Monaco-14
+emacs*boldFont: xft:Monaco:style=Bold:size=14:antialias=true:hinting=true
+emacs*italicFont: xft:Monaco:style=Oblique:size=14:antialias=true:hinting=true
+emacs*boldItalicFont: xft:Monaco:style=Bold Oblique:size=14:antialias=true:hinting=true
 
 
 ! XFT and Font settings
@@ -54,7 +54,9 @@ URxvt*font: xft:Source Code Pro for Powerline:pixelsize=22:antialias=true:hintin
 !URxvt.font: xft:Ubuntu Mono derivative Powerline:pixelsize=36
 !URxvt.font: xft:Literation Mono Powerline:pixelsize=36
 URxvt*letterSpace: -1
-URxvt*termName: rxvt-256color
+/* URxvt*termName: rxvt-256color */
+!the termName of 'rxvt-unicode' is needed so that urxvt reports tmux window titles
+URxvt*termName: rxvt-unicode
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 URxvt.scrollBar: false

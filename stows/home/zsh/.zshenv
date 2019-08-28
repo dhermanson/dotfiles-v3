@@ -19,6 +19,8 @@ export _JAVA_AWT_WM_NONREPARENTING=1 # fix java guis
 # export KDE_SESSION_VERSION=5
 # export XDG_CURRENT_DESKTOP=KDE
 
+export XDG_CONFIG_HOME=$HOME/.config
+
 # local executables
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.local/bin
