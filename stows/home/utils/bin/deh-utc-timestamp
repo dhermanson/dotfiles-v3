@@ -1,0 +1,3 @@
+#! /usr/bin/env bash
+
+date --utc +%Y%m%d%H%M%S
