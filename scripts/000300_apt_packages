@@ -23,6 +23,7 @@ sudo apt install -y \
   ark \
   auctex \
   autoconf \
+  blueman \
   calibre \
   compton \
   conky \

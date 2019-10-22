@@ -6,4 +6,7 @@ pip3 install \
      neovim \
      neovim-remote \
      udiskie \
-     Pygments
+     Pygments \
+     tmuxp
+
+asdf reshim python

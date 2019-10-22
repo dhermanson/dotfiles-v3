@@ -50,4 +50,4 @@
 --regex-kotlin=/^[[:space:]]*((abstract|final|sealed|implicit|lazy|override|private[^ ]*|protected)[[:space:]]*)*(const[[:space:]])*val[[:space:]]+([[:alnum:]_]+)/\4/C,constants/
 --regex-kotlin=/^[[:space:]]*((abstract|final|sealed|implicit|lazy|override|private[^ ]*|protected)[[:space:]]*)*(lateinit[[:space:]]*)*var[[:space:]]+([[:alnum:]_]+)/\4/v,variables/
 --regex-kotlin=/^[[:space:]]*package[[:space:]]+([[:alnum:]_.:]+)/\1/p,packages/
---regex-kotlin=/^[[:space:]]*import[[:space:]]+([[:alnum:]_.:]+)/\1/I,imports/
+# --regex-kotlin=/^[[:space:]]*import[[:space:]]+([[:alnum:]_.:]+)/\1/I,imports/

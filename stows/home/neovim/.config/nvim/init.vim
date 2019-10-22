@@ -39,6 +39,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'schickling/vim-bufonly'
 Plug 'qpkorr/vim-bufkill'
 
+" Random
+Plug 'gcmt/taboo.vim'
+
 " Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 
 Plug 'roxma/nvim-yarp' " a dependency of 'ncm2'
@@ -90,7 +93,11 @@ Plug 'stephpy/vim-yaml'
 Plug 'vim-scripts/groovyindent-unix'
 Plug 'vim-scripts/groovy.vim'
 
+" avro
 Plug 'gurpreetatwal/vim-avro'
+
+" graphql
+Plug 'jparise/vim-graphql'
 
 " Initialize plugin system
 call plug#end()
@@ -255,6 +262,9 @@ highlight VertSplit ctermbg=236
 highlight Comment cterm=italic
 let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#left_sep = ' '
+" let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " colorscheme zenburn
 " let g:airline_theme='zenburn'
@@ -417,6 +427,11 @@ nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 " nnoremap <silent> <M-d><M-n> :call LanguageClient#textDocument_rename()<CR>
 " nnoremap <silent> <M-d><M-f> :call LanguageClient#workspace_symbol()<CR>
 
+nnoremap <silent> <M-[> :tabnext<CR>
+nnoremap <silent> <M-]> :tabprevious<CR>
+nnoremap <silent> <leader>nt :tabnew<CR>
+nnoremap <silent> <M-t> :tabnew<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetypes
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -433,6 +448,8 @@ augroup deh_augroup
   autocmd BufRead,BufNewFile *.avsc set filetype=json
   autocmd BufRead,BufNewFile *.avro set filetype=json
 
+  " kotlin
+  autocmd FileType kotlin setlocal shiftwidth=4 tabstop=4 expandtab softtabstop=4
 
   " cursor columns
   autocmd WinEnter,BufWinEnter * set cul

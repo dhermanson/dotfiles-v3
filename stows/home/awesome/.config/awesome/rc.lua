@@ -50,11 +50,14 @@ end
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "sky/theme.lua")
 
+-- beautiful.init("/~/.config/awesome/themes/default/theme.lua")
+
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 home = os.getenv("HOME")
+
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -75,8 +78,8 @@ awful.layout.layouts = {
     awful.layout.suit.spiral.dwindle,
     awful.layout.suit.magnifier,
     awful.layout.suit.corner.nw,
-    awful.layout.suit.max,
     awful.layout.suit.max.fullscreen,
+    awful.layout.suit.max,
     awful.layout.suit.floating,
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
@@ -369,12 +372,13 @@ globalkeys = gears.table.join(
     --           {description = "show the menubar", group = "launcher"})
      
     -- My mods
-    awful.key({ modkey, "Control"}, "space", function() awful.util.spawn("rofi -show run -width 95") end),
+    awful.key({ modkey}, "p", function() awful.util.spawn("rofi -show run -width 95") end),
     awful.key({ modkey, "Control", "Mod1" }, "x", function() awful.util.spawn("xmodmap " .. home .. "/.Xmodmap") end),
     awful.key({ modkey, "Control", "Mod1" }, "p", function() awful.util.spawn("mpc play") end),
     awful.key({ modkey, "Shift", "Control", "Mod1" }, "p", function() awful.util.spawn("mpc pause") end),
     awful.key({ modkey, "Control", "Mod1" }, "-", function() awful.util.spawn("amixer -q set Master 2dB- unmute") end),
     awful.key({ modkey, "Control", "Mod1" }, "=", function() awful.util.spawn("amixer -q set Master 2dB+ unmute") end),
+    awful.key({ modkey, "Control", "Mod1" }, "a", function() awful.util.spawn("urxvtc -e sh -c 'alsamixer -c 1'") end),
     awful.key({ modkey, "Control", "Mod1" }, "l", function() awful.util.spawn("deh-lock-and-suspend") end),
     awful.key({ modkey, "Control", "Mod1" }, "s", function() awful.util.spawn_with_shell("sleep 0.6 && deh-scrot") end),
     awful.key({ modkey, "Shift", "Control", "Mod1" }, "l", function() awful.util.spawn(home .. "/.screenlayout/laptop_only") end),
@@ -383,7 +387,11 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift", "Control", "Mod1" }, "r", function() awful.util.spawn("nitrogen --restore") end),
     awful.key({ modkey }, '\\', function() awful.util.spawn("emacsclient -c") end),
     awful.key({ modkey }, "e", function() awful.util.spawn("deh-file-manager") end),
-    awful.key({ modkey }, "space", function () awful.util.spawn("rofi -show window -width 95") end,  {description = "switch windows", group = "client"})
+    awful.key({ modkey }, "space", function () awful.util.spawn("rofi -show window -width 95") end,  {description = "switch windows", group = "client"}),
+    -- awful.key({ modkey, "Control" }, "space", function () awful.util.spawn("rofi -show windowcd -width 95") end,  {description = "switch windows", group = "client"})
+    awful.key({ modkey, "Control" }, "space", function () awful.util.spawn("rofi -show windowcd -width 95") end,  {description = "switch windows", group = "client"})
+    -- awful.key({ modkey, "Control" }, "space", function () awful.util.spawn("rofi -show run -width 95") end)
+
 
 )
 
@@ -396,7 +404,8 @@ clientkeys = gears.table.join(
         {description = "toggle fullscreen", group = "client"}),
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
-    awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
+    -- awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
+    awful.key({ modkey, "Control" }, "f",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
@@ -636,3 +645,11 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
+-- make rofi possible to raise minimized clients
+client.connect_signal("request::activate",
+                      function(c, context, hints)
+                         if c.minimized then
+                            c.minimized = false
+                         end
+                         awful.ewmh.activate(c, context, hints)
+                      end)

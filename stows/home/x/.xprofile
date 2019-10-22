@@ -9,8 +9,9 @@ redshift &
 urxvtd &
 udiskie &
 # compton -c -C &
-# nm-applet &
-# volumeicon &
+nm-applet &
+volumeicon &
+blueman-applet &
 nitrogen --restore &
 # pnmixer &
 # xfce4-power-manager &
