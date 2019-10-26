@@ -8,6 +8,7 @@ emacs --daemon &
 redshift &
 urxvtd &
 udiskie &
+dropbox start &
 # compton -c -C &
 nm-applet &
 volumeicon &
