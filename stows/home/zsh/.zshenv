@@ -1,5 +1,7 @@
 export EDITOR="emacsclient"
-export TERMINAL="urxvtc"
+# export EDITOR="nvim"
+# export TERMINAL="urxvtc"
+export TERMINAL="alacritty"
 # export TERMINAL="konsole"
 
 ##############################

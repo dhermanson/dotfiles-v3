@@ -8,10 +8,15 @@
 ! emacs*boldFont: Source Code Pro:size=16:antialias=true:hinting=true
 ! emacs*italicFont: Source Code Pro:style=Oblique:size=16:antialias=true:hinting=true
 ! emacs*boldItalicFont: Source Code Pro:style=Bold Oblique:size=16:antialias=true:hinting=true
-emacs*font: Monaco-14
-emacs*boldFont: xft:Monaco:style=Bold:size=14:antialias=true:hinting=true
-emacs*italicFont: xft:Monaco:style=Oblique:size=14:antialias=true:hinting=true
-emacs*boldItalicFont: xft:Monaco:style=Bold Oblique:size=14:antialias=true:hinting=true
+! emacs*font: Monaco-14
+! emacs*boldFont: xft:Monaco:style=Bold:size=14:antialias=true:hinting=true
+! emacs*italicFont: xft:Monaco:style=Oblique:size=14:antialias=true:hinting=true
+! emacs*boldItalicFont: xft:Monaco:style=Bold Oblique:size=14:antialias=true:hinting=true
+
+emacs*font: Hack-16
+emacs*boldFont: xft:Hack:style=Bold:size=16:antialias=true:hinting=true
+emacs*italicFont: xft:Hack:style=Oblique:size=16:antialias=true:hinting=true
+emacs*boldItalicFont: xft:Hack:style=Bold Oblique:size=16:antialias=true:hinting=true
 
 
 ! XFT and Font settings
@@ -24,16 +29,16 @@ Xft*rgba:      rgb
 !! URXVT
 ! https://wiki.archlinux.org/index.php/rxvt-unicode
 ! URxvt*.termName: rxvt-unicode-256color
-/* URxvt*font: xft:Monaco:style=Regular:size=16:antialias=true:hinting=true */
-/* URxvt*font: xft:Source Code Pro:style=Regular:size=18:antialias=true:hinting=true */
-/* URxvt*font: xft:Source\ Code\ Pro:pixelsize=24:antialias=true:hinting=true,xft:Source\ Code\ Pro:pixelsize=24:antialias=true:hinting=true */
+! /* URxvt*font: xft:Monaco:style=Regular:size=16:antialias=true:hinting=true */
+! /* URxvt*font: xft:Source Code Pro:style=Regular:size=18:antialias=true:hinting=true */
+! /* URxvt*font: xft:Source\ Code\ Pro:pixelsize=24:antialias=true:hinting=true,xft:Source\ Code\ Pro:pixelsize=24:antialias=true:hinting=true */
 !URxvt*font: xft:Source\ Code\ Pro\ Medium:pixelsize=22:antialias=true:hinting=true,xft:Source\ Code\ Pro\ Medium:pixelsize=22:antialias=true:hinting=true
 !URxvt*font: xft:Meslo LG M DZ Regular for Powerline:size=14
 !URxvt*font: xft:Inconsolata-g for Powerline:size=14
 !URxvt*font: xft:FuraMono-Regular Powerline:size=14
 !URxvt*font: xft:Source Code Pro for Powerline:size=14
-URxvt*font: xft:Source Code Pro for Powerline:pixelsize=22:antialias=true:hinting=true
-!URxvt*font: xft:Hack-Regular:pixelsize=18:antialias=true:hinting=true
+! URxvt*font: xft:Source Code Pro for Powerline:pixelsize=18:antialias=true:hinting=true
+URxvt*font: xft:Hack-Regular:pixelsize=20:antialias=true:hinting=true
 !URxvt.font: xft:Anonymous Pro for Powerline:pixelsize=36
 !URxvt.font: xft:Monofur for Powerline:pixelsize=36
 !URxvt.font: xft:Bitstream Vera Sans Mono for Powerline:pixelsize=36
@@ -112,9 +117,14 @@ URxvt*secondaryScroll: true
 URxvt*scrollBar: false
 ! URxvt*scrollTtyKeypress: true
 
-/* #include ".Xresources.d/themes/zenburn.xresources" */
-#include ".Xresources.d/themes/gruvbox-dark.xresources"
-/* #include ".Xresources.d/themes/gruvbox-light.xresources" */
+#include ".Xresources.d/themes/zenburn.xresources"
+! #include ".Xresources.d/themes/gruvbox-dark.xresources"
+! #include ".Xresources.d/themes/gruvbox-light.xresources"
 ! #include ".Xresources.d/themes/base16-zenburn.xresources"
+! #include ".Xresources.d/themes/base16-tomorrow-night.xresources"
 ! #include ".Xresources.d/themes/challenger-deep.xresources"
+! #include ".Xresources.d/themes/nord.xresources"
+! #include ".Xresources.d/themes/base16-monokai-256.xresources"
+! #include ".Xresources.d/themes/one-dark.xresources"
+! #include ".Xresources.d/themes/dracula.xresources"
 ! #include ".Xresources.d/themes/solarized-dark.xresources"
