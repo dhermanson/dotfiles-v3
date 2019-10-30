@@ -13,5 +13,3 @@ for file in $HOME/.zshrc.d/*.zsh;
 do
  source $file
 done
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # do this one separate, since fzf always writes it automatically when running a :PlugUpdate in neovim

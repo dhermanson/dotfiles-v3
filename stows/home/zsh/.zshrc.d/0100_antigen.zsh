@@ -18,15 +18,19 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 # antigen theme robbyrussell
 # antigen theme candy
 antigen theme bira
+# antigen theme theunraveler
 # antigen theme bender
 # antigen theme gozilla
 # antigen theme terminalparty
+# antigen theme kardan
 # antigen theme refined
 # antigen theme gentoo
 # antigen theme sorin
 # antigen theme gnzh
 # antigen theme mh
 # antigen theme agnoster
+# antigen theme common
+# antigen theme denysdovhan/spaceship-prompt
 
 # Tell Antigen that you're done.
 antigen apply

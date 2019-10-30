@@ -2,8 +2,8 @@
 
 # nodejs
 asdf plugin-add nodejs
-asdf install nodejs 8.12.0
-asdf global nodejs 8.12.0
+asdf install nodejs 12.13.0
+asdf global nodejs 12.13.0
 
 # java
 asdf plugin-add java
