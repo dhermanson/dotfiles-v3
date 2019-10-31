@@ -7,7 +7,7 @@ antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussel's oh-my-zsh)
 antigen bundle git
-antigen bundle gradle
+# antigen bundle gradle
 antigen bundle mvn
 antigen bundle tmux
 
@@ -23,6 +23,7 @@ antigen theme bira
 # antigen theme gozilla
 # antigen theme terminalparty
 # antigen theme kardan
+# antigen theme lambda
 # antigen theme refined
 # antigen theme gentoo
 # antigen theme sorin
