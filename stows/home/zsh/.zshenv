@@ -3,6 +3,7 @@ export EDITOR="emacsclient"
 # export TERMINAL="urxvtc"
 export TERMINAL="alacritty"
 # export TERMINAL="konsole"
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 ##############################
 # fixes emacs issue
