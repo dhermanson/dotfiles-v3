@@ -4,7 +4,8 @@
 colors:
   # Default colors
   primary:
-    background: '0x3A3A3A'
+    background: '0x3F3F3F'
+    # background: '0x3A3A3A'
     foreground: '0xdcdccc'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
@@ -42,15 +43,30 @@ colors:
     - { index: 20, color: '0x808080' }
     - { index: 21, color: '0xc0c0c0' }
 
+# font:
+#   # it seems like "size" must appear before others
+#   size: 8.0
+#   normal:
+#     family: Hack
+#     style: Regular
+#   bold:
+#     family: Hack
+#     style: Bold
+#   italic:
+#     family: Hack
+#     style: Italic
+
 font:
   # it seems like "size" must appear before others
-  size: 9.0
+  size: 8.0
   normal:
     family: Source Code Pro for Powerline
     style: Regular
   bold:
     family: Source Code Pro for Powerline
-    style: Bold
+    style: Semibold
   italic:
     family: Source Code Pro for Powerline
-    style: Italic
+    style: Semibold Italic
+
+background_opacity: 1.0
