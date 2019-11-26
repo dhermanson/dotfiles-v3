@@ -44,6 +44,6 @@ asdf install php 7.2.11
 asdf global php 7.2.11
 
 # dotnet core
-asdf plugin-add dotnet-core https://github.com/emersonsoares/asdf-dotnet-core.git
-asdf install dotnet-core 2.1.403
-asdf global dotnet-core 2.1.403
+# asdf plugin-add dotnet-core https://github.com/emersonsoares/asdf-dotnet-core.git
+# asdf install dotnet-core 2.1.403
+# asdf global dotnet-core 2.1.403

@@ -14,6 +14,10 @@ nm-applet &
 volumeicon &
 blueman-applet &
 nitrogen --restore &
+
+################################################################################
+
+
 # pnmixer &
 # xfce4-power-manager &
 

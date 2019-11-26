@@ -3,43 +3,8 @@ screenlayout=${2:-laptop_only}
 
 my_x_session_setup () {
 
-    # Set up an icon tray
-    # stalonetray &
-    # trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 15 --height 28 --transparent true --tint 0x000000 &
 
     ./.screenlayout/$screenlayout
-
-    # trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 15 --height 28 --alpha 0 --transparent true --tint 0x000000 &
-
-    # feh --bg-fill ~/.wallpaper/gnu.png &
-    # feh --bg-fill /usr/share/backgrounds/warty-final-ubuntu.png &
-    # feh --bg-center ~/Pictures/mountains.jpg
-    # nitrogen --restore &
-
-    # xautolock -time 60 -locker slock &
-
-
-    # if [ -x /usr/bin/dropbox ]; then
-    #     /usr/bin/dropbox start &
-    # fi
-
-    # notification daemon
-    # dunst &
-
-    # bluetooth
-    # blueman-applet &
-
-    # unclutter &
-
-    # start network manager applet
-    # nm-applet &
-    # volumeicon &
-
-    # start udiskie to handle media
-    # udiskie &
-
-    # start power manager
-    # xfce4-power-manager & # this doesn't add an icon to the tray
 
     if [ -x /usr/bin/xsettingsd ]; then
         touch ~/.xsettingsd
@@ -54,42 +19,17 @@ my_x_session_setup () {
         export SSH_AUTH_SOCK
     fi
 
-    # compton -c -C &
-
-    # make KDE apps work properly in non-kde environment
-    # export KDE_SESSION_UID=1000
-    # export KDE_SESSION_VERSION=5
-    # export XDG_CURRENT_DESKTOP=KDE
 }
 
 [ -f /etc/xprofile ] && . /etc/xprofile
 [ -f ~/.xprofile ] && . ~/.xprofile
 
-# load resources
-# xrdb -load ~/.Xresources
-
-# start urxvt daemon
-# urxvtd &
-
-# Key repeat
-# xset r rate 250 40
-# xset r rate 250 60
-
-# exec emacs --daemon &
-
-# music player daemon
-# mpd &
 
 while xsetroot -name "`date` `uptime | sed 's/.*,//'`"
 do
     sleep 1
 done &
-# exec dwm
 
-# exec redshift &
-
-# keyboard setup
-# xmodmap ~/.Xmodmap &
 
 case $session in
     gnome)

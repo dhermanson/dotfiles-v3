@@ -58,7 +58,7 @@ colors:
 
 font:
   # it seems like "size" must appear before others
-  size: 8.0
+  size: 9.0
   normal:
     family: Source Code Pro for Powerline
     style: Regular
