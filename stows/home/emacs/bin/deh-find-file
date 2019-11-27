@@ -3,7 +3,7 @@
 emacs_server=${1:default}
 export EMACS_SERVER_NAME=$emacs_server
 
-result=$(rg --files --hidden --follow --glob "!.git/*" | fzf ) || exit $?
+result=$(rg --files --hidden --follow --glob "!.git/*" | fzf --layout=reverse ) || exit $?
 # result=$(rg --files --no-ignore --hidden --follow --glob "!.git/*" | fzf) || exit $?
 file=`pwd`/$result
 

@@ -1,1 +1,1 @@
-autocmd BufRead,BufNewFile *.avdl set filetype=avdl
+autocmd BufRead,BufNewFile *.avdl set filetype=avro-idl
