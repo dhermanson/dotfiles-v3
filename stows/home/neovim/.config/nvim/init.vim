@@ -251,27 +251,26 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors / Interface
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:gruvbox_italic=0
-let g:gruvbox_invert_signs=1
-let g:gruvbox_contrast_dark='medium'
-let g:gruvbox_invert_selection=0
-let g:gruvbox_italic=1
-colorscheme gruvbox
-highlight SignColumn ctermbg=236
-highlight VertSplit ctermbg=236
-highlight Comment cterm=italic
-let g:airline_theme='gruvbox'
-let g:airline_powerline_fonts = 1
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#left_sep = ' '
-" let g:airline#extensions#tabline#left_alt_sep = '|'
+" let g:gruvbox_italic=0
+" let g:gruvbox_invert_signs=1
+" let g:gruvbox_contrast_dark='medium'
+" let g:gruvbox_invert_selection=0
+" let g:gruvbox_italic=1
+" colorscheme gruvbox
+" highlight SignColumn ctermbg=236
+" highlight VertSplit ctermbg=236
+" highlight Comment cterm=italic
+" let g:airline_theme='gruvbox'
+" let g:airline_powerline_fonts = 1
 
-" colorscheme zenburn
-" let g:airline_theme='zenburn'
-" let g:airline#extensions#ale#enabled = 1
-" let g:airline_left_sep=''		
-" let g:airline_right_sep=''		
-" let g:airline_symbols = {}		
+colorscheme zenburn
+let g:airline_theme='zenburn'
+let g:airline#extensions#ale#enabled = 1
+let g:airline_left_sep=''		
+let g:airline_right_sep=''		
+let g:airline_symbols = {}		
+let g:airline_theme='zenburn'
+let g:airline_powerline_fonts = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -326,6 +325,9 @@ nnoremap <silent> <M-q> :BD<CR>
 " nnoremap <M-Q> :call ConfirmBDeleteBang()<CR>
 " close buffer
 nnoremap <silent> <M-c> <C-w>c
+
+" explore folder of current buffer
+nnoremap - :e %:h<CR>
 
 " ack
 nnoremap <Leader>a :Ack! 

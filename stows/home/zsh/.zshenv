@@ -1,7 +1,7 @@
 export EDITOR="emacsclient"
 # export EDITOR="nvim"
-# export TERMINAL="urxvtc"
-export TERMINAL="alacritty"
+export TERMINAL="urxvtc"
+# export TERMINAL="alacritty"
 # export TERMINAL="konsole"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
@@ -40,5 +40,6 @@ export PATH=$PATH:$GOPATH/bin
 # export JAVA_HOME=/usr/lib/jvm/java-11-oracle
 # export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
 # export JAVA_HOME=/usr/lib/jvm/jdk-11.0.3+7
-export JAVA_HOME=/usr/lib/jvm/jdk8u212-b04
+# export JAVA_HOME=/usr/lib/jvm/jdk8u212-b04
+export JAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto
 # export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64

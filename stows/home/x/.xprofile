@@ -9,7 +9,7 @@ redshift &
 urxvtd &
 udiskie &
 dropbox start &
-compton -c -C &
+# compton -c -C &
 nm-applet &
 volumeicon &
 blueman-applet &
