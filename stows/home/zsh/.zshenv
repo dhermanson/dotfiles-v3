@@ -1,6 +1,7 @@
 export EDITOR="emacsclient"
 # export EDITOR="nvim"
 export TERMINAL="urxvtc"
+# export DEH_EMACS_SERVER_NAME=server
 # export TERMINAL="alacritty"
 # export TERMINAL="konsole"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
