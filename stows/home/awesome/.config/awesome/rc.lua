@@ -354,7 +354,7 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
+    awful.key({ modkey, "Control", "Mod1" },            "r",     function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"}),
 
     awful.key({ modkey }, "x",
@@ -386,11 +386,20 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Control", "Mod1" }, "w", function() awful.util.spawn(home .. "/.screenlayout/work.sh") end),
     awful.key({ modkey, "Shift", "Control", "Mod1" }, "r", function() awful.util.spawn("nitrogen --restore") end),
     awful.key({ modkey }, '\\', function() awful.util.spawn("emacsclient -c") end),
-    awful.key({ modkey }, "e", function() awful.util.spawn("deh-file-manager") end),
+    -- awful.key({ modkey }, "e", function() awful.util.spawn("deh-file-manager") end),
     awful.key({ modkey }, "space", function () awful.util.spawn("rofi -show window -width 95") end,  {description = "switch windows", group = "client"}),
     -- awful.key({ modkey, "Control" }, "space", function () awful.util.spawn("rofi -show windowcd -width 95") end,  {description = "switch windows", group = "client"})
-    awful.key({ modkey, "Control" }, "space", function () awful.util.spawn("rofi -show windowcd -width 95") end,  {description = "switch windows", group = "client"})
+    awful.key({ modkey, "Control" }, "space", function () awful.util.spawn("rofi -show windowcd -width 95") end,  {description = "switch windows", group = "client"}),
+    -- awful.key({ modkey }, "g", function () awful.util.spawn("rofi -show windowcd -width 95") end,  {description = "switch windows", group = "client"}),
+    awful.key({ modkey }, "semicolon", function () awful.util.spawn("rofi -show windowcd -width 95") end,  {description = "switch windows", group = "client"}),
     -- awful.key({ modkey, "Control" }, "space", function () awful.util.spawn("rofi -show run -width 95") end)
+
+    awful.key({ modkey }, "w", function () client.focus = awful.client.getmaster(); client.focus:raise() end,
+              {description = "focus master", group = "client"}),
+    awful.key({ modkey }, "e", function () client.focus =  awful.client.next(1, awful.client.getmaster()); client.focus:raise() end,
+              {description = "focus master+1", group = "client"}),
+    awful.key({ modkey }, "r", function () client.focus =  awful.client.next(2, awful.client.getmaster()); client.focus:raise() end,
+              {description = "focus master+2", group = "client"})
 
 
 )
@@ -408,6 +417,12 @@ clientkeys = gears.table.join(
     awful.key({ modkey, "Control" }, "f",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
+              {description = "move to master", group = "client"}),
+    awful.key({ modkey, "Shift" }, "w", function (c) c:swap(awful.client.getmaster()) end,
+              {description = "move to master", group = "client"}),
+    awful.key({ modkey, "Shift" }, "e", function (c) c:swap( awful.client.next(1, awful.client.getmaster())) end,
+              {description = "move to master", group = "client"}),
+    awful.key({ modkey, "Shift" }, "r", function (c) c:swap( awful.client.next(2, awful.client.getmaster())) end,
               {description = "move to master", group = "client"}),
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
               {description = "move to screen", group = "client"}),
@@ -562,7 +577,12 @@ awful.rules.rules = {
           "deh-find-file",
           "deh-tmux-find-file",
           "alacritty",
+          "urxvtfloat",
+          -- "tmux",
         },
+        class = {
+           "urxvtfloat"
+        }
       }, properties = { floating = true, placement = awful.placement.centered }},
 
     -- Add titlebars to normal clients and dialogs
