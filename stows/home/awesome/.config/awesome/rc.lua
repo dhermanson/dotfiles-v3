@@ -378,6 +378,8 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift", "Control", "Mod1" }, "p", function() awful.util.spawn("mpc pause") end),
     awful.key({ modkey, "Control", "Mod1" }, "-", function() awful.util.spawn("amixer -q set Master 2dB- unmute") end),
     awful.key({ modkey, "Control", "Mod1" }, "=", function() awful.util.spawn("amixer -q set Master 2dB+ unmute") end),
+    awful.key({ modkey, "Control", "Mod1" }, "8", function() awful.util.spawn("amixer -q -c 1 set Speaker 2dB- unmute") end),
+    awful.key({ modkey, "Control", "Mod1" }, "9", function() awful.util.spawn("amixer -q -c 1 set Speaker 2dB+ unmute") end),
     awful.key({ modkey, "Control", "Mod1" }, "a", function() awful.util.spawn("urxvtc -e sh -c 'alsamixer -c 1'") end),
     awful.key({ modkey, "Control", "Mod1" }, "l", function() awful.util.spawn("deh-lock-and-suspend") end),
     awful.key({ modkey, "Control", "Mod1" }, "s", function() awful.util.spawn_with_shell("sleep 0.6 && deh-scrot") end),
@@ -399,7 +401,9 @@ globalkeys = gears.table.join(
     awful.key({ modkey }, "e", function () client.focus =  awful.client.next(1, awful.client.getmaster()); client.focus:raise() end,
               {description = "focus master+1", group = "client"}),
     awful.key({ modkey }, "r", function () client.focus =  awful.client.next(2, awful.client.getmaster()); client.focus:raise() end,
-              {description = "focus master+2", group = "client"})
+              {description = "focus master+2", group = "client"}),
+    awful.key({ modkey }, "t", function () client.focus =  awful.client.next(3, awful.client.getmaster()); client.focus:raise() end,
+              {description = "focus master+3", group = "client"})
 
 
 )
@@ -418,12 +422,38 @@ clientkeys = gears.table.join(
               {description = "toggle floating", group = "client"}),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
-    awful.key({ modkey, "Shift" }, "w", function (c) c:swap(awful.client.getmaster()) end,
-              {description = "move to master", group = "client"}),
-    awful.key({ modkey, "Shift" }, "e", function (c) c:swap( awful.client.next(1, awful.client.getmaster())) end,
-              {description = "move to master", group = "client"}),
-    awful.key({ modkey, "Shift" }, "r", function (c) c:swap( awful.client.next(2, awful.client.getmaster())) end,
-              {description = "move to master", group = "client"}),
+    awful.key({ modkey, "Shift" }, "w",
+       function (c)
+          local clientOriginallyInDestination = awful.client.getmaster()
+          c:swap( clientOriginallyInDestination )
+          client.focus = clientOriginallyInDestination
+          client.focus:raise()
+       end,
+       {description = "move to master", group = "client"}),
+    awful.key({ modkey, "Shift" }, "e",
+       function (c)
+          local clientOriginallyInDestination = awful.client.next(1, awful.client.getmaster())
+          c:swap( clientOriginallyInDestination )
+          client.focus = clientOriginallyInDestination
+          client.focus:raise()
+       end,
+       {description = "move to master+1", group = "client"}),
+    awful.key({ modkey, "Shift" }, "r",
+       function (c)
+          local clientOriginallyInDestination = awful.client.next(2, awful.client.getmaster())
+          c:swap( clientOriginallyInDestination )
+          client.focus = clientOriginallyInDestination
+          client.focus:raise()
+       end,
+       {description = "move to master+2", group = "client"}),
+    awful.key({ modkey, "Shift" }, "t",
+       function (c)
+          local clientOriginallyInDestination = awful.client.next(3, awful.client.getmaster())
+          c:swap( clientOriginallyInDestination )
+          client.focus = clientOriginallyInDestination
+          client.focus:raise()
+       end,
+       {description = "move to master+3", group = "client"}),
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
               {description = "move to screen", group = "client"}),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
