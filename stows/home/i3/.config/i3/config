@@ -203,6 +203,7 @@ client.background       #FFFFFF
 bar {
     status_command i3status
     position top
+    tray_output primary
 
     colors {
         background #292B2E
