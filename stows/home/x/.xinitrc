@@ -1,6 +1,8 @@
 session=${1:-openbox}
 screenlayout=${2:-laptop_only}
 
+# https://wiki.ubuntu.com/CustomXSession#Sample_.2BAH4-.2F.xinitrc_File
+# https://wiki.manjaro.org/index.php?title=Proper_%7E/.xinitrc_File
 my_x_session_setup () {
 
 

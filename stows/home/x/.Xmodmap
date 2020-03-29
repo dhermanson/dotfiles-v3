@@ -6,6 +6,7 @@ clear      mod2
 clear      mod3
 clear      mod4
 clear      mod5
+! left control to Hyper_L
 ! keycode      37 = Hyper_L
 ! left alt to Super_L
 !keycode      64 = Super_L

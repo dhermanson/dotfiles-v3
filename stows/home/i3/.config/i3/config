@@ -9,9 +9,9 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
-set $moda Mod1
-set $modb ctrl
+set $super Mod4
+set $alt Mod1
+set $ctrl ctrl
 
 # https://faq.i3wm.org/question/125/how-to-change-the-systems-volume.1.html
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
@@ -42,109 +42,112 @@ focus_on_window_activation yes
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+# Use Mouse+$super to drag floating windows to their wanted position
+floating_modifier $super
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+n exec i3-sensible-terminal
-# bindsym $mod+Return exec dbus-launch gnome-terminal
+bindsym $super+Return exec i3-sensible-terminal
+bindsym $super+n exec i3-sensible-terminal
+# bindsym $super+Return exec dbus-launch gnome-terminal
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $super+Shift+c kill
 
 # start dmenu (a program launcher)
-# bindsym $mod+semicolon exec dmenu_run
-# bindsym $mod+space exec dmenu_run
-bindsym $mod+space exec rofi -show run
-bindsym $mod+p exec dmenu_run
+# bindsym $super+semicolon exec dmenu_run
+# bindsym $super+space exec dmenu_run
+# bindsym $super+space exec rofi -show run
+bindsym $super+space exec rofi -show window -width 95
+# bindsym $super+p exec dmenu_run
+# bindsym $super+p exec rofi -show run -width 95
+bindsym $super+p exec rofi -show run -width 95
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# bindsym $super+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-# bindsym $mod+semicolon focus right
+bindsym $super+h focus left
+bindsym $super+j focus down
+bindsym $super+k focus up
+bindsym $super+l focus right
+# bindsym $super+semicolon focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $super+Left focus left
+bindsym $super+Down focus down
+bindsym $super+Up focus up
+bindsym $super+Right focus right
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
-# bindsym $mod+Shift+semicolon move right
+bindsym $super+Shift+h move left
+bindsym $super+Shift+j move down
+bindsym $super+Shift+k move up
+bindsym $super+Shift+l move right
+# bindsym $super+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $super+Shift+Left move left
+bindsym $super+Shift+Down move down
+bindsym $super+Shift+Up move up
+bindsym $super+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+v split h
+bindsym $super+v split h
 
 # split in vertical orientation
-bindsym $mod+s split v
+bindsym $super+s split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $super+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+r layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $super+r layout stacking
+bindsym $super+w layout tabbed
+bindsym $super+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $super+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+x focus mode_toggle
+bindsym $super+x focus mode_toggle
 
 # focus the parent container
-bindsym $mod+d focus parent
+bindsym $super+d focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+#bindsym $super+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $super+1 workspace 1
+bindsym $super+2 workspace 2
+bindsym $super+3 workspace 3
+bindsym $super+4 workspace 4
+bindsym $super+5 workspace 5
+bindsym $super+6 workspace 6
+bindsym $super+7 workspace 7
+bindsym $super+8 workspace 8
+bindsym $super+9 workspace 9
+bindsym $super+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $super+Shift+1 move container to workspace 1
+bindsym $super+Shift+2 move container to workspace 2
+bindsym $super+Shift+3 move container to workspace 3
+bindsym $super+Shift+4 move container to workspace 4
+bindsym $super+Shift+5 move container to workspace 5
+bindsym $super+Shift+6 move container to workspace 6
+bindsym $super+Shift+7 move container to workspace 7
+bindsym $super+Shift+8 move container to workspace 8
+bindsym $super+Shift+9 move container to workspace 9
+bindsym $super+Shift+0 move container to workspace 10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $super+$ctrl+r reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $super+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $super+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -185,8 +188,8 @@ mode "$mode_screenshot" {
 
 set $mode_screenshot Screenshot: [a]ll screens | foc[u]sed window | [s]elect area 
 
-bindsym $mod+z mode "resize"
-# bindsym $mod+$moda+$modb+s      mode "$mode_screenshot"
+bindsym $super+z mode "resize"
+# bindsym $super+$alt+$ctrl+s      mode "$mode_screenshot"
 
 # class                 border  bground text    indicator child_border
 client.focused          #5D4D7A #5D4D7A #FFFFFF #A45BAD   #5D4D7A
@@ -220,24 +223,30 @@ for_window [class="^jetbrains-.+"][window_type=dialog] focus
 for_window [class="URxvt" instance="urxvtfloat"] floating enable
 for_window [class="URxvt" instance="urxvtfloat"] focus
 
-bindsym $mod+backslash exec emacsclient -c
-bindsym $mod+$moda+$modb+backslash exec create_emacs_frame_or_use_existing ~/.config/i3/config
-bindsym $mod+$modb+h workspace prev
-bindsym $mod+$modb+l workspace next
-bindsym $mod+$modb+Left workspace prev
-bindsym $mod+$modb+Right workspace next
-bindsym $mod+o exec pcmanfm
-bindsym $mod+$modb+b workspace prev
-bindsym $mod+$modb+f workspace next
-bindsym $mod+$moda+b workspace prev
-bindsym $mod+$moda+f workspace next
-bindsym $mod+$moda+$modb+s exec mpc pause
-bindsym $mod+$moda+$modb+p exec mpc play
-bindsym $mod+$moda+$modb+minus exec amixer -q set Master 2dB- unmute
-bindsym $mod+$moda+$modb+plus exec amixer -q set Master 2dB+ unmute
-bindsym $mod+$moda+$modb+x exec xmodmap ~/.Xmodmap
-bindsym Shift+$mod+$moda+$modb+l exec ~/.screenlayout/laptop_only
+bindsym $super+backslash exec emacsclient -c
+bindsym $super+$alt+$ctrl+backslash exec create_emacs_frame_or_use_existing ~/.config/i3/config
+bindsym $super+$ctrl+l focus output right
+bindsym $super+$ctrl+h focus output left
+bindsym $super+$ctrl+shift+l move container to output right
+bindsym $super+$ctrl+shift+h move container to output left
+# bindsym $super+$ctrl+Left workspace prev
+# bindsym $super+$ctrl+Right workspace next
+# bindsym $super+$ctrl+k workspace prev
+# bindsym $super+$ctrl+j workspace next
+bindsym $super+o exec deh-file-manager
+bindsym $super+$alt+$ctrl+s exec sleep 0.6 && deh-scrot
+bindsym $super+$alt+$ctrl+p exec mpc play
+bindsym $super+$alt+$ctrl+shift+p exec mpc pause
+bindsym $super+$alt+$ctrl+minus exec amixer -q set Master 2dB- unmute
+bindsym $super+$alt+$ctrl+plus exec amixer -q set Master 2dB+ unmute
+bindsym $super+$alt+$ctrl+8 exec amixer -q -c 1 set Speaker 2dB- unmute
+bindsym $super+$alt+$ctrl+9 exec amixer -q -c 1 set Speaker 2dB+ unmute
+bindsym $super+$alt+$ctrl+x exec xmodmap ~/.Xmodmap
+bindsym Shift+$super+$alt+$ctrl+h exec ~/.screenlayout/home.sh
+bindsym Shift+$super+$alt+$ctrl+w exec ~/.screenlayout/work.sh
+bindsym Shift+$super+$alt+$ctrl+l exec ~/.screenlayout/laptop_only
+bindsym Shift+$super+$alt+$ctrl+r exec nitrogen --restore
 
 
 # need to use release for slock. see https://i3wm.org/docs/userguide.html#keybindings
-bindsym --release $mod+$moda+$modb+l exec deh-lock-and-suspend
+bindsym --release $super+$alt+$ctrl+l exec deh-lock-and-suspend

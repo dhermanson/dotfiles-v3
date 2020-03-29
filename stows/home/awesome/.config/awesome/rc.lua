@@ -384,6 +384,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Control", "Mod1" }, "l", function() awful.util.spawn("deh-lock-and-suspend") end),
     awful.key({ modkey, "Control", "Mod1" }, "s", function() awful.util.spawn_with_shell("sleep 0.6 && deh-scrot") end),
     awful.key({ modkey, "Shift", "Control", "Mod1" }, "l", function() awful.util.spawn(home .. "/.screenlayout/laptop_only") end),
+    awful.key({ modkey, "Shift", "Control", "Mod1" }, "v", function() awful.util.spawn("pavucontrol") end),
     awful.key({ modkey, "Control", "Mod1" }, "h", function() awful.util.spawn(home .. "/.screenlayout/home.sh") end),
     awful.key({ modkey, "Control", "Mod1" }, "w", function() awful.util.spawn(home .. "/.screenlayout/work.sh") end),
     awful.key({ modkey, "Shift", "Control", "Mod1" }, "r", function() awful.util.spawn("nitrogen --restore") end),
@@ -426,32 +427,32 @@ clientkeys = gears.table.join(
        function (c)
           local clientOriginallyInDestination = awful.client.getmaster()
           c:swap( clientOriginallyInDestination )
-          client.focus = clientOriginallyInDestination
-          client.focus:raise()
+          -- client.focus = clientOriginallyInDestination
+          -- client.focus:raise()
        end,
        {description = "move to master", group = "client"}),
     awful.key({ modkey, "Shift" }, "e",
        function (c)
           local clientOriginallyInDestination = awful.client.next(1, awful.client.getmaster())
           c:swap( clientOriginallyInDestination )
-          client.focus = clientOriginallyInDestination
-          client.focus:raise()
+          -- client.focus = clientOriginallyInDestination
+          -- client.focus:raise()
        end,
        {description = "move to master+1", group = "client"}),
     awful.key({ modkey, "Shift" }, "r",
        function (c)
           local clientOriginallyInDestination = awful.client.next(2, awful.client.getmaster())
           c:swap( clientOriginallyInDestination )
-          client.focus = clientOriginallyInDestination
-          client.focus:raise()
+          -- client.focus = clientOriginallyInDestination
+          -- client.focus:raise()
        end,
        {description = "move to master+2", group = "client"}),
     awful.key({ modkey, "Shift" }, "t",
        function (c)
           local clientOriginallyInDestination = awful.client.next(3, awful.client.getmaster())
           c:swap( clientOriginallyInDestination )
-          client.focus = clientOriginallyInDestination
-          client.focus:raise()
+          -- client.focus = clientOriginallyInDestination
+          -- client.focus:raise()
        end,
        {description = "move to master+3", group = "client"}),
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,

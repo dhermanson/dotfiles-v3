@@ -2,6 +2,8 @@ set clipboard+=unnamed
 set relativenumber
 set number
 set vim-surround
+set vim-commentary
+set ideajoin
 
 nmap <A-h> <C-w>h
 nmap <A-j> <C-w>j
@@ -12,3 +14,6 @@ map <Space>r :action ReformatCode<CR>
 nnoremap <A-C-s> :action NewScratchFile<CR>
 
 nnoremap <C-A-r> :action ShowIntentionActions<CR>
+
+nnoremap <A-g><A-n> :action GotoNextError<CR>
+nnoremap <A-g><A-p> :action GotoPreviousError<CR>

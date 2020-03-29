@@ -12,3 +12,4 @@ nm-applet &
 volumeicon &
 blueman-applet &
 nitrogen --restore &
+#conky &

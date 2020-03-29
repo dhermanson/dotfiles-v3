@@ -86,7 +86,7 @@ myKeys = [
     ((mod4Mask .|. shiftMask .|. mod1Mask .|. controlMask, xK_equal), spawn "urxvt -e alsamixer"),
     ((mod4Mask .|. mod1Mask .|. controlMask, xK_t), sendMessage ToggleStruts),
 
-    ((mod4Mask, xK_space), spawn "rofi -show window -width 95"),
+    -- ((mod4Mask, xK_space), spawn "rofi -show window -width 95"),
     ((mod4Mask, xK_bracketleft ), sendMessage NextLayout), -- %! Rotate through the available layout algorithms
 
     -- layouts

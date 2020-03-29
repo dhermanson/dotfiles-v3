@@ -16,6 +16,7 @@ text/x-tcl=emacsclient.desktop
 text/x-tex=emacsclient.desktop
 
 
+text/html=emacsclient.desktop
 text/css=emacsclient.desktop
 text/csv=emacsclient.desktop
 text/richtext=emacsclient.desktop
@@ -44,9 +45,9 @@ text/x-go=emacsclient.desktop
 text/x-google-video-pointer=emacsclient.desktop
 text/x-haskell=emacsclient.desktop
 text/x-hex=emacsclient.desktop
-text/x-iMelody=emacsclient.desktop
 text/x-idl=emacsclient.desktop
 text/x-ihex=emacsclient.desktop
+text/x-iMelody=emacsclient.desktop
 text/x-install=emacsclient.desktop
 text/x-iptables=emacsclient.desktop
 text/x-katefilelist=emacsclient.desktop

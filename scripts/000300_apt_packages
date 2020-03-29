@@ -29,6 +29,7 @@ sudo apt install -y \
   conky \
   curl \
   dbeaver-ce \
+  diatheke \
   docker-ce \
   dolphin \
   dunst \
