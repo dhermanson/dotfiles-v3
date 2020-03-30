@@ -58,6 +58,7 @@ bindsym $super+Shift+c kill
 # bindsym $super+space exec dmenu_run
 # bindsym $super+space exec rofi -show run
 bindsym $super+space exec rofi -show window -width 95
+bindsym $super+semicolon exec rofi -show windowcd -width 95
 # bindsym $super+p exec dmenu_run
 # bindsym $super+p exec rofi -show run -width 95
 bindsym $super+p exec rofi -show run -width 95
@@ -72,6 +73,7 @@ bindsym $super+j focus down
 bindsym $super+k focus up
 bindsym $super+l focus right
 # bindsym $super+semicolon focus right
+bindsym $super+u [urgent=latest] focus
 
 # alternatively, you can use the cursor keys:
 bindsym $super+Left focus left
@@ -141,6 +143,10 @@ bindsym $super+Shift+7 move container to workspace 7
 bindsym $super+Shift+8 move container to workspace 8
 bindsym $super+Shift+9 move container to workspace 9
 bindsym $super+Shift+0 move container to workspace 10
+
+# move focused workspace
+bindsym $super+$ctrl+shift+l move workspace to output right
+bindsym $super+$ctrl+shift+h move workspace to output left
 
 # reload the configuration file
 bindsym $super+$ctrl+r reload
@@ -228,8 +234,6 @@ bindsym $super+backslash exec emacsclient -c
 bindsym $super+$alt+$ctrl+backslash exec create_emacs_frame_or_use_existing ~/.config/i3/config
 bindsym $super+$ctrl+l focus output right
 bindsym $super+$ctrl+h focus output left
-bindsym $super+$ctrl+shift+l move container to output right
-bindsym $super+$ctrl+shift+h move container to output left
 # bindsym $super+$ctrl+Left workspace prev
 # bindsym $super+$ctrl+Right workspace next
 # bindsym $super+$ctrl+k workspace prev
