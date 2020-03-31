@@ -603,18 +603,33 @@ awful.rules.rules = {
       --
       --
     -- Floating clients for emacs find file.
-    { rule_any = {
-        name = {
-          "deh-find-file",
-          "deh-tmux-find-file",
-          "alacritty",
-          "urxvtfloat",
-          -- "tmux",
-        },
-        class = {
-           "urxvtfloat"
-        }
-      }, properties = { floating = true, placement = awful.placement.centered }},
+    -- { rule_any = {
+    --     name = {
+    --       "deh-find-file",
+    --       "deh-tmux-find-file",
+    --       "alacritty",
+    --       "urxvtfloat",
+    --       -- "tmux",
+    --     },
+    --     class = {
+    --        "urxvtfloat"
+    --     }
+    -- }, properties = { floating = true, placement = awful.placement.centered }},
+    -- Floating clients for any urxvt with the class of urxvt (this is signified by urxvt's -name arg)
+    -- { rule_any = {
+    --      class = {
+    --         "URxvt",
+    --      },
+    --      instance = {
+    --         "urxvtfloat"
+    --      }
+    -- }, properties = { floating = true, placement = awful.placement.centered }},
+
+    -- Floating clients for any urxvt which has instance of "urxvtfloat" (this is signified by urxvt's -name urxvtfloat)
+    {
+       rule = { class = "URxvt", instance = "urxvtfloat" },
+       properties = { floating = true, placement = awful.placement.centered }
+    },
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
