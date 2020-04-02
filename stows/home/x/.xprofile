@@ -3,7 +3,7 @@ xrdb -load ~/.Xresources &
 xmodmap ~/.Xmodmap &
 mpd &
 dunst &
-emacs --daemon &
+#emacs --daemon &
 redshift &
 urxvtd &
 udiskie &
@@ -12,4 +12,5 @@ nm-applet &
 volumeicon &
 blueman-applet &
 nitrogen --restore &
+compton -c -C &
 #conky &
