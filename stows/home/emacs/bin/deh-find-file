@@ -1,15 +1,19 @@
 #! /bin/bash
 
-current_window=$(xdotool getwindowfocus)
-emacs_server=${1:default}
-export DEH_EMACS_SERVER_NAME=$emacs_server
+
+
+# TODO: if this doesn't work...grab the current window before calling this script
+# current_window=$(xdotool getwindowfocus)
+# emacs_server=${1:default}
+# export DEH_EMACS_SERVER_NAME=$emacs_server
+window_to_refocus=$1
 
 result=$(rg --files --hidden --follow --glob "!.git/*" | fzf --layout=reverse ) || exit $?
 # result=$(rg --files --no-ignore --hidden --follow --glob "!.git/*" | fzf) || exit $?
 file=`pwd`/$result
 
 emacsclient -n -a "" "$file"
-xdotool $current_window
+xdotool windowfocus $window_to_refocus
 # create_emacs_frame_or_use_existing $file
 
 # PIPE=$(mktemp -u)
