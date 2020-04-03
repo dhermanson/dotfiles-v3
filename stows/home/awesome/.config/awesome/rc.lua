@@ -208,7 +208,8 @@ awful.screen.connect_for_each_screen(function(s)
       -- set_wallpaper(s)
 
       -- Each screen has its own tag table.
-      awful.tag({ "1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "a ", "b ", "c ", "d ", "e ", "f ", "g ", "h ", "i ", "j ", "k ", "l ", "m ", "n ", "o ", "p ", "q ", "r ", "s ", "t ", "u ", "v ", "w ", "x ", "y ", "z " }, s, awful.layout.layouts[1])
+      -- awful.tag({ "1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "a ", "b ", "c ", "d ", "e ", "f ", "g ", "h ", "i ", "j ", "k ", "l ", "m ", "n ", "o ", "p ", "q ", "r ", "s ", "t ", "u ", "v ", "w ", "x ", "y ", "z " }, s, awful.layout.layouts[1])
+      awful.tag({ "1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "q ", "w ", "e ", "r ", "t ", "a ", "s ", "d ", "f ", "g ", "z ", "x ", "c ", "v ", "b ", "y ", "u ", "i ", "o ", "p ", "h ", "j ", "k ", "l ", "n ", "m ",  }, s, awful.layout.layouts[1])
 
       -- Create a promptbox for each screen
       s.mypromptbox = awful.widget.prompt()
@@ -545,7 +546,8 @@ end
 
 
 
-local alphabet = "abcdefghijklmnopqrstuvwxyz"
+-- local alphabet = "abcdefghijklmnopqrstuvwxyz"
+local alphabet = "qwertasdfgzxcvbyuiophjklnm"
 
 -- add comma, period, and semicolon
 
