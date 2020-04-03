@@ -12,5 +12,5 @@ nm-applet &
 volumeicon &
 blueman-applet &
 nitrogen --restore &
-compton -c -C --config ~/.config/compton/compton.conf &
-#conky &
+# compton -c -C --config ~/.config/compton/compton.conf &
+# conky &
