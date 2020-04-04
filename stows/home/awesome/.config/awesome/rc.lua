@@ -143,7 +143,9 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+-- mytextclock = wibox.widget.textclock{ format = "%a %b %d %I", refresh = 5, timezone = "local timezone" }
+-- mytextclock = wibox.widget.textclock{}
+mytextclock = wibox.widget.textclock("  %a %b %d %l:%M:%S  ", 2)
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -209,7 +211,7 @@ awful.screen.connect_for_each_screen(function(s)
 
       -- Each screen has its own tag table.
       -- awful.tag({ "1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "a ", "b ", "c ", "d ", "e ", "f ", "g ", "h ", "i ", "j ", "k ", "l ", "m ", "n ", "o ", "p ", "q ", "r ", "s ", "t ", "u ", "v ", "w ", "x ", "y ", "z " }, s, awful.layout.layouts[1])
-      awful.tag({ "1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "q ", "w ", "e ", "r ", "t ", "a ", "s ", "d ", "f ", "g ", "z ", "x ", "c ", "v ", "b ", "y ", "u ", "i ", "o ", "p ", "h ", "j ", "k ", "l ", "n ", "m ",  }, s, awful.layout.layouts[1])
+      awful.tag({ "1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "10 ", "q ", "w ", "e ", "r ", "t ", "a ", "s ", "d ", "f ", "g ", "z ", "x ", "c ", "v ", "b ", "y ", "u ", "i ", "o ", "p ", "h ", "j ", "k ", "l ", "n ", "m ",  }, s, awful.layout.layouts[1])
 
       -- Create a promptbox for each screen
       s.mypromptbox = awful.widget.prompt()
@@ -547,7 +549,7 @@ end
 
 
 -- local alphabet = "abcdefghijklmnopqrstuvwxyz"
-local alphabet = "qwertasdfgzxcvbyuiophjklnm"
+local alphabet = "0qwertasdfgzxcvbyuiophjklnm"
 
 -- add comma, period, and semicolon
 
