@@ -373,7 +373,7 @@ globalkeys = gears.table.join(
    --           {description = "show the menubar", group = "launcher"})
    
    -- My mods
-   awful.key({ modkey}, "p", function() awful.util.spawn("rofi -show run -width 95") end),
+   awful.key({ modkey}, "p", function() awful.util.spawn("rofi -show run -width 70") end),
    -- awful.key({ modkey, "Control", "Mod1" }, "x", function() awful.util.spawn("xmodmap " .. home .. "/.Xmodmap") end),
    -- awful.key({ modkey, "Control", "Mod1" }, "p", function() awful.util.spawn("mpc play") end),
    -- awful.key({ modkey, "Shift", "Control", "Mod1" }, "p", function() awful.util.spawn("mpc pause") end),
@@ -391,12 +391,12 @@ globalkeys = gears.table.join(
    -- awful.key({ modkey, "Shift", "Control", "Mod1" }, "r", function() awful.util.spawn("nitrogen --restore") end),
    awful.key({ modkey }, '\\', function() awful.util.spawn("emacsclient -c") end),
    awful.key({ modkey }, "e", function() awful.util.spawn("deh-file-manager") end),
-   awful.key({ modkey }, "space", function () awful.util.spawn("rofi -show window -width 95") end,  {description = "switch windows", group = "client"}),
-   -- awful.key({ modkey, "Control" }, "space", function () awful.util.spawn("rofi -show windowcd -width 95") end,  {description = "switch windows", group = "client"})
-   awful.key({ modkey, "Control" }, "space", function () awful.util.spawn("rofi -show windowcd -width 95") end,  {description = "switch windows", group = "client"})
-   -- awful.key({ modkey }, "g", function () awful.util.spawn("rofi -show windowcd -width 95") end,  {description = "switch windows", group = "client"}),
-   -- awful.key({ modkey }, "semicolon", function () awful.util.spawn("rofi -show windowcd -width 95") end,  {description = "switch windows", group = "client"}),
-   -- awful.key({ modkey, "Control" }, "space", function () awful.util.spawn("rofi -show run -width 95") end)
+   awful.key({ modkey }, "space", function () awful.util.spawn("rofi -show window -width 70") end,  {description = "switch windows", group = "client"}),
+   -- awful.key({ modkey, "Control" }, "space", function () awful.util.spawn("rofi -show windowcd -width 70") end,  {description = "switch windows", group = "client"})
+   awful.key({ modkey, "Control" }, "space", function () awful.util.spawn("rofi -show windowcd -width 70") end,  {description = "switch windows", group = "client"})
+   -- awful.key({ modkey }, "g", function () awful.util.spawn("rofi -show windowcd -width 70") end,  {description = "switch windows", group = "client"}),
+   -- awful.key({ modkey }, "semicolon", function () awful.util.spawn("rofi -show windowcd -width 70") end,  {description = "switch windows", group = "client"}),
+   -- awful.key({ modkey, "Control" }, "space", function () awful.util.spawn("rofi -show run -width 70") end)
 
    -- awful.key({ modkey }, "t", function () client.focus =  awful.client.next(3, awful.client.getmaster()); client.focus:raise() end,
    --            {description = "focus master+3", group = "client"})
