@@ -33,7 +33,7 @@ do
 done &
 
 # lock the screen after 10 minutes of inactivity
-xautolock -time 10 -locker slock systemctl suspend -i &
+xautolock -time 10 -locker "slock systemctl suspend -i" &
 
 
 case $session in
