@@ -2,4 +2,5 @@
 
 current_window=$(xdotool getwindowfocus)
 
-urxvtc -geometry 125x40 -name urxvtfloat -e tmux new-session -s search deh-find-file $current_window
+urxvtc -geometry 225x50 -name urxvtfloat -e tmux new-session -s search deh-find-file $current_window
+# urxvtc -geometry 125x40 -name urxvtfloat -e tmux new-session -s search deh-find-file $current_window
