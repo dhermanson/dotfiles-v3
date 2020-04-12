@@ -8,7 +8,16 @@
 # export DEH_EMACS_SERVER_NAME=$emacs_server
 window_to_refocus=$1
 
-result=$(rg --files --hidden --follow --glob "!.git/*" | fzf --layout=reverse --preview 'less {}' ) || exit $?
+result=$(rg \
+  --files \
+  --hidden \
+  --follow \
+  --glob "!.git/*" \
+  \
+  | fzf \
+  --layout=reverse --preview 'less {}'\
+  --bind "ctrl-v:preview-page-down,alt-v:preview-page-up" \
+  ) || exit $?
 # result=$(rg --files --no-ignore --hidden --follow --glob "!.git/*" | fzf) || exit $?
 file=`pwd`/$result
 
