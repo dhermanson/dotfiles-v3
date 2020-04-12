@@ -16,7 +16,7 @@ result=$(rg \
   \
   | fzf \
   --layout=reverse --preview 'less {}'\
-  --bind "ctrl-v:preview-page-down,alt-v:preview-page-up" \
+  --bind "ctrl-v:preview-page-down,alt-v:preview-page-up,alt-down:preview-down,alt-up:preview-up" \
   ) || exit $?
 # result=$(rg --files --no-ignore --hidden --follow --glob "!.git/*" | fzf) || exit $?
 file=`pwd`/$result
