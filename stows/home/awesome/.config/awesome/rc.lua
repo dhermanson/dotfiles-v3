@@ -68,6 +68,7 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
+   awful.layout.suit.spiral.dwindle,
    awful.layout.suit.tile,
    awful.layout.suit.tile.bottom,
    awful.layout.suit.tile.left,
@@ -78,9 +79,9 @@ awful.layout.layouts = {
    awful.layout.suit.spiral.dwindle,
    awful.layout.suit.magnifier,
    awful.layout.suit.corner.nw,
+   awful.layout.suit.floating,
    awful.layout.suit.max.fullscreen,
    awful.layout.suit.max,
-   awful.layout.suit.floating,
    -- awful.layout.suit.corner.ne,
    -- awful.layout.suit.corner.sw,
    -- awful.layout.suit.corner.se,
@@ -379,10 +380,10 @@ globalkeys = gears.table.join(
    -- awful.key({ modkey, "Control", "Mod1" }, "x", function() awful.util.spawn("xmodmap " .. home .. "/.Xmodmap") end),
    -- awful.key({ modkey, "Control", "Mod1" }, "p", function() awful.util.spawn("mpc play") end),
    -- awful.key({ modkey, "Shift", "Control", "Mod1" }, "p", function() awful.util.spawn("mpc pause") end),
-   -- awful.key({ modkey, "Control", "Mod1" }, "-", function() awful.util.spawn("amixer -q set Master 2dB- unmute") end),
-   -- awful.key({ modkey, "Control", "Mod1" }, "=", function() awful.util.spawn("amixer -q set Master 2dB+ unmute") end),
-   awful.key({ modkey, "Control", "Mod1" }, "-", function() awful.util.spawn("amixer -q -c 1 set Speaker 2dB- unmute") end),
-   awful.key({ modkey, "Control", "Mod1" }, "=", function() awful.util.spawn("amixer -q -c 1 set Speaker 2dB+ unmute") end),
+   awful.key({ modkey, "Control", "Mod1" }, "-", function() awful.util.spawn("amixer -q set Master 2dB- unmute") end),
+   awful.key({ modkey, "Control", "Mod1" }, "=", function() awful.util.spawn("amixer -q set Master 2dB+ unmute") end),
+   -- awful.key({ modkey, "Control", "Mod1" }, "-", function() awful.util.spawn("amixer -q -c 1 set Speaker 2dB- unmute") end),
+   -- awful.key({ modkey, "Control", "Mod1" }, "=", function() awful.util.spawn("amixer -q -c 1 set Speaker 2dB+ unmute") end),
    -- awful.key({ modkey, "Control", "Mod1" }, "a", function() awful.util.spawn("urxvtc -e sh -c 'alsamixer -c 1'") end),
    -- awful.key({ modkey, "Control", "Mod1" }, "l", function() awful.util.spawn("deh-lock-and-suspend") end),
    -- awful.key({ modkey, "Control", "Mod1" }, "s", function() awful.util.spawn_with_shell("sleep 0.6 && deh-scrot") end),
