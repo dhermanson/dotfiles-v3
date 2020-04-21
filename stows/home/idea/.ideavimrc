@@ -6,6 +6,7 @@ set vim-commentary
 set ideajoin
 
 nnoremap <A-e> :action SearchEverywhere<CR>
+nnoremap <A-a> :action GotoAction<CR>
 nnoremap <A-s> :action GotoSymbol<CR>
 nnoremap <A-f> :action GotoFile<CR>
 nnoremap <A-d> :action GotoClass<CR>
@@ -26,3 +27,4 @@ nnoremap <Space>e :action SearchEverywhere<CR>
 nnoremap <Space>k :action GotoClass<CR>
 nnoremap <Space>f :action GotoFile<CR>
 nnoremap <Space>s :action GotoSymbol<CR>
+nnoremap <Space>a :action GotoAction<CR>
