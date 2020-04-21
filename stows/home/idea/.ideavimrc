@@ -5,15 +5,24 @@ set vim-surround
 set vim-commentary
 set ideajoin
 
-nmap <A-h> <C-w>h
-nmap <A-j> <C-w>j
-nmap <A-k> <C-w>k
-nmap <A-l> <C-w>l
-nmap <A-c> <C-w>c
-map <Space>r :action ReformatCode<CR>
+nnoremap <A-e> :action SearchEverywhere<CR>
+nnoremap <A-s> :action GotoSymbol<CR>
+nnoremap <A-f> :action GotoFile<CR>
+nnoremap <A-d> :action GotoClass<CR>
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+nnoremap <A-c> <C-w>c
+
 nnoremap <A-C-s> :action NewScratchFile<CR>
-
 nnoremap <C-A-r> :action ShowIntentionActions<CR>
-
 nnoremap <A-g><A-n> :action GotoNextError<CR>
 nnoremap <A-g><A-p> :action GotoPreviousError<CR>
+
+
+nnoremap <Space>r :action ReformatCode<CR>
+nnoremap <Space>e :action SearchEverywhere<CR>
+nnoremap <Space>k :action GotoClass<CR>
+nnoremap <Space>f :action GotoFile<CR>
+nnoremap <Space>s :action GotoSymbol<CR>
