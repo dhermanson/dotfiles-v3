@@ -14,8 +14,8 @@ else
   # if [ "$?" = "1" ]; then
   #   emacsclient -s $EMACS_SERVER_NAME -c -n -a "" "$@"
   # else
-    # emacsclient -s $EMACS_SERVER_NAME -n -a "" "$@"
-    emacsclient -s $EMACS_SERVER_NAME -n "$@"
+  # emacsclient -s $EMACS_SERVER_NAME -n -a "" "$@"
+  emacsclient -s $EMACS_SERVER_NAME -n "$@"
   # fi
 fi
 

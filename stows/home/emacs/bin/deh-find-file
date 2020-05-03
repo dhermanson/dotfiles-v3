@@ -8,6 +8,7 @@
 # export DEH_EMACS_SERVER_NAME=$emacs_server
 window_to_refocus=$1
 
+  # --layout=reverse \
 result=$(rg \
   --files \
   --hidden \
@@ -15,7 +16,7 @@ result=$(rg \
   --glob "!.git/*" \
   \
   | fzf \
-  --layout=reverse --preview 'less {}'\
+  --preview 'less {}'\
   --bind "ctrl-v:preview-page-down,alt-v:preview-page-up,alt-down:preview-down,alt-up:preview-up" \
   ) || exit $?
 # result=$(rg --files --no-ignore --hidden --follow --glob "!.git/*" | fzf) || exit $?

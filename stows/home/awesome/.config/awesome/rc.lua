@@ -68,19 +68,19 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-   awful.layout.suit.tile,
+   awful.layout.suit.spiral.dwindle,
+   awful.layout.suit.corner.nw,
+   awful.layout.suit.fair.horizontal,
+   awful.layout.suit.fair,
+   awful.layout.suit.spiral,
    awful.layout.suit.tile.bottom,
    awful.layout.suit.tile.left,
    awful.layout.suit.tile.top,
-   awful.layout.suit.fair,
-   awful.layout.suit.fair.horizontal,
-   awful.layout.suit.spiral,
-   awful.layout.suit.spiral.dwindle,
    awful.layout.suit.magnifier,
-   awful.layout.suit.corner.nw,
-   awful.layout.suit.max.fullscreen,
    awful.layout.suit.max,
+   awful.layout.suit.max.fullscreen,
    awful.layout.suit.floating,
+   awful.layout.suit.tile,
    -- awful.layout.suit.corner.ne,
    -- awful.layout.suit.corner.sw,
    -- awful.layout.suit.corner.se,
@@ -392,17 +392,22 @@ globalkeys = gears.table.join(
    -- awful.key({ modkey, "Control", "Mod1" }, "w", function() awful.util.spawn(home .. "/.screenlayout/work.sh") end),
    -- awful.key({ modkey, "Shift", "Control", "Mod1" }, "r", function() awful.util.spawn("nitrogen --restore") end),
    awful.key({ modkey }, '\\', function() awful.util.spawn("emacsclient -c") end),
-   awful.key({ modkey }, "e", function() awful.util.spawn("deh-file-manager") end),
+   -- awful.key({ modkey }, "e", function() awful.util.spawn("deh-file-manager") end),
    awful.key({ modkey }, "space", function () awful.util.spawn("rofi -show window -width 70") end,  {description = "switch windows", group = "client"}),
    -- awful.key({ modkey, "Control" }, "space", function () awful.util.spawn("rofi -show windowcd -width 70") end,  {description = "switch windows", group = "client"})
-   awful.key({ modkey, "Control" }, "space", function () awful.util.spawn("rofi -show windowcd -width 70") end,  {description = "switch windows", group = "client"})
+   awful.key({ modkey, "Control" }, "space", function () awful.util.spawn("rofi -show windowcd -width 70") end,  {description = "switch windows", group = "client"}),
    -- awful.key({ modkey }, "g", function () awful.util.spawn("rofi -show windowcd -width 70") end,  {description = "switch windows", group = "client"}),
    -- awful.key({ modkey }, "semicolon", function () awful.util.spawn("rofi -show windowcd -width 70") end,  {description = "switch windows", group = "client"}),
    -- awful.key({ modkey, "Control" }, "space", function () awful.util.spawn("rofi -show run -width 70") end)
 
    -- awful.key({ modkey }, "t", function () client.focus =  awful.client.next(3, awful.client.getmaster()); client.focus:raise() end,
    --            {description = "focus master+3", group = "client"})
-
+   awful.key({ modkey }, "w", function () client.focus = awful.client.getmaster(); client.focus:raise() end,
+      {description = "focus master", group = "client"}),
+   awful.key({ modkey }, "e", function () client.focus =  awful.client.next(1, awful.client.getmaster()); client.focus:raise() end,
+      {description = "focus master+1", group = "client"}),
+   awful.key({ modkey }, "r", function () client.focus =  awful.client.next(2, awful.client.getmaster()); client.focus:raise() end,
+      {description = "focus master+2", group = "client"})
 
 )
 
@@ -413,6 +418,30 @@ clientkeys = gears.table.join(
          c:raise()
       end,
       {description = "toggle fullscreen", group = "client"}),
+   awful.key({ modkey, "Shift" }, "w",
+      function (c)
+         local clientOriginallyInDestination = awful.client.getmaster()
+         c:swap( clientOriginallyInDestination )
+         -- client.focus = clientOriginallyInDestination
+         -- client.focus:raise()
+      end,
+      {description = "move to master", group = "client"}),
+   awful.key({ modkey, "Shift" }, "e",
+      function (c)
+         local clientOriginallyInDestination = awful.client.next(1, awful.client.getmaster())
+         c:swap( clientOriginallyInDestination )
+         -- client.focus = clientOriginallyInDestination
+         -- client.focus:raise()
+      end,
+      {description = "move to master+1", group = "client"}),
+   awful.key({ modkey, "Shift" }, "r",
+      function (c)
+         local clientOriginallyInDestination = awful.client.next(2, awful.client.getmaster())
+         c:swap( clientOriginallyInDestination )
+         -- client.focus = clientOriginallyInDestination
+         -- client.focus:raise()
+      end,
+      {description = "move to master+2", group = "client"}),
    awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
       {description = "close", group = "client"}),
    -- awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
@@ -732,14 +761,14 @@ awful.rules.rules = {
 client.connect_signal("manage", function (c)
                          -- Set the windows at the slave,
                          -- i.e. put it at the end of others instead of setting it master.
-                         -- if not awesome.startup then awful.client.setslave(c) end
+                         if not awesome.startup then awful.client.setslave(c) end
 
-                         if awesome.startup and
-                            not c.size_hints.user_position
-                         and not c.size_hints.program_position then
-                            -- Prevent clients from being unreachable after screen count changes.
-                            awful.placement.no_offscreen(c)
-                         end
+                         -- if awesome.startup and
+                         --    not c.size_hints.user_position
+                         -- and not c.size_hints.program_position then
+                         --    -- Prevent clients from being unreachable after screen count changes.
+                         --    awful.placement.no_offscreen(c)
+                         -- end
 end)
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
