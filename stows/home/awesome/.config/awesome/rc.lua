@@ -211,7 +211,7 @@ awful.screen.connect_for_each_screen(function(s)
 
       -- Each screen has its own tag table.
       -- awful.tag({ "1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "a ", "b ", "c ", "d ", "e ", "f ", "g ", "h ", "i ", "j ", "k ", "l ", "m ", "n ", "o ", "p ", "q ", "r ", "s ", "t ", "u ", "v ", "w ", "x ", "y ", "z " }, s, awful.layout.layouts[1])
-      awful.tag({ "1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "10 ", "q ", "w ", "e ", "r ", "t ", "a ", "s ", "d ", "f ", "g ", "z ", "x ", "c ", "v ", "b ", "y ", "u ", "i ", "o ", "p ", "h ", "j ", "k ", "l ", "n ", "m ",  }, s, awful.layout.layouts[1])
+      awful.tag({ "1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "a ", "s ", "d ", "f ", "w ", "e ", "r ", "g ", "z ", "x ", "c ", "v ", "b "  }, s, awful.layout.layouts[1])
 
       -- Create a promptbox for each screen
       s.mypromptbox = awful.widget.prompt()
@@ -263,8 +263,8 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
-   awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
-      {description="show help", group="awesome"}),
+   -- awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
+   --    {description="show help", group="awesome"}),
    awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
       {description = "view previous", group = "tag"}),
    awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
@@ -360,16 +360,16 @@ globalkeys = gears.table.join(
    -- awful.key({ modkey, "Control", "Mod1" },            "r",     function () awful.screen.focused().mypromptbox:run() end,
    --    {description = "run prompt", group = "launcher"}),
 
-   awful.key({ modkey }, "x",
-      function ()
-         awful.prompt.run {
-            prompt       = "Run Lua code: ",
-            textbox      = awful.screen.focused().mypromptbox.widget,
-            exe_callback = awful.util.eval,
-            history_path = awful.util.get_cache_dir() .. "/history_eval"
-         }
-      end,
-      {description = "lua execute prompt", group = "awesome"}),
+   -- awful.key({ modkey }, "x",
+   --    function ()
+   --       awful.prompt.run {
+   --          prompt       = "Run Lua code: ",
+   --          textbox      = awful.screen.focused().mypromptbox.widget,
+   --          exe_callback = awful.util.eval,
+   --          history_path = awful.util.get_cache_dir() .. "/history_eval"
+   --       }
+   --    end,
+   --    {description = "lua execute prompt", group = "awesome"}),
    -- Menubar
    -- awful.key({ modkey }, "p", function() menubar.show() end,
    --           {description = "show the menubar", group = "launcher"})
@@ -402,47 +402,61 @@ globalkeys = gears.table.join(
 
    -- awful.key({ modkey }, "t", function () client.focus =  awful.client.next(3, awful.client.getmaster()); client.focus:raise() end,
    --            {description = "focus master+3", group = "client"})
-   awful.key({ modkey }, "w", function () client.focus = awful.client.getmaster(); client.focus:raise() end,
-      {description = "focus master", group = "client"}),
-   awful.key({ modkey }, "e", function () client.focus =  awful.client.next(1, awful.client.getmaster()); client.focus:raise() end,
-      {description = "focus master+1", group = "client"}),
-   awful.key({ modkey }, "r", function () client.focus =  awful.client.next(2, awful.client.getmaster()); client.focus:raise() end,
-      {description = "focus master+2", group = "client"})
+   -- awful.key({ modkey }, "w", function () client.focus = awful.client.getmaster(); client.focus:raise() end,
+   --    {description = "focus master", group = "client"}),
+   -- awful.key({ modkey }, "e", function () client.focus =  awful.client.next(1, awful.client.getmaster()); client.focus:raise() end,
+   --    {description = "focus master+1", group = "client"}),
+   -- awful.key({ modkey }, "r", function () client.focus =  awful.client.next(2, awful.client.getmaster()); client.focus:raise() end,
+   --    {description = "focus master+2", group = "client"})
 
+   --- Sound
+   -- awful.key({ }, "XF86AudioPlay", function () awful.util.spawn("mpc toggle") end),
+   awful.key({ }, "XF86AudioNext", function () awful.util.spawn("mpc next") end),
+   awful.key({ }, "XF86AudioPrev", function () awful.util.spawn("mpc prev") end),
+   awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer -c 0 set Master 1dB+") end),
+   awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer -c 0 set Master 1dB-") end),
+   awful.key({ }, "XF86AudioMute", function () awful.util.spawn("amixer -c 0 set Master toggle") end),
+
+    -- Brightness
+
+   awful.key({ }, "XF86MonBrightnessDown", function ()
+         awful.util.spawn("xbacklight -dec 10") end),
+   awful.key({ }, "XF86MonBrightnessUp", function ()
+         awful.util.spawn("xbacklight -inc 10") end)
 )
 
 clientkeys = gears.table.join(
-   awful.key({ modkey,           }, "f",
+   awful.key({ modkey,  "Mod1",  }, "f",
       function (c)
          c.fullscreen = not c.fullscreen
          c:raise()
       end,
       {description = "toggle fullscreen", group = "client"}),
-   awful.key({ modkey, "Shift" }, "w",
-      function (c)
-         local clientOriginallyInDestination = awful.client.getmaster()
-         c:swap( clientOriginallyInDestination )
-         -- client.focus = clientOriginallyInDestination
-         -- client.focus:raise()
-      end,
-      {description = "move to master", group = "client"}),
-   awful.key({ modkey, "Shift" }, "e",
-      function (c)
-         local clientOriginallyInDestination = awful.client.next(1, awful.client.getmaster())
-         c:swap( clientOriginallyInDestination )
-         -- client.focus = clientOriginallyInDestination
-         -- client.focus:raise()
-      end,
-      {description = "move to master+1", group = "client"}),
-   awful.key({ modkey, "Shift" }, "r",
-      function (c)
-         local clientOriginallyInDestination = awful.client.next(2, awful.client.getmaster())
-         c:swap( clientOriginallyInDestination )
-         -- client.focus = clientOriginallyInDestination
-         -- client.focus:raise()
-      end,
-      {description = "move to master+2", group = "client"}),
-   awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
+   -- awful.key({ modkey, "Shift" }, "w",
+   --    function (c)
+   --       local clientOriginallyInDestination = awful.client.getmaster()
+   --       c:swap( clientOriginallyInDestination )
+   --       -- client.focus = clientOriginallyInDestination
+   --       -- client.focus:raise()
+   --    end,
+   --    {description = "move to master", group = "client"}),
+   -- awful.key({ modkey, "Shift" }, "e",
+   --    function (c)
+   --       local clientOriginallyInDestination = awful.client.next(1, awful.client.getmaster())
+   --       c:swap( clientOriginallyInDestination )
+   --       -- client.focus = clientOriginallyInDestination
+   --       -- client.focus:raise()
+   --    end,
+   --    {description = "move to master+1", group = "client"}),
+   -- awful.key({ modkey, "Shift" }, "r",
+   --    function (c)
+   --       local clientOriginallyInDestination = awful.client.next(2, awful.client.getmaster())
+   --       c:swap( clientOriginallyInDestination )
+   --       -- client.focus = clientOriginallyInDestination
+   --       -- client.focus:raise()
+   --    end,
+   --    {description = "move to master+2", group = "client"}),
+   awful.key({ modkey,    }, "q",      function (c) c:kill()                         end,
       {description = "close", group = "client"}),
    -- awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
    awful.key({ modkey, "Control" }, "f",  awful.client.floating.toggle                     ,
@@ -578,7 +592,7 @@ end
 
 
 -- local alphabet = "abcdefghijklmnopqrstuvwxyz"
-local alphabet = "0qwertasdfgzxcvbyuiophjklnm"
+local alphabet = "asdfwergzxcvb"
 
 -- add comma, period, and semicolon
 
@@ -586,7 +600,7 @@ for i = 1, #alphabet do
    local alphabet_letter = alphabet:sub(i, i)
    globalkeys = gears.table.join(globalkeys,
                                  -- View tag only.
-                                 awful.key({ modkey, "Mod1" }, alphabet_letter,
+                                 awful.key({ modkey, }, alphabet_letter,
                                     function ()
                                        local screen = awful.screen.focused()
                                        local tag = screen.tags[i + 9]
@@ -596,7 +610,7 @@ for i = 1, #alphabet do
                                     end,
                                     {description = "view tag ".. alphabet_letter, group = "tag"}),
                                  -- Toggle tag display.
-                                 awful.key({ modkey, "Mod1", "Control" }, alphabet_letter,
+                                 awful.key({ modkey, "Control" }, alphabet_letter,
                                     function ()
                                        local screen = awful.screen.focused()
                                        local tag = screen.tags[i + 9]
@@ -606,7 +620,7 @@ for i = 1, #alphabet do
                                     end,
                                     {description = "toggle tag " .. alphabet_letter, group = "tag"}),
                                  -- Move client to tag.
-                                 awful.key({ modkey, "Mod1", "Shift" }, alphabet_letter,
+                                 awful.key({ modkey, "Shift" }, alphabet_letter,
                                     function ()
                                        if client.focus then
                                           local tag = client.focus.screen.tags[i + 9]
@@ -617,7 +631,7 @@ for i = 1, #alphabet do
                                     end,
                                     {description = "move focused client to tag ".. alphabet_letter, group = "tag"}),
                                  -- Toggle tag on focused client.
-                                 awful.key({ modkey, "Mod1", "Control", "Shift" }, alphabet_letter,
+                                 awful.key({ modkey, "Control", "Shift" }, alphabet_letter,
                                     function ()
                                        if client.focus then
                                           local tag = client.focus.screen.tags[i + 9]
