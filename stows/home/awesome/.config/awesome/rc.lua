@@ -211,7 +211,7 @@ awful.screen.connect_for_each_screen(function(s)
 
       -- Each screen has its own tag table.
       -- awful.tag({ "1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "a ", "b ", "c ", "d ", "e ", "f ", "g ", "h ", "i ", "j ", "k ", "l ", "m ", "n ", "o ", "p ", "q ", "r ", "s ", "t ", "u ", "v ", "w ", "x ", "y ", "z " }, s, awful.layout.layouts[1])
-      awful.tag({ "1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "a ", "s ", "d ", "f ", "w ", "e ", "r ", "g ", "z ", "x ", "c ", "v ", "b "  }, s, awful.layout.layouts[1])
+      awful.tag({ "1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "a ", "s ", "d ", "q ", "w ", "e ", "r ", "g ", "z ", "x ", "v ", "b "  }, s, awful.layout.layouts[1])
 
       -- Create a promptbox for each screen
       s.mypromptbox = awful.widget.prompt()
@@ -426,7 +426,7 @@ globalkeys = gears.table.join(
 )
 
 clientkeys = gears.table.join(
-   awful.key({ modkey,  }, "t",
+   awful.key({ modkey,  }, "f",
       function (c)
          c.fullscreen = not c.fullscreen
          c:raise()
@@ -456,10 +456,10 @@ clientkeys = gears.table.join(
    --       -- client.focus:raise()
    --    end,
    --    {description = "move to master+2", group = "client"}),
-   awful.key({ modkey,    }, "q",      function (c) c:kill()                         end,
+   awful.key({ modkey, "Shift",    }, "c",      function (c) c:kill()                         end,
       {description = "close", group = "client"}),
    -- awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
-   awful.key({ modkey, "Control" }, "t",  awful.client.floating.toggle                     ,
+   awful.key({ modkey, "Control" }, "f",  awful.client.floating.toggle                     ,
       {description = "toggle floating", group = "client"}),
    awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
       {description = "move to master", group = "client"}),
@@ -592,7 +592,7 @@ end
 
 
 -- local alphabet = "abcdefghijklmnopqrstuvwxyz"
-local alphabet = "asdfwergzxcvb"
+local alphabet = "asdqwergzxvb"
 
 -- add comma, period, and semicolon
 
@@ -749,24 +749,6 @@ awful.rules.rules = {
    -- Set Firefox to always map on the tag named "2" on screen 1.
    -- { rule = { class = "Firefox" },
    --   properties = { screen = 1, tag = "2" } },
-
-   -- Intellij
-
-   -- {
-   --    rule = {
-   --       class = "jetbrains-.*",
-   --       instance = "sun-awt-X11-XWindowPeer",
-   --       name = "win.*"
-   --    },
-   --    properties = {
-   --       floating = true,
-   --       focus = true,
-   --       focusable = false,
-   --       ontop = true,
-   --       placement = awful.placement.restore,
-   --       buttons = {}
-   --    }
-   -- },
 }
 -- }}}
 
