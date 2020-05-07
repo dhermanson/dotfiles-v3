@@ -1,4 +1,15 @@
 ---
+
+window:
+
+  dimensions:
+    columns: 90
+    lines: 20
+
+  padding:
+    x: 0
+    y: 0
+
 # Base16 Zenburn 256 - alacritty color config
 # elnawe
 colors:

@@ -1,8 +1,1 @@
-# pnmixer &
 tint2 &
-compton -c -C &
-nitrogen --restore &
-# dunst &
-# udiskie &
-xautolock -time 10 -locker slock &
-# xfce4-panel &

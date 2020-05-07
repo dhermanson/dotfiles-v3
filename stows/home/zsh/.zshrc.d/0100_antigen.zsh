@@ -15,9 +15,9 @@ antigen bundle tmux
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Load the theme.
-antigen theme robbyrussell
+# antigen theme robbyrussell
 # antigen theme candy
-# antigen theme bira
+antigen theme bira
 # antigen theme theunraveler
 # antigen theme bender
 # antigen theme gozilla

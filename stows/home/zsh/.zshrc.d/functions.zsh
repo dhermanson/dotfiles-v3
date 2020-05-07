@@ -9,11 +9,11 @@ function jc {
 function e() {
     if [ $# -eq 0 ]; then
         # file=$(fzf) && create_emacs_frame_or_use_existing $file
-        file=$(fzf) && et $file
+        file=$(fzf) && ec $file
         # file=$(fzf) && emacsclient -n -a "" $file
 
     else
-      et "$@"
+      ec "$@"
         # create_emacs_frame_or_use_existing $@
     fi
 }

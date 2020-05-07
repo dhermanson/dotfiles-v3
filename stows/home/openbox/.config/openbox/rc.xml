@@ -26,6 +26,7 @@
   </focus>
   <placement>
     <policy>UnderMouse</policy>
+    <!-- <policy>UnderMouse</policy> -->
     <!-- 'Smart' or 'UnderMouse' -->
     <center>yes</center>
     <!-- whether to place windows in the center of the free area found or
@@ -185,12 +186,6 @@
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
     <!-- Keybindings for desktop switching -->
-    <keybind key="C-A-Left">
-      <action name="GoToDesktop">
-        <to>left</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
     <keybind key="W-1">
       <action name="GoToDesktop">
         <to>1</to>
@@ -329,13 +324,6 @@
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="C-A-Right">
-      <action name="GoToDesktop">
-        <wrap>yes</wrap>
-        <to>right</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
     <keybind key="W-C-l">
       <action name="GoToDesktop">
         <wrap>yes</wrap>
@@ -347,18 +335,6 @@
       <action name="GoToDesktop">
         <wrap>yes</wrap>
         <to>right</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="C-A-Up">
-      <action name="GoToDesktop">
-        <to>up</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="C-A-Down">
-      <action name="GoToDesktop">
-        <to>down</to>
         <wrap>no</wrap>
       </action>
     </keybind>
@@ -549,6 +525,7 @@
     </keybind>
     <keybind key="W-q">
       <action name="Execute">
+        <raise>yes</raise>
         <command>openbox --reconfigure</command>
       </action>
     </keybind>
@@ -896,26 +873,6 @@
           <to>next</to>
         </action>
       </mousebind>
-      <mousebind button="C-A-Up" action="Click">
-        <action name="GoToDesktop">
-          <to>previous</to>
-        </action>
-      </mousebind>
-      <mousebind button="C-A-Down" action="Click">
-        <action name="GoToDesktop">
-          <to>next</to>
-        </action>
-      </mousebind>
-      <mousebind button="A-S-Up" action="Click">
-        <action name="SendToDesktop">
-          <to>previous</to>
-        </action>
-      </mousebind>
-      <mousebind button="A-S-Down" action="Click">
-        <action name="SendToDesktop">
-          <to>next</to>
-        </action>
-      </mousebind>
     </context>
     <context name="Titlebar">
       <mousebind button="Left" action="Drag">
@@ -1125,16 +1082,6 @@
         </action>
       </mousebind>
       <mousebind button="A-Down" action="Click">
-        <action name="GoToDesktop">
-          <to>next</to>
-        </action>
-      </mousebind>
-      <mousebind button="C-A-Up" action="Click">
-        <action name="GoToDesktop">
-          <to>previous</to>
-        </action>
-      </mousebind>
-      <mousebind button="C-A-Down" action="Click">
         <action name="GoToDesktop">
           <to>next</to>
         </action>

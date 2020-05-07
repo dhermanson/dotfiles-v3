@@ -68,19 +68,19 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
+   awful.layout.suit.tile,
+   awful.layout.suit.tile.bottom,
    awful.layout.suit.spiral.dwindle,
    awful.layout.suit.corner.nw,
    awful.layout.suit.fair.horizontal,
    awful.layout.suit.fair,
    awful.layout.suit.spiral,
-   awful.layout.suit.tile.bottom,
    awful.layout.suit.tile.left,
    awful.layout.suit.tile.top,
    awful.layout.suit.magnifier,
    awful.layout.suit.max,
    awful.layout.suit.max.fullscreen,
    awful.layout.suit.floating,
-   awful.layout.suit.tile,
    -- awful.layout.suit.corner.ne,
    -- awful.layout.suit.corner.sw,
    -- awful.layout.suit.corner.se,
@@ -323,9 +323,9 @@ globalkeys = gears.table.join(
    -- Standard program
    awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
       {description = "open a terminal", group = "launcher"}),
-   awful.key({ modkey, "Control" }, "r", awesome.restart,
+   awful.key({ modkey, "Mod1", "Control" }, "r", awesome.restart,
       {description = "reload awesome", group = "awesome"}),
-   awful.key({ modkey, "Shift"   }, "q", awesome.quit,
+   awful.key({ modkey, "Mod1", "Control", "Shift"   }, "q", awesome.quit,
       {description = "quit awesome", group = "awesome"}),
 
    awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
@@ -384,13 +384,13 @@ globalkeys = gears.table.join(
    awful.key({ modkey, "Shift", "Control", "Mod1" }, "-", function() awful.util.spawn("amixer -q -c 1 set Speaker 2dB- unmute") end),
    awful.key({ modkey, "Shift", "Control", "Mod1" }, "=", function() awful.util.spawn("amixer -q -c 1 set Speaker 2dB+ unmute") end),
    -- awful.key({ modkey, "Control", "Mod1" }, "a", function() awful.util.spawn("urxvtc -e sh -c 'alsamixer -c 1'") end),
-   -- awful.key({ modkey, "Control", "Mod1" }, "l", function() awful.util.spawn("deh-lock-and-suspend") end),
+   awful.key({ modkey, "Control", "Mod1" }, "l", function() awful.util.spawn("deh-lock-and-suspend") end),
    -- awful.key({ modkey, "Control", "Mod1" }, "s", function() awful.util.spawn_with_shell("sleep 0.6 && deh-scrot") end),
-   -- awful.key({ modkey, "Shift", "Control", "Mod1" }, "l", function() awful.util.spawn(home .. "/.screenlayout/laptop_only") end),
+   awful.key({ modkey, "Shift", "Control", "Mod1" }, "l", function() awful.util.spawn(home .. "/.screenlayout/laptop_only") end),
    -- awful.key({ modkey, "Shift", "Control", "Mod1" }, "v", function() awful.util.spawn("pavucontrol") end),
-   -- awful.key({ modkey, "Control", "Mod1" }, "h", function() awful.util.spawn(home .. "/.screenlayout/home.sh") end),
-   -- awful.key({ modkey, "Control", "Mod1" }, "w", function() awful.util.spawn(home .. "/.screenlayout/work.sh") end),
-   -- awful.key({ modkey, "Shift", "Control", "Mod1" }, "r", function() awful.util.spawn("nitrogen --restore") end),
+   awful.key({ modkey, "Control", "Mod1" }, "h", function() awful.util.spawn(home .. "/.screenlayout/home.sh") end),
+   awful.key({ modkey, "Control", "Mod1" }, "w", function() awful.util.spawn(home .. "/.screenlayout/work.sh") end),
+   awful.key({ modkey, "Shift", "Control", "Mod1" }, "r", function() awful.util.spawn("nitrogen --restore") end),
    awful.key({ modkey }, '\\', function() awful.util.spawn("emacsclient -c") end),
    -- awful.key({ modkey }, "e", function() awful.util.spawn("deh-file-manager") end),
    awful.key({ modkey }, "space", function () awful.util.spawn("rofi -show window -width 70") end,  {description = "switch windows", group = "client"}),
@@ -426,7 +426,7 @@ globalkeys = gears.table.join(
 )
 
 clientkeys = gears.table.join(
-   awful.key({ modkey,  "Mod1",  }, "f",
+   awful.key({ modkey,  }, "t",
       function (c)
          c.fullscreen = not c.fullscreen
          c:raise()
@@ -459,7 +459,7 @@ clientkeys = gears.table.join(
    awful.key({ modkey,    }, "q",      function (c) c:kill()                         end,
       {description = "close", group = "client"}),
    -- awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
-   awful.key({ modkey, "Control" }, "f",  awful.client.floating.toggle                     ,
+   awful.key({ modkey, "Control" }, "t",  awful.client.floating.toggle                     ,
       {description = "toggle floating", group = "client"}),
    awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
       {description = "move to master", group = "client"}),
@@ -467,8 +467,8 @@ clientkeys = gears.table.join(
       {description = "move to master", group = "client"}),
    awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
       {description = "move to screen", group = "client"}),
-   awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
-      {description = "toggle keep on top", group = "client"}),
+   -- awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
+   --    {description = "toggle keep on top", group = "client"}),
    awful.key({ modkey,           }, "n",
       function (c)
          -- The client currently has the input focus, so it cannot be
@@ -752,21 +752,21 @@ awful.rules.rules = {
 
    -- Intellij
 
-   {
-      rule = {
-         class = "jetbrains-.*",
-         instance = "sun-awt-X11-XWindowPeer",
-         name = "win.*"
-      },
-      properties = {
-         floating = true,
-         focus = true,
-         focusable = false,
-         ontop = true,
-         placement = awful.placement.restore,
-         buttons = {}
-      }
-   },
+   -- {
+   --    rule = {
+   --       class = "jetbrains-.*",
+   --       instance = "sun-awt-X11-XWindowPeer",
+   --       name = "win.*"
+   --    },
+   --    properties = {
+   --       floating = true,
+   --       focus = true,
+   --       focusable = false,
+   --       ontop = true,
+   --       placement = awful.placement.restore,
+   --       buttons = {}
+   --    }
+   -- },
 }
 -- }}}
 

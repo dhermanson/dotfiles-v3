@@ -82,6 +82,7 @@ sudo apt install -y \
   sqlite3 \
   stalonetray \
   stow \
+  suckless-tools \
   taffybar \
   texlive \
   texlive-fonts-extra \
