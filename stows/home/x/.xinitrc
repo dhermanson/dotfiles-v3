@@ -32,8 +32,8 @@ do
     sleep 1
 done &
 
-# lock the screen after 10 minutes of inactivity
-xautolock -time 10 -locker "slock systemctl suspend -i" &
+# lock the screen after 30 minutes of inactivity
+xautolock -time 30 -locker "slock systemctl suspend -i" &
 # wmname LG3D
 
 

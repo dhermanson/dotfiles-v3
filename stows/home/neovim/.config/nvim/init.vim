@@ -8,6 +8,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'challenger-deep-theme/vim'
 Plug 'jnurmine/Zenburn'
+Plug 'arcticicestudio/nord-vim'
 " Plug 'icymind/NeoSolarized'
 
 " Essentials
@@ -244,7 +245,6 @@ if !has('nvim')
   set ttymouse=xterm2
 endif
 
-augroup END
 
 " let g:loaded_matchit = 1
 
@@ -255,13 +255,13 @@ augroup END
 " let g:gruvbox_invert_signs=1
 " let g:gruvbox_contrast_dark='medium'
 " let g:gruvbox_invert_selection=0
-" let g:gruvbox_italic=1
+" " let g:gruvbox_italic=1
 " colorscheme gruvbox
 " highlight SignColumn ctermbg=236
 " highlight VertSplit ctermbg=236
 " highlight Comment cterm=italic
 " let g:airline_theme='gruvbox'
-" let g:airline_powerline_fonts = 1
+" let g:airline_powerline_fonts = 0
 
 colorscheme zenburn
 let g:airline_theme='zenburn'
@@ -271,6 +271,18 @@ let g:airline_right_sep=''
 let g:airline_symbols = {}		
 let g:airline_theme='zenburn'
 let g:airline_powerline_fonts = 1
+
+" colorscheme nord
+
+" let g:solarized_termcolors=256
+" colorscheme solarized
+" let g:airline_theme='solarized'
+" let g:airline#extensions#ale#enabled = 1
+" let g:airline_left_sep=''		
+" let g:airline_right_sep=''		
+" let g:airline_symbols = {}		
+" let g:airline_theme='solarized'
+" let g:airline_powerline_fonts = 0
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -283,6 +295,8 @@ let maplocalleader = ","
 if has('nvim')
   tnoremap <silent> <M-Backspace> <C-\><C-n>
 endif
+
+inoremap jk <Esc>
 
 " map empty project mapping to noop...cuz sometimes i forget what i'm doing
 nnoremap <Leader>p <Nop>

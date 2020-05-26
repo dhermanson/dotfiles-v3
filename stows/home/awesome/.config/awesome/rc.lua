@@ -78,9 +78,9 @@ awful.layout.layouts = {
    awful.layout.suit.tile.left,
    awful.layout.suit.tile.top,
    awful.layout.suit.magnifier,
-   awful.layout.suit.max,
-   awful.layout.suit.max.fullscreen,
    awful.layout.suit.floating,
+   awful.layout.suit.max.fullscreen,
+   awful.layout.suit.max,
    -- awful.layout.suit.corner.ne,
    -- awful.layout.suit.corner.sw,
    -- awful.layout.suit.corner.se,
@@ -211,7 +211,7 @@ awful.screen.connect_for_each_screen(function(s)
 
       -- Each screen has its own tag table.
       -- awful.tag({ "1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "a ", "b ", "c ", "d ", "e ", "f ", "g ", "h ", "i ", "j ", "k ", "l ", "m ", "n ", "o ", "p ", "q ", "r ", "s ", "t ", "u ", "v ", "w ", "x ", "y ", "z " }, s, awful.layout.layouts[1])
-      awful.tag({ "1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "a ", "s ", "d ", "q ", "w ", "e ", "r ", "g ", "z ", "x ", "v ", "b "  }, s, awful.layout.layouts[1])
+      awful.tag({ "1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "0 ", "a ", "s ", "d ", "q ", "w ", "e ", "r ", "g ", "z ", "x ", "v ", "b "  }, s, awful.layout.layouts[1])
 
       -- Create a promptbox for each screen
       s.mypromptbox = awful.widget.prompt()
@@ -385,7 +385,7 @@ globalkeys = gears.table.join(
    awful.key({ modkey, "Shift", "Control", "Mod1" }, "=", function() awful.util.spawn("amixer -q -c 1 set Speaker 2dB+ unmute") end),
    -- awful.key({ modkey, "Control", "Mod1" }, "a", function() awful.util.spawn("urxvtc -e sh -c 'alsamixer -c 1'") end),
    awful.key({ modkey, "Control", "Mod1" }, "l", function() awful.util.spawn("deh-lock-and-suspend") end),
-   -- awful.key({ modkey, "Control", "Mod1" }, "s", function() awful.util.spawn_with_shell("sleep 0.6 && deh-scrot") end),
+   awful.key({ modkey, "Control", "Shift", "Mod1" }, "s", function() awful.util.spawn_with_shell("sleep 0.6 && deh-scrot") end),
    awful.key({ modkey, "Shift", "Control", "Mod1" }, "l", function() awful.util.spawn(home .. "/.screenlayout/laptop_only") end),
    -- awful.key({ modkey, "Shift", "Control", "Mod1" }, "v", function() awful.util.spawn("pavucontrol") end),
    awful.key({ modkey, "Control", "Mod1" }, "h", function() awful.util.spawn(home .. "/.screenlayout/home.sh") end),
@@ -592,7 +592,7 @@ end
 
 
 -- local alphabet = "abcdefghijklmnopqrstuvwxyz"
-local alphabet = "asdqwergzxvb"
+local alphabet = "0asdqwergzxvb"
 
 -- add comma, period, and semicolon
 

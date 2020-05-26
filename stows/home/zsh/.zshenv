@@ -1,5 +1,5 @@
-export EDITOR="emacsclient -t"
-export VISUAL="emacsclient -t"
+export EDITOR="emacsclient"
+export VISUAL="emacsclient"
 # export EDITOR="nvim"
 export TERMINAL="urxvtc"
 # export DEH_EMACS_SERVER_NAME=server

@@ -2,15 +2,12 @@ xset r rate 250 80 &
 xrdb -load ~/.Xresources &
 xmodmap ~/.Xmodmap &
 mpd &
-dunst &
-# emacs --daemon &
-redshift &
 urxvtd &
+dunst &
+redshift &
 udiskie &
 dropbox start &
 nm-applet &
 volumeicon &
 blueman-applet &
 nitrogen --restore &
-compton -c -C --config ~/.config/compton/compton.conf &
-# conky &

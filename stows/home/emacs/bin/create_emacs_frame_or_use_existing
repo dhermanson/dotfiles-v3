@@ -2,7 +2,11 @@
 
 if [[ -z "${EMACS_SERVER_NAME}" ]]; then
   # default case
-  emacsclient -n -e "(if (> (length (frame-list)) 1) 't)" | grep t
+  # emacsclient -n -e "(if (> (length (frame-list)) 1) 't)" | grep t
+  # todo: make this better
+  # wmctrl -l | grep -i emacs
+  # https://unix.stackexchange.com/questions/254820/xdotool-how-to-search-for-window-by-title-and-class-with-different-patterns-si
+  xdotool search --class --onlyvisible emacs
   if [ "$?" = "1" ]; then
     emacsclient -c -n -a "" "$@"
   else
