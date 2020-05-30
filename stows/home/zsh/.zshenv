@@ -1,7 +1,7 @@
 export EDITOR="emacsclient"
 export VISUAL="emacsclient"
 # export EDITOR="nvim"
-export TERMINAL="urxvtc"
+# export TERMINAL="urxvtc"
 # export DEH_EMACS_SERVER_NAME=server
 # export TERMINAL="alacritty"
 # export TERMINAL="konsole"

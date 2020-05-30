@@ -202,7 +202,7 @@ filetype plugin indent on
 set termguicolors
 set t_Co=256
 " set background=light
-set background=dark
+set background=light
 set completeopt=noinsert,menuone,noselect " ncm2 needs these set this way
 set timeout timeoutlen=1000 ttimeoutlen=100
 set tabstop=2
@@ -251,26 +251,26 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors / Interface
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:gruvbox_italic=0
-" let g:gruvbox_invert_signs=1
-" let g:gruvbox_contrast_dark='medium'
-" let g:gruvbox_invert_selection=0
-" " let g:gruvbox_italic=1
-" colorscheme gruvbox
-" highlight SignColumn ctermbg=236
-" highlight VertSplit ctermbg=236
-" highlight Comment cterm=italic
-" let g:airline_theme='gruvbox'
-" let g:airline_powerline_fonts = 0
+let g:gruvbox_italic=0
+let g:gruvbox_invert_signs=1
+let g:gruvbox_contrast_dark='medium'
+let g:gruvbox_invert_selection=0
+" let g:gruvbox_italic=1
+colorscheme gruvbox
+highlight SignColumn ctermbg=236
+highlight VertSplit ctermbg=236
+highlight Comment cterm=italic
+let g:airline_theme='gruvbox'
+let g:airline_powerline_fonts = 0
 
-colorscheme zenburn
-let g:airline_theme='zenburn'
-let g:airline#extensions#ale#enabled = 1
-let g:airline_left_sep=''		
-let g:airline_right_sep=''		
-let g:airline_symbols = {}		
-let g:airline_theme='zenburn'
-let g:airline_powerline_fonts = 1
+" colorscheme zenburn
+" let g:airline_theme='zenburn'
+" let g:airline#extensions#ale#enabled = 1
+" let g:airline_left_sep=''		
+" let g:airline_right_sep=''		
+" let g:airline_symbols = {}		
+" let g:airline_theme='zenburn'
+" let g:airline_powerline_fonts = 1
 
 " colorscheme nord
 

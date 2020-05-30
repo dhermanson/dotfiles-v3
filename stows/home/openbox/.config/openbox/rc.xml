@@ -25,7 +25,7 @@
        mouse into it, also raise the window -->
   </focus>
   <placement>
-    <policy>UnderMouse</policy>
+    <policy>Smart</policy>
     <!-- <policy>UnderMouse</policy> -->
     <!-- 'Smart' or 'UnderMouse' -->
     <center>yes</center>
@@ -43,7 +43,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Nightmare</name>
+    <name>Syscrash</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -121,19 +121,13 @@
 
        use obconf if you want to change these without having to log out
        and back in -->
-    <number>10</number>
+    <number>4</number>
     <firstdesk>1</firstdesk>
     <names>
       <name>Desktop 1</name>
       <name>Desktop 2</name>
       <name>Desktop 3</name>
       <name>Desktop 4</name>
-      <name>Desktop 5</name>
-      <name>Desktop 6</name>
-      <name>Desktop 7</name>
-      <name>Desktop 8</name>
-      <name>Desktop 9</name>
-      <name>Desktop 10</name>
     </names>
     <popupTime>400</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
@@ -185,7 +179,6 @@
   </dock>
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
-    <!-- Keybindings for desktop switching -->
     <keybind key="W-1">
       <action name="GoToDesktop">
         <to>1</to>
@@ -296,116 +289,7 @@
         <follow>no</follow>
       </action>
     </keybind>
-    <keybind key="W-Left">
-      <action name="GoToDesktop">
-        <wrap>yes</wrap>
-        <to>left</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="W-Right">
-      <action name="GoToDesktop">
-        <wrap>yes</wrap>
-        <to>right</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="W-C-h">
-      <action name="GoToDesktop">
-        <wrap>yes</wrap>
-        <to>left</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="W-p">
-      <action name="GoToDesktop">
-        <wrap>yes</wrap>
-        <to>left</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="W-C-l">
-      <action name="GoToDesktop">
-        <wrap>yes</wrap>
-        <to>right</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="W-n">
-      <action name="GoToDesktop">
-        <wrap>yes</wrap>
-        <to>right</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="W-S-Left">
-      <action name="SendToDesktop">
-        <to>left</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="W-S-Right">
-      <action name="SendToDesktop">
-        <to>right</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="W-S-p">
-      <action name="SendToDesktop">
-        <to>left</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="W-S-n">
-      <action name="SendToDesktop">
-        <to>right</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="W-C-S-h">
-      <action name="SendToDesktop">
-        <to>left</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="W-C-S-l">
-      <action name="SendToDesktop">
-        <to>right</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="S-A-Up">
-      <action name="SendToDesktop">
-        <to>up</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="S-A-Down">
-      <action name="SendToDesktop">
-        <to>down</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="W-F1">
-      <action name="GoToDesktop">
-        <to>1</to>
-      </action>
-    </keybind>
-    <keybind key="W-F2">
-      <action name="GoToDesktop">
-        <to>2</to>
-      </action>
-    </keybind>
-    <keybind key="W-F3">
-      <action name="GoToDesktop">
-        <to>3</to>
-      </action>
-    </keybind>
-    <keybind key="W-F4">
-      <action name="GoToDesktop">
-        <to>4</to>
-      </action>
-    </keybind>
+    <!-- Keybindings for desktop switching -->
     <keybind key="W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
@@ -498,11 +382,11 @@
         <command>nitrogen --restore</command>
       </action>
     </keybind>
-    <keybind key="W-space">
-      <action name="Execute">
-        <command>rofi -show window -width 95</command>
-      </action>
-    </keybind>
+    <!-- <keybind key="W-space"> -->
+    <!--   <action name="Execute"> -->
+    <!--     <command>rofi -show window -width 95</command> -->
+    <!--   </action> -->
+    <!-- </keybind> -->
     <keybind key="W-C-space">
       <action name="Execute">
         <command>rofi -show run</command>
@@ -515,7 +399,7 @@
     </keybind>
     <keybind key="W-Return">
       <action name="Execute">
-        <command>urxvtc</command>
+        <command>x-terminal-emulator</command>
       </action>
     </keybind>
     <keybind key="W-backslash">
@@ -553,89 +437,7 @@
         </finalactions>
       </action>
     </keybind>
-    <keybind key="W-j">
-      <!-- <keybind key="W-bracketleft"> -->
-      <action name="NextWindow">
-        <raise>yes</raise>
-        <finalactions>
-          <action name="Focus"/>
-          <action name="Raise"/>
-          <action name="Unshade"/>
-        </finalactions>
-      </action>
-    </keybind>
-    <keybind key="W-Down">
-      <action name="NextWindow">
-        <raise>yes</raise>
-        <finalactions>
-          <action name="Focus"/>
-          <action name="Raise"/>
-          <action name="Unshade"/>
-        </finalactions>
-      </action>
-    </keybind>
-    <keybind key="W-A-j">
-      <action name="NextWindow">
-        <raise>yes</raise>
-        <finalactions>
-          <action name="Focus"/>
-          <action name="Raise"/>
-          <action name="Unshade"/>
-        </finalactions>
-      </action>
-    </keybind>
-    <keybind key="W-C-j">
-      <action name="NextWindow">
-        <raise>yes</raise>
-        <finalactions>
-          <action name="Focus"/>
-          <action name="Raise"/>
-          <action name="Unshade"/>
-        </finalactions>
-      </action>
-    </keybind>
     <keybind key="W-S-Tab">
-      <action name="PreviousWindow">
-        <raise>yes</raise>
-        <finalactions>
-          <action name="Focus"/>
-          <action name="Raise"/>
-          <action name="Unshade"/>
-        </finalactions>
-      </action>
-    </keybind>
-    <!-- <keybind key="W-k"> -->
-    <!--   <!-\- <keybind key="W-bracketright"> -\-> -->
-    <!--   <action name="PreviousWindow"> -->
-    <!--     <raise>yes</raise> -->
-    <!--     <finalactions> -->
-    <!--       <action name="Focus"/> -->
-    <!--       <action name="Raise"/> -->
-    <!--       <action name="Unshade"/> -->
-    <!--     </finalactions> -->
-    <!--   </action> -->
-    <!-- </keybind> -->
-    <keybind key="W-Up">
-      <action name="PreviousWindow">
-        <raise>yes</raise>
-        <finalactions>
-          <action name="Focus"/>
-          <action name="Raise"/>
-          <action name="Unshade"/>
-        </finalactions>
-      </action>
-    </keybind>
-    <keybind key="W-A-k">
-      <action name="PreviousWindow">
-        <raise>yes</raise>
-        <finalactions>
-          <action name="Focus"/>
-          <action name="Raise"/>
-          <action name="Unshade"/>
-        </finalactions>
-      </action>
-    </keybind>
-    <keybind key="W-C-k">
       <action name="PreviousWindow">
         <raise>yes</raise>
         <finalactions>
@@ -648,17 +450,6 @@
     <keybind key="A-S-Tab">
       <action name="PreviousWindow">
         <raise>yes</raise>
-        <finalactions>
-          <action name="Focus"/>
-          <action name="Raise"/>
-          <action name="Unshade"/>
-        </finalactions>
-      </action>
-    </keybind>
-    <keybind key="C-A-Tab">
-      <action name="NextWindow">
-        <panels>yes</panels>
-        <desktop>yes</desktop>
         <finalactions>
           <action name="Focus"/>
           <action name="Raise"/>
@@ -679,128 +470,7 @@
     <keybind key="W-S-c">
       <action name="Close"/>
     </keybind>
-    <!-- Keybindings for window switching with the arrow keys -->
-    <keybind key="W-S-Right">
-      <action name="DirectionalCycleWindows">
-        <direction>right</direction>
-      </action>
-    </keybind>
-    <keybind key="W-S-Left">
-      <action name="DirectionalCycleWindows">
-        <direction>left</direction>
-      </action>
-    </keybind>
-    <keybind key="W-S-Up">
-      <action name="DirectionalCycleWindows">
-        <direction>up</direction>
-      </action>
-    </keybind>
-    <keybind key="W-S-Down">
-      <action name="DirectionalCycleWindows">
-        <direction>down</direction>
-      </action>
-    </keybind>
     <!-- Keybindings for window switching with the hjkl keys -->
-    <keybind key="W-l">
-      <action name="DirectionalCycleWindows">
-        <raise>yes</raise>
-        <direction>right</direction>
-      </action>
-    </keybind>
-    <!-- <keybind key="W-l"> -->
-    <!--   <action name="GoToDesktop"> -->
-    <!--     <wrap>yes</wrap> -->
-    <!--     <to>right</to> -->
-    <!--     <wrap>no</wrap> -->
-    <!--   </action> -->
-    <!-- </keybind> -->
-    <keybind key="W-h">
-      <action name="DirectionalCycleWindows">
-        <raise>yes</raise>
-        <direction>left</direction>
-      </action>
-    </keybind>
-    <!-- <keybind key="W-h"> -->
-    <!--   <action name="GoToDesktop"> -->
-    <!--     <wrap>yes</wrap> -->
-    <!--     <to>left</to> -->
-    <!--     <wrap>no</wrap> -->
-    <!--   </action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="W-k"> -->
-    <!--   <action name="DirectionalCycleWindows"> -->
-    <!--     <raise>yes</raise> -->
-    <!--     <direction>up</direction> -->
-    <!--   </action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="W-j"> -->
-    <!--   <action name="DirectionalCycleWindows"> -->
-    <!--     <raise>yes</raise> -->
-    <!--     <direction>down</direction> -->
-    <!--   </action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="W-j"> -->
-    <!--   <action name="NextWindow"> -->
-    <!--     <raise>yes</raise> -->
-    <!--     <finalactions> -->
-    <!--       <action name="Focus"/> -->
-    <!--       <action name="Raise"/> -->
-    <!--       <action name="Unshade"/> -->
-    <!--     </finalactions> -->
-    <!--   </action> -->
-    <!-- </keybind> -->
-    <keybind key="W-k">
-      <action name="PreviousWindow">
-        <raise>yes</raise>
-        <finalactions>
-          <action name="Focus"/>
-          <action name="Raise"/>
-          <action name="Unshade"/>
-        </finalactions>
-      </action>
-    </keybind>
-    <keybind key="W-g">
-      <action name="GrowToEdge">
-        <direction>north</direction>
-      </action>
-      <action name="GrowToEdge">
-        <direction>south</direction>
-      </action>
-      <action name="GrowToEdge">
-        <direction>east</direction>
-      </action>
-      <action name="GrowToEdge">
-        <direction>west</direction>
-      </action>
-    </keybind>
-    <keybind key="W-S-h">
-      <action name="UnmaximizeFull"/>
-      <action name="MaximizeVert"/>
-      <action name="MoveResizeTo">
-        <width>50%</width>
-      </action>
-      <action name="MoveToEdgeWest"/>
-    </keybind>
-    <keybind key="W-S-l">
-      <action name="UnmaximizeFull"/>
-      <action name="MaximizeVert"/>
-      <action name="MoveResizeTo">
-        <width>50%</width>
-      </action>
-      <action name="MoveToEdgeEast"/>
-    </keybind>
-    <!-- Keybindings for running applications -->
-    <keybind key="W-e">
-      <action name="Execute">
-        <!-- TODO: learn how to use this startupnotify thing below -->
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>dolphin</name>
-        </startupnotify>
-        <command>deh-file-manager</command>
-      </action>
-    </keybind>
-    <!-- Launch scrot when Print is pressed -->
     <keybind key="Print">
       <action name="Execute">
         <command>scrot</command>
