@@ -43,7 +43,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Syscrash</name>
+    <name>Nightmare</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -179,6 +179,18 @@
   </dock>
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
+
+    <keybind key="XF86MonBrightnessUp">
+        <action name="Execute">
+            <command>xbacklight +10</command>
+        </action>
+    </keybind>
+    <keybind key="XF86MonBrightnessDown">
+        <action name="Execute"> 
+            <command>xbacklight -10</command>
+        </action>
+    </keybind>
+
     <keybind key="W-1">
       <action name="GoToDesktop">
         <to>1</to>

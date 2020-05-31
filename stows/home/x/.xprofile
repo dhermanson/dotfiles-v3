@@ -7,8 +7,8 @@ dunst &
 redshift &
 udiskie &
 dropbox start &
-#nm-applet &
-#volumeicon &
+# nm-applet &
+# volumeicon &
 blueman-applet &
 nitrogen --restore &
 compton -c -C --config ~/.config/compton/compton.conf &
