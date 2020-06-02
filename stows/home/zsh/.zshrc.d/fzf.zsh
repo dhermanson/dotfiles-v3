@@ -1,35 +1,33 @@
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# https://github.com/fnune/base16-fzf/blob/master/bash/base16-gruvbox-light-medium.config
+# Base16 Gruvbox light, medium
+# Author: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
+
 _gen_fzf_default_opts() {
-  local base03="234"
-  local base02="235"
-  local base01="240"
-  local base00="241"
-  local base0="244"
-  local base1="245"
-  local base2="254"
-  local base3="230"
-  local yellow="136"
-  local orange="166"
-  local red="160"
-  local magenta="125"
-  local violet="61"
-  local blue="33"
-  local cyan="37"
-  local green="64"
 
-  # Comment and uncomment below for the light theme.
+local color00='#fbf1c7'
+local color01='#ebdbb2'
+local color02='#d5c4a1'
+local color03='#bdae93'
+local color04='#665c54'
+local color05='#504945'
+local color06='#3c3836'
+local color07='#282828'
+local color08='#9d0006'
+local color09='#af3a03'
+local color0A='#b57614'
+local color0B='#79740e'
+local color0C='#427b58'
+local color0D='#076678'
+local color0E='#8f3f71'
+local color0F='#d65d0e'
 
-  # Solarized Dark color scheme for fzf
-  # export FZF_DEFAULT_OPTS="
-  #   --color fg:-1,bg:-1,hl:$blue,fg+:$base2,bg+:$base02,hl+:$blue
-  #   --color info:$yellow,prompt:$yellow,pointer:$base3,marker:$base3,spinner:$yellow
-  # "
-  
-  # Solarized Light color scheme for fzf
-  export FZF_DEFAULT_OPTS="
-    --color fg:-1,bg:-1,hl:$blue,fg+:$base02,bg+:$base2,hl+:$blue
-    --color info:$yellow,prompt:$yellow,pointer:$base03,marker:$base03,spinner:$yellow
-  "
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS"\
+" --color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color0D"\
+" --color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C"\
+" --color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color0D"
+
 }
-_gen_fzf_default_opts set background=dark
+
+_gen_fzf_default_opts

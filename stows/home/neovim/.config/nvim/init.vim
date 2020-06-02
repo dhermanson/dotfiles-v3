@@ -251,16 +251,16 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors / Interface
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:gruvbox_italic=0
-" let g:gruvbox_invert_signs=1
+" let g:gruvbox_italic=1
+" let g:gruvbox_invert_signs=0
 " let g:gruvbox_contrast_dark='medium'
 let g:gruvbox_contrast_light='medium'
-" let g:gruvbox_invert_selection=0
+let g:gruvbox_invert_selection=0
 " let g:gruvbox_italic=1
 colorscheme gruvbox
 " highlight SignColumn ctermbg=236
 " highlight VertSplit ctermbg=236
-highlight Comment cterm=italic
+" highlight Comment cterm=italic
 let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 0
 
