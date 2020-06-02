@@ -10,50 +10,36 @@ window:
     x: 0
     y: 0
 
-# Base16 Zenburn 256 - alacritty color config
-# elnawe
+# Colors (Gruvbox light)
 colors:
   # Default colors
   primary:
-    background: '0x3F3F3F'
-    # background: '0x3A3A3A'
-    foreground: '0xdcdccc'
-
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text: '0x3A3A3A'
-    cursor: '0xdcdccc'
+    # hard contrast: background = '#f9f5d7'
+    background: '#fbf1c7'
+    # soft contrast: background = '#f2e5bc'
+    foreground: '#3c3836'
 
   # Normal colors
   normal:
-    black:   '0x3A3A3A'
-    red:     '0xdca3a3'
-    green:   '0x5f7f5f'
-    yellow:  '0xe0cf9f'
-    blue:    '0x7cb8bb'
-    magenta: '0xdc8cc3'
-    cyan:    '0x93e0e3'
-    white:   '0xdcdccc'
+    black:   '#fbf1c7'
+    red:     '#cc241d'
+    green:   '#98971a'
+    yellow:  '#d79921'
+    blue:    '#458588'
+    magenta: '#b16286'
+    cyan:    '#689d6a'
+    white:   '#7c6f64'
 
   # Bright colors
   bright:
-    black:   '0x6f6f6f'
-    red:     '0xdca3a3'
-    green:   '0x5f7f5f'
-    yellow:  '0xe0cf9f'
-    blue:    '0x7cb8bb'
-    magenta: '0xdc8cc3'
-    cyan:    '0x93e0e3'
-    white:   '0xffffff'
-
-  indexed_colors:
-    - { index: 16, color: '0xdfaf8f' }
-    - { index: 17, color: '0x000000' }
-    - { index: 18, color: '0x404040' }
-    - { index: 19, color: '0x606060' }
-    - { index: 20, color: '0x808080' }
-    - { index: 21, color: '0xc0c0c0' }
-
+    black:   '#928374'
+    red:     '#9d0006'
+    green:   '#79740e'
+    yellow:  '#b57614'
+    blue:    '#076678'
+    magenta: '#8f3f71'
+    cyan:    '#427b58'
+    white:   '#3c3836'
 # font:
 #   # it seems like "size" must appear before others
 #   size: 8.0
