@@ -3,59 +3,60 @@
 window:
 
   dimensions:
-    columns: 90
+    columns: 70
     lines: 20
 
   padding:
     x: 0
     y: 0
 
-# Base16 Gruvbox light, medium 256 - alacritty color config
-# Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
+  # https://github.com/aaron-williamson/base16-alacritty/blob/master/colors/base16-github-256.yml
+# Base16 Github 256 - alacritty color config
+# Defman21
 colors:
   # Default colors
   primary:
-    background: '0xfbf1c7'
-    foreground: '0x504945'
+    background: '0xffffff'
+    foreground: '0x333333'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0xfbf1c7'
-    cursor: '0x504945'
+    text: '0xffffff'
+    cursor: '0x333333'
 
   # Normal colors
   normal:
-    black:   '0xfbf1c7'
-    red:     '0x9d0006'
-    green:   '0x79740e'
-    yellow:  '0xb57614'
-    blue:    '0x076678'
-    magenta: '0x8f3f71'
-    cyan:    '0x427b58'
-    white:   '0x504945'
+    black:   '0xffffff'
+    red:     '0xed6a43'
+    green:   '0x183691'
+    yellow:  '0x795da3'
+    blue:    '0x795da3'
+    magenta: '0xa71d5d'
+    cyan:    '0x183691'
+    white:   '0x333333'
 
   # Bright colors
   bright:
-    black:   '0xbdae93'
-    red:     '0x9d0006'
-    green:   '0x79740e'
-    yellow:  '0xb57614'
-    blue:    '0x076678'
-    magenta: '0x8f3f71'
-    cyan:    '0x427b58'
-    white:   '0x282828'
+    black:   '0x969896'
+    red:     '0xed6a43'
+    green:   '0x183691'
+    yellow:  '0x795da3'
+    blue:    '0x795da3'
+    magenta: '0xa71d5d'
+    cyan:    '0x183691'
+    white:   '0xffffff'
 
   indexed_colors:
-    - { index: 16, color: '0xaf3a03' }
-    - { index: 17, color: '0xd65d0e' }
-    - { index: 18, color: '0xebdbb2' }
-    - { index: 19, color: '0xd5c4a1' }
-    - { index: 20, color: '0x665c54' }
-    - { index: 21, color: '0x3c3836' }
+    - { index: 16, color: '0x0086b3' }
+    - { index: 17, color: '0x333333' }
+    - { index: 18, color: '0xf5f5f5' }
+    - { index: 19, color: '0xc8c8fa' }
+    - { index: 20, color: '0xe8e8e8' }
+    - { index: 21, color: '0xffffff' }
 
 font:
   # it seems like "size" must appear before others
-  size: 9.0
+  size: 7.0
   normal:
     family: Monaco
     style: Regular
