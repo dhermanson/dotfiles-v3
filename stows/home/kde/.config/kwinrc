@@ -2,8 +2,8 @@
 OpenGLIsUnsafe=false
 
 [Desktops]
-Number=10
-Rows=1
+Number=9
+Rows=3
 
 [Effect-CoverSwitch]
 TabBox=false
@@ -20,10 +20,10 @@ Meta=
 CommandActiveTitlebar1=Raise
 CommandActiveTitlebar2=Start window tab drag
 CommandActiveTitlebar3=Operations menu
-CommandAll1=Move
+CommandAll1=Activate, raise and move
 CommandAll2=Toggle raise and lower
 CommandAll3=Resize
-CommandAllKey=Alt
+CommandAllKey=Meta
 CommandAllWheel=Nothing
 CommandInactiveTitlebar1=Activate and raise
 CommandInactiveTitlebar2=Start window tab drag
@@ -35,35 +35,35 @@ CommandWindow3=Activate and pass click
 CommandWindowWheel=Scroll
 
 [Plugins]
-blurEnabled=false
-contrastEnabled=false
-coverswitchEnabled=true
+blurEnabled[$d]
+contrastEnabled[$d]
+coverswitchEnabled[$d]
 cubeslideEnabled=false
 desktopchangeosdEnabled=false
-desktopgridEnabled=false
+desktopgridEnabled[$d]
 flipswitchEnabled[$d]
 highlightwindowEnabled=true
-kwin4_effect_dialogparentEnabled=false
-kwin4_effect_fadeEnabled=false
+kwin4_effect_dialogparentEnabled[$d]
+kwin4_effect_fadeEnabled[$d]
 kwin4_effect_fadedesktopEnabled=false
-kwin4_effect_frozenappEnabled=false
-kwin4_effect_loginEnabled=false
-kwin4_effect_logoutEnabled=false
-kwin4_effect_maximizeEnabled=false
-kwin4_effect_morphingpopupsEnabled=false
-kwin4_effect_translucencyEnabled=false
-kwin4_effect_windowapertureEnabled=false
-minimizeanimationEnabled=false
-presentwindowsEnabled=false
-screenedgeEnabled=false
+kwin4_effect_frozenappEnabled[$d]
+kwin4_effect_loginEnabled[$d]
+kwin4_effect_logoutEnabled[$d]
+kwin4_effect_maximizeEnabled[$d]
+kwin4_effect_morphingpopupsEnabled[$d]
+kwin4_effect_translucencyEnabled[$d]
+kwin4_effect_windowapertureEnabled[$d]
+minimizeanimationEnabled[$d]
+presentwindowsEnabled[$d]
+screenedgeEnabled[$d]
 slideEnabled=false
-slidingpopupsEnabled=false
+slidingpopupsEnabled[$d]
 windowgeometryEnabled=false
-zoomEnabled=false
+zoomEnabled[$d]
 
 [Script-desktopchangeosd]
 PopupHideDelay=1000
-TextOnly=false
+TextOnly=true
 
 [TabBox]
 ActivitiesMode=1
@@ -72,7 +72,7 @@ DesktopLayout=org.kde.breeze.desktop
 DesktopListLayout=org.kde.breeze.desktop
 DesktopMode=1
 HighlightWindows=true
-LayoutName=org.kde.breezedark.desktop
+LayoutName=org.kde.breeze.desktop
 MinimizedMode=0
 MultiScreenMode=0
 ShowDesktopMode=0
