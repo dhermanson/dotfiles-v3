@@ -1,32 +1,32 @@
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# https://github.com/fnune/base16-fzf/blob/master/bash/base16-gruvbox-light-medium.config
-# Base16 Gruvbox light, medium
-# Author: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
+# https://raw.githubusercontent.com/fnune/base16-fzf/master/bash/base16-github.config
+# Base16 Github
+# Author: Defman21
 
 _gen_fzf_default_opts() {
 
-local color00='#fbf1c7'
-local color01='#ebdbb2'
-local color02='#d5c4a1'
-local color03='#bdae93'
-local color04='#665c54'
-local color05='#504945'
-local color06='#3c3836'
-local color07='#282828'
-local color08='#9d0006'
-local color09='#af3a03'
-local color0A='#b57614'
-local color0B='#79740e'
-local color0C='#427b58'
-local color0D='#076678'
-local color0E='#8f3f71'
-local color0F='#d65d0e'
+local color00='#ffffff'
+local color01='#f5f5f5'
+local color02='#c8c8fa'
+local color03='#969896'
+local color04='#e8e8e8'
+local color05='#333333'
+local color06='#ffffff'
+local color07='#ffffff'
+local color08='#ed6a43'
+local color09='#0086b3'
+local color0A='#795da3'
+local color0B='#183691'
+local color0C='#183691'
+local color0D='#795da3'
+local color0E='#a71d5d'
+local color0F='#333333'
 
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS"\
 " --color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color0D"\
-" --color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C"\
-" --color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color0D"
+" --color=fg:$color05,header:$color0D,info:$color0A,pointer:$color0C"\
+" --color=marker:$color0C,fg+:$color0E,prompt:$color0A,hl+:$color0D"
 
 }
 

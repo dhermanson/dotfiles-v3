@@ -7,7 +7,7 @@ dunst &
 redshift &
 udiskie &
 dropbox start &
-# nm-applet &
+nm-applet &
 # volumeicon &
 blueman-applet &
 nitrogen --restore &
