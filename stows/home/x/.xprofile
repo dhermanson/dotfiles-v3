@@ -4,11 +4,16 @@ xmodmap ~/.Xmodmap &
 mpd &
 #urxvtd &
 dunst &
-redshift &
+redshift -O 2800 &
 udiskie &
-dropbox start &
-nm-applet &
-# volumeicon &
-blueman-applet &
-nitrogen --restore &
+#dropbox start &
+#blueman-applet &
+#nitrogen --restore &
+
+
+
+# skippy-xd --start-daemon &
 compton -c -C --config ~/.config/compton/compton.conf &
+# redshift &
+# nm-applet &
+# volumeicon &

@@ -9,6 +9,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'challenger-deep-theme/vim'
 Plug 'jnurmine/Zenburn'
 Plug 'arcticicestudio/nord-vim'
+Plug 'chriskempson/base16-vim'
 " Plug 'icymind/NeoSolarized'
 
 " Essentials
@@ -185,7 +186,7 @@ let g:deh#repl#repls = {
     \ }
 
 " fzf
-let g:fzf_prefer_tmux = 0
+let g:fzf_prefer_tmux = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -250,19 +251,19 @@ endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors / Interface
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:gruvbox_italic=1
-" let g:gruvbox_invert_signs=0
-" let g:gruvbox_contrast_dark='medium'
-let g:gruvbox_contrast_light='medium'
-let g:gruvbox_invert_selection=0
-" let g:gruvbox_italic=1
-colorscheme gruvbox
-" highlight SignColumn ctermbg=236
-" highlight VertSplit ctermbg=236
-" highlight Comment cterm=italic
-let g:airline_theme='gruvbox'
-let g:airline_powerline_fonts = 0
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" " let g:gruvbox_italic=1
+" " let g:gruvbox_invert_signs=0
+" " let g:gruvbox_contrast_dark='medium'
+" let g:gruvbox_contrast_light='medium'
+" let g:gruvbox_invert_selection=0
+" " let g:gruvbox_italic=1
+"  colorscheme gruvbox
+" " highlight SignColumn ctermbg=236
+" " highlight VertSplit ctermbg=236
+" " highlight Comment cterm=italic
+" let g:airline_theme='gruvbox'
+" let g:airline_powerline_fonts = 0
 
 " colorscheme zenburn
 " let g:airline_theme='zenburn'
@@ -285,6 +286,7 @@ let g:airline_powerline_fonts = 0
 " let g:airline_theme='solarized'
 " let g:airline_powerline_fonts = 0
 
+colorscheme base16-github
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keyboard Mappings

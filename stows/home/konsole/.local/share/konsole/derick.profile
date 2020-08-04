@@ -1,5 +1,5 @@
 [Appearance]
-ColorScheme=Gruvbox_dark
+ColorScheme=SolarizedLight
 Font=Monaco,14,-1,5,50,0,0,0,0,0,Regular
 
 [General]

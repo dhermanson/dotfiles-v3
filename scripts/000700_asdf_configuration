@@ -2,8 +2,8 @@
 
 # nodejs
 asdf plugin-add nodejs
-asdf install nodejs 14.2.0
-asdf global nodejs 14.2.0
+asdf install nodejs 12.18.0
+asdf global nodejs 12.18.0
 
 # java
 asdf plugin-add java
@@ -19,9 +19,8 @@ asdf global maven 3.6.2
 
 # gradle
 asdf plugin-add gradle
-asdf install gradle 4.9
-asdf install gradle 5.1
-asdf global gradle 5.1
+asdf install gradle 6.5.1
+asdf global gradle 6.5.1
 
 # python
 asdf plugin-add python

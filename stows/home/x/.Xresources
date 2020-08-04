@@ -34,7 +34,7 @@ Xft*rgba:      rgb
 !! URXVT
 ! https://wiki.archlinux.org/index.php/rxvt-unicode
 ! URxvt*.termName: rxvt-unicode-256color
-URxvt*font: xft:Monaco:style=Regular:size=14:antialias=true:hinting=true
+URxvt*font: xft:Monaco:style=Regular:size=12:antialias=true:hinting=true
 ! URxvt*font: xft:Source\ Code\ Pro\ for\ Powerline:pixelsize=28:antialias=true:hinting=true,xft:Source\ Code\ Pro\ for\ Powerline:pixelsize=28:antialias=true:hinting=true
 ! /* URxvt*font: xft:Source Code Pro:style=Regular:size=18:antialias=true:hinting=true */
 ! /* URxvt*font: xft:Source\ Code\ Pro:pixelsize=24:antialias=true:hinting=true,xft:Source\ Code\ Pro:pixelsize=24:antialias=true:hinting=true */
@@ -68,6 +68,7 @@ URxvt*letterSpace: -1
 !the termName of 'rxvt-unicode' is needed so that urxvt reports tmux window titles
 /* URxvt*termName: rxvt-unicode */
 URxvt*termName: xterm-256color
+/* URxvt*modifier: mod4 */
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 URxvt.scrollBar: false
@@ -124,7 +125,8 @@ URxvt*scrollBar: false
 
 ! #include ".Xresources.d/themes/zenburn.xresources"
 ! #include ".Xresources.d/themes/gruvbox-dark.xresources"
-#include ".Xresources.d/themes/gruvbox-light.xresources"
+! #include ".Xresources.d/themes/gruvbox-light.xresources"
+! #include ".Xresources.d/themes/base16-github-256.xresources"
 ! #include ".Xresources.d/themes/base16-zenburn.xresources"
 ! #include ".Xresources.d/themes/base16-tomorrow-night.xresources"
 ! #include ".Xresources.d/themes/challenger-deep.xresources"
@@ -133,4 +135,4 @@ URxvt*scrollBar: false
 ! #include ".Xresources.d/themes/one-dark.xresources"
 ! #include ".Xresources.d/themes/dracula.xresources"
 ! #include ".Xresources.d/themes/solarized-dark.xresources"
-! #include ".Xresources.d/themes/solarized-light.xresources"
+#include ".Xresources.d/themes/solarized-light.xresources"

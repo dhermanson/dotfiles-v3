@@ -12,16 +12,19 @@ clear      mod5
 !keycode      64 = Super_L
 ! caps lock to Control_r
 keycode      66 = Control_R
-! printscrn to Super_L
+! right printscrn to alt_l
 keycode     107 = Super_L
+! right alt to Super_L
+! keycode     108 = Super_L
 ! right control to Hyper_L
 !keycode     105 = Hyper_L
 ! keycode     107 = Control_L
-! page up to Hyper_L
-keycode     112 = Hyper_L
+! right command to Hyper_L
+keycode     134 = Hyper_L
 add     control = Control_L Control_R
 add        mod1 = Alt_L Alt_R Meta_L
 add        mod2 = Num_Lock
 add        mod3 = Hyper_L
-add        mod4 = Super_L Super_R
+! add        mod4 = Super_L Super_R
+add        mod4 = Super_L
 add        mod5 = Mode_switch ISO_Level3_Shift
