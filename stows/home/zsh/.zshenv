@@ -40,8 +40,8 @@ export PATH=$PATH:$GOPATH/bin
 
 # java home
 # export JAVA_HOME=/usr/lib/jvm/java-11-oracle
-# export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
 # export JAVA_HOME=/usr/lib/jvm/jdk-11.0.3+7
-export JAVA_HOME=/usr/lib/jvm/jdk8u212-b04
+# export JAVA_HOME=/usr/lib/jvm/jdk8u212-b04
 # export JAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto
 # export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
