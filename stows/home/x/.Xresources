@@ -34,7 +34,7 @@ Xft*rgba:      rgb
 !! URXVT
 ! https://wiki.archlinux.org/index.php/rxvt-unicode
 ! URxvt*.termName: rxvt-unicode-256color
-URxvt*font: xft:Monaco:style=Regular:size=12:antialias=true:hinting=true
+URxvt*font: xft:Monaco:style=Regular:size=16:antialias=true:hinting=true
 ! URxvt*font: xft:Source\ Code\ Pro\ for\ Powerline:pixelsize=28:antialias=true:hinting=true,xft:Source\ Code\ Pro\ for\ Powerline:pixelsize=28:antialias=true:hinting=true
 ! /* URxvt*font: xft:Source Code Pro:style=Regular:size=18:antialias=true:hinting=true */
 ! /* URxvt*font: xft:Source\ Code\ Pro:pixelsize=24:antialias=true:hinting=true,xft:Source\ Code\ Pro:pixelsize=24:antialias=true:hinting=true */
