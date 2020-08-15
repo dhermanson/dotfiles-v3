@@ -1,2 +1,3 @@
-rofi.theme: gruvbox-light-soft
+# rofi.theme: gruvbox-light-soft
+rofi.theme: Paper
 rofi.font: Monaco 18
