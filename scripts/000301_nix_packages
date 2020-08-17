@@ -1,9 +1,0 @@
-#! /bin/bash
-
-        # mongodb \
-nix-env -i \
-        cscope \
-        kotlin \
-        neovim \
-        neovim-qt \
-        universal-ctags

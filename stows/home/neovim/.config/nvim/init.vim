@@ -65,7 +65,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'pangloss/vim-javascript' "javascript
 Plug 'udalov/kotlin-vim' "kotlin
 Plug 'HerringtonDarkholme/yats.vim' "typescript
-Plug 'lervag/vimtex' "latex
+" Plug 'lervag/vimtex' "latex
 Plug 'aklt/plantuml-syntax' "plantuml
 Plug 'chr4/nginx.vim' " nginx
 

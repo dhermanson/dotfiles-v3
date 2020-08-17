@@ -5,13 +5,13 @@ set -e
 # repo_root=$(git rev-parse --show-toplevel)
 repo_root=$(cat $HOME/.config/deh/dotfiles-repo-root)
 
-pushd
+pushd .
 cd $repo_root/stows/home/asdf/.asdf
 git checkout v0.5.1
 popd
 
-pushd
-cd $repo_root/stows/home/java/repos/eclipse/eclipse.jdt.ls
-git checkout v0.30.0b
-./mvnw clean verify
-popd
+#pushd
+#cd $repo_root/stows/home/java/repos/eclipse/eclipse.jdt.ls
+#git checkout v0.30.0b
+#./mvnw clean verify
+#popd

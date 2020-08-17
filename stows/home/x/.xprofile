@@ -1,11 +1,11 @@
 xset r rate 250 80 &
 xrdb -load ~/.Xresources &
 xmodmap ~/.Xmodmap &
-mpd &
+#mpd &
 #urxvtd &
-dunst &
-redshift -O 2800 &
-udiskie &
+#dunst &
+#redshift -O 2800 &
+#udiskie &
 #dropbox start &
 #blueman-applet &
 #nitrogen --restore &
@@ -13,7 +13,7 @@ udiskie &
 
 
 # skippy-xd --start-daemon &
-compton -c -C --config ~/.config/compton/compton.conf &
+#compton -c -C --config ~/.config/compton/compton.conf &
 # redshift &
 # nm-applet &
 # volumeicon &
