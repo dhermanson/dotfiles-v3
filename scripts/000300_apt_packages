@@ -25,11 +25,13 @@ sudo apt install -y \
   emacs \
   git \
   graphviz \
+  libsqlite3-dev \
   jq \
   neovim \
   pwgen \
   python3-pip \
   ripgrep \
+  sqlite3 \
   stow \
   tmux \
   tree \
