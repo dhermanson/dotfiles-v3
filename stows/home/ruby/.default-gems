@@ -1,9 +1,0 @@
-bundler
-commander
-dotenv
-gem-ctags
-jekyll
-mailcatcher
-neovim
-pry
-pry-doc

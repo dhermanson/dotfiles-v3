@@ -23,3 +23,7 @@ I restarted and was able to use the key again. I found lots more unwanted bindin
 ```
 (for schema in $(gsettings list-schemas); do gsettings list-recursively $schema; done) | grep '<Super>'
 ```
+
+## submodules
+https://stackoverflow.com/questions/10168449/git-update-submodules-recursively
+`git submodule --init --recursive`
