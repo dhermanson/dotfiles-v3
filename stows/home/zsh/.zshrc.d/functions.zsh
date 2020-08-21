@@ -14,6 +14,9 @@ function e() {
         emacsclient -n -a "" "$@"
         # ec $@
     fi
+
+    emacsclient -n --eval '(select-frame-set-input-focus (selected-frame))'
+
 }
 
 function i() {
