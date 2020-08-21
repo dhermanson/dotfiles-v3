@@ -30,6 +30,9 @@ export XDG_CONFIG_HOME=$HOME/.config
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.local/bin
 
+# ruby
+export PATH=$PATH:$HOME/.rbenv/bin
+
 # php
 export PATH=$PATH:$HOME/.config/composer/vendor/bin
 

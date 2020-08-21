@@ -1,3 +1,6 @@
 [submodule "stows/home/gnome-terminal/.config/base16-gnome-terminal"]
 	path = stows/home/gnome-terminal/.config/base16-gnome-terminal
 	url = https://github.com/aaron-williamson/base16-gnome-terminal.git
+[submodule "stows/home/ruby/.rbenv"]
+	path = stows/home/ruby/.rbenv
+	url = https://github.com/rbenv/rbenv.git
