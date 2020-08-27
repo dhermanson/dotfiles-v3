@@ -1,138 +1,138 @@
-! *font: xft:Source Code Pro:style=Reguler:size=14:antialias=true:hinting=true
-! *boldFont: xft:Source Code Pro:style=Bold:size=14:antialias=true:hinting=true
-! *italicFont: xft:Source Code Pro:style=Oblique:size=14:antialias=true:hinting=true
-! *boldItalicFont: xft:Source Code Pro:style=Bold Oblique:size=14:antialias=true:hinting=true
-
-! emacs*font: Source Code Pro:size=14:antialias=true:hinting=true
-! emacs*font: Source Code Pro-16
-! emacs*boldFont: Source Code Pro:size=16:antialias=true:hinting=true
-! emacs*italicFont: Source Code Pro:style=Oblique:size=16:antialias=true:hinting=true
-! emacs*boldItalicFont: Source Code Pro:style=Bold Oblique:size=16:antialias=true:hinting=true
-! emacs*font: Monaco-14
-! emacs*boldFont: xft:Monaco:style=Bold:size=14:antialias=true:hinting=true
-! emacs*italicFont: xft:Monaco:style=Oblique:size=14:antialias=true:hinting=true
-! emacs*boldItalicFont: xft:Monaco:style=Bold Oblique:size=14:antialias=true:hinting=true
-
-! TODO: update these to use proper italics
-! emacs*font: Hack-18
-! emacs*boldFont: xft:Hack:style=Bold:size=18:antialias=true:hinting=true
-! emacs*italicFont: xft:Hack:style=Oblique:size=18:antialias=true:hinting=true
-! emacs*boldItalicFont: xft:Hack:style=Bold Oblique:size=18:antialias=true:hinting=true
-! emacs*font: Source Code Pro for Powerline:size=12
-! emacs*boldFont: Source Code Pro for Powerline:style=Bold:size=18:antialias=true:hinting=true
-! emacs*italicFont: Source Code Pro for Powerline:style=Italic:size=18:antialias=true:hinting=true
-! emacs*boldItalicFont: Source Code Pro for Powerline:style=Bold Italic:size=18:antialias=true:hinting=true
-
-
-! XFT and Font settings
-Xft*dpi:       96
-Xft*antialias: true
-Xft*hinting:   true
-Xft*hintstyle: hintfull
-Xft*rgba:      rgb
-
-!! URXVT
-! https://wiki.archlinux.org/index.php/rxvt-unicode
-! URxvt*.termName: rxvt-unicode-256color
-URxvt*font: xft:Monaco:style=Regular:size=16:antialias=true:hinting=true
-! URxvt*font: xft:Source\ Code\ Pro\ for\ Powerline:pixelsize=28:antialias=true:hinting=true,xft:Source\ Code\ Pro\ for\ Powerline:pixelsize=28:antialias=true:hinting=true
-! /* URxvt*font: xft:Source Code Pro:style=Regular:size=18:antialias=true:hinting=true */
-! /* URxvt*font: xft:Source\ Code\ Pro:pixelsize=24:antialias=true:hinting=true,xft:Source\ Code\ Pro:pixelsize=24:antialias=true:hinting=true */
-!URxvt*font: xft:Meslo LG M DZ Regular for Powerline:size=14
-!URxvt*font: xft:Inconsolata-g for Powerline:size=14
-!URxvt*font: xft:FuraMono-Regular Powerline:size=14
-!URxvt*font: xft:Source Code Pro for Powerline:size=14
-! URxvt*font: xft:Source Code Pro for Powerline:pixelsize=18:antialias=true:hinting=true
-! URxvt*font: xft:Hack-Regular:pixelsize=20:antialias=true:hinting=true
-!URxvt.font: xft:Anonymous Pro for Powerline:pixelsize=36
-!URxvt.font: xft:Monofur for Powerline:pixelsize=36
-!URxvt.font: xft:Bitstream Vera Sans Mono for Powerline:pixelsize=36
-!URxvt.font: xft:DejaVu Sans Mono for Powerline:pixelsize=24
-!URxvt.font: xft:Droid Sans Mono for Powerline:pixelsize=36
-!URxvt.font: xft:Inconsolata for Powerline:pixelsize=36
-!URxvt.font: xft:Terminus (TTF) for Powerline:pixelsize=36
-!URxvt.font: xft:Inconsolata\-dz for Powerline:pixelsize=36
-!URxvt.font: xft:Liberation Mono for Powerline:pixelsize=36
-!URxvt.font: xft:Meslo LG L DZ for Powerline:pixelsize=36
-!URxvt.font: xft:Meslo LG L for Powerline:pixelsize=36
-!URxvt.font: xft:Meslo LG M DZ for Powerline:pixelsize=36
-!URxvt.font: xft:Meslo LG M for Powerline:pixelsize=36
-!URxvt.font: xft:Meslo LG S DZ for Powerline:pixelsize=36
-!URxvt.font: xft:Meslo LG S for Powerline:pixelsize=36
-!URxvt.font: xft:Source Code Pro for Powerline:pixelsize=36
-!URxvt.font: xft:Terminess Powerline:pixelsize=32:style=bold
-!URxvt.font: xft:Ubuntu Mono derivative Powerline:pixelsize=36
-!URxvt.font: xft:Literation Mono Powerline:pixelsize=36
-URxvt*letterSpace: -1
-/* URxvt*termName: rxvt-256color */
-!the termName of 'rxvt-unicode' is needed so that urxvt reports tmux window titles
-/* URxvt*termName: rxvt-unicode */
-URxvt*termName: xterm-256color
-/* URxvt*modifier: mod4 */
-URxvt.iso14755: false
-URxvt.iso14755_52: false
-URxvt.scrollBar: false
-/* URxvt.perl-ext: */
-URxvt.perl-ext-common: resize-font,fullscreen,dolphin
-URxvt.keysym.F11: perl:fullscreen:switch
-URxvt.keysym.Mod3-f: perl:fullscreen:switch
-URxvt.keysym.Mod3-e: perl:dolphin:open
-URxvt.iconFile: /usr/share/icons/Tango/scalable/apps/terminal.svg
-
-! xterm
-XTerm.termName: xterm-256color
-XTerm*renderFont: true
-
-! XTerm*VT100.Translations: #override \
-!                  Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
-!                  Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)
-
-! XTerm.vt100.translations: #override \n\
-!   Ctrl <Key> minus: smaller-vt-font() \n\
-!   Ctrl <Key> plus: larger-vt-font()
-
-XTerm.vt100.metaSendsEscape: true
-
-
-! Face size for normal:
-XTerm.VT100.faceSize:  14
-! Face sizes for alternates:
-! Unreadable:
-XTerm.VT100.faceSize1:  12 
-! Tiny:
-XTerm.VT100.faceSize2:  14 
-! Small:
-XTerm.VT100.faceSize3:  20
-! Medium:
-XTerm.VT100.faceSize4:  24
-! Large:
-XTerm.VT100.faceSize5:  28
-! Huge:
-XTerm.VT100.faceSize6:  32
-
-! UXTerm
-UXTerm*bellIsUrgent: true
- ! URxvt*tintColor: gray10
-URxvt*internalBorder: 0
-URxvt*jumpScroll: true
-URxvt*urgentOnBell: true
-URxvt*visualBell: false
-URxvt*pointerBlank: true
-URxvt*saveLines: 4000
-URxvt*secondaryScroll: true
-URxvt*scrollBar: false
-! URxvt*scrollTtyKeypress: true
-
-! #include ".Xresources.d/themes/zenburn.xresources"
-! #include ".Xresources.d/themes/gruvbox-dark.xresources"
-! #include ".Xresources.d/themes/gruvbox-light.xresources"
-! #include ".Xresources.d/themes/base16-github-256.xresources"
-! #include ".Xresources.d/themes/base16-zenburn.xresources"
-! #include ".Xresources.d/themes/base16-tomorrow-night.xresources"
-! #include ".Xresources.d/themes/challenger-deep.xresources"
-! #include ".Xresources.d/themes/nord.xresources"
-! #include ".Xresources.d/themes/base16-monokai-256.xresources"
-! #include ".Xresources.d/themes/one-dark.xresources"
-! #include ".Xresources.d/themes/dracula.xresources"
-! #include ".Xresources.d/themes/solarized-dark.xresources"
-#include ".Xresources.d/themes/solarized-light.xresources"
+!! *font: xft:Source Code Pro:style=Reguler:size=14:antialias=true:hinting=true
+!! *boldFont: xft:Source Code Pro:style=Bold:size=14:antialias=true:hinting=true
+!! *italicFont: xft:Source Code Pro:style=Oblique:size=14:antialias=true:hinting=true
+!! *boldItalicFont: xft:Source Code Pro:style=Bold Oblique:size=14:antialias=true:hinting=true
+!
+!! emacs*font: Source Code Pro:size=14:antialias=true:hinting=true
+!! emacs*font: Source Code Pro-16
+!! emacs*boldFont: Source Code Pro:size=16:antialias=true:hinting=true
+!! emacs*italicFont: Source Code Pro:style=Oblique:size=16:antialias=true:hinting=true
+!! emacs*boldItalicFont: Source Code Pro:style=Bold Oblique:size=16:antialias=true:hinting=true
+!! emacs*font: Monaco-14
+!! emacs*boldFont: xft:Monaco:style=Bold:size=14:antialias=true:hinting=true
+!! emacs*italicFont: xft:Monaco:style=Oblique:size=14:antialias=true:hinting=true
+!! emacs*boldItalicFont: xft:Monaco:style=Bold Oblique:size=14:antialias=true:hinting=true
+!
+!! TODO: update these to use proper italics
+!! emacs*font: Hack-18
+!! emacs*boldFont: xft:Hack:style=Bold:size=18:antialias=true:hinting=true
+!! emacs*italicFont: xft:Hack:style=Oblique:size=18:antialias=true:hinting=true
+!! emacs*boldItalicFont: xft:Hack:style=Bold Oblique:size=18:antialias=true:hinting=true
+!! emacs*font: Source Code Pro for Powerline:size=12
+!! emacs*boldFont: Source Code Pro for Powerline:style=Bold:size=18:antialias=true:hinting=true
+!! emacs*italicFont: Source Code Pro for Powerline:style=Italic:size=18:antialias=true:hinting=true
+!! emacs*boldItalicFont: Source Code Pro for Powerline:style=Bold Italic:size=18:antialias=true:hinting=true
+!
+!
+!! XFT and Font settings
+!Xft*dpi:       96
+!Xft*antialias: true
+!Xft*hinting:   true
+!Xft*hintstyle: hintfull
+!Xft*rgba:      rgb
+!
+!!! URXVT
+!! https://wiki.archlinux.org/index.php/rxvt-unicode
+!! URxvt*.termName: rxvt-unicode-256color
+!URxvt*font: xft:Monaco:style=Regular:size=16:antialias=true:hinting=true
+!! URxvt*font: xft:Source\ Code\ Pro\ for\ Powerline:pixelsize=28:antialias=true:hinting=true,xft:Source\ Code\ Pro\ for\ Powerline:pixelsize=28:antialias=true:hinting=true
+!! /* URxvt*font: xft:Source Code Pro:style=Regular:size=18:antialias=true:hinting=true */
+!! /* URxvt*font: xft:Source\ Code\ Pro:pixelsize=24:antialias=true:hinting=true,xft:Source\ Code\ Pro:pixelsize=24:antialias=true:hinting=true */
+!!URxvt*font: xft:Meslo LG M DZ Regular for Powerline:size=14
+!!URxvt*font: xft:Inconsolata-g for Powerline:size=14
+!!URxvt*font: xft:FuraMono-Regular Powerline:size=14
+!!URxvt*font: xft:Source Code Pro for Powerline:size=14
+!! URxvt*font: xft:Source Code Pro for Powerline:pixelsize=18:antialias=true:hinting=true
+!! URxvt*font: xft:Hack-Regular:pixelsize=20:antialias=true:hinting=true
+!!URxvt.font: xft:Anonymous Pro for Powerline:pixelsize=36
+!!URxvt.font: xft:Monofur for Powerline:pixelsize=36
+!!URxvt.font: xft:Bitstream Vera Sans Mono for Powerline:pixelsize=36
+!!URxvt.font: xft:DejaVu Sans Mono for Powerline:pixelsize=24
+!!URxvt.font: xft:Droid Sans Mono for Powerline:pixelsize=36
+!!URxvt.font: xft:Inconsolata for Powerline:pixelsize=36
+!!URxvt.font: xft:Terminus (TTF) for Powerline:pixelsize=36
+!!URxvt.font: xft:Inconsolata\-dz for Powerline:pixelsize=36
+!!URxvt.font: xft:Liberation Mono for Powerline:pixelsize=36
+!!URxvt.font: xft:Meslo LG L DZ for Powerline:pixelsize=36
+!!URxvt.font: xft:Meslo LG L for Powerline:pixelsize=36
+!!URxvt.font: xft:Meslo LG M DZ for Powerline:pixelsize=36
+!!URxvt.font: xft:Meslo LG M for Powerline:pixelsize=36
+!!URxvt.font: xft:Meslo LG S DZ for Powerline:pixelsize=36
+!!URxvt.font: xft:Meslo LG S for Powerline:pixelsize=36
+!!URxvt.font: xft:Source Code Pro for Powerline:pixelsize=36
+!!URxvt.font: xft:Terminess Powerline:pixelsize=32:style=bold
+!!URxvt.font: xft:Ubuntu Mono derivative Powerline:pixelsize=36
+!!URxvt.font: xft:Literation Mono Powerline:pixelsize=36
+!URxvt*letterSpace: -1
+!/* URxvt*termName: rxvt-256color */
+!!the termName of 'rxvt-unicode' is needed so that urxvt reports tmux window titles
+!/* URxvt*termName: rxvt-unicode */
+!URxvt*termName: xterm-256color
+!/* URxvt*modifier: mod4 */
+!URxvt.iso14755: false
+!URxvt.iso14755_52: false
+!URxvt.scrollBar: false
+!/* URxvt.perl-ext: */
+!URxvt.perl-ext-common: resize-font,fullscreen,dolphin
+!URxvt.keysym.F11: perl:fullscreen:switch
+!URxvt.keysym.Mod3-f: perl:fullscreen:switch
+!URxvt.keysym.Mod3-e: perl:dolphin:open
+!URxvt.iconFile: /usr/share/icons/Tango/scalable/apps/terminal.svg
+!
+!! xterm
+!XTerm.termName: xterm-256color
+!XTerm*renderFont: true
+!
+!! XTerm*VT100.Translations: #override \
+!!                  Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
+!!                  Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)
+!
+!! XTerm.vt100.translations: #override \n\
+!!   Ctrl <Key> minus: smaller-vt-font() \n\
+!!   Ctrl <Key> plus: larger-vt-font()
+!
+!XTerm.vt100.metaSendsEscape: true
+!
+!
+!! Face size for normal:
+!XTerm.VT100.faceSize:  14
+!! Face sizes for alternates:
+!! Unreadable:
+!XTerm.VT100.faceSize1:  12 
+!! Tiny:
+!XTerm.VT100.faceSize2:  14 
+!! Small:
+!XTerm.VT100.faceSize3:  20
+!! Medium:
+!XTerm.VT100.faceSize4:  24
+!! Large:
+!XTerm.VT100.faceSize5:  28
+!! Huge:
+!XTerm.VT100.faceSize6:  32
+!
+!! UXTerm
+!UXTerm*bellIsUrgent: true
+! ! URxvt*tintColor: gray10
+!URxvt*internalBorder: 0
+!URxvt*jumpScroll: true
+!URxvt*urgentOnBell: true
+!URxvt*visualBell: false
+!URxvt*pointerBlank: true
+!URxvt*saveLines: 4000
+!URxvt*secondaryScroll: true
+!URxvt*scrollBar: false
+!! URxvt*scrollTtyKeypress: true
+!
+!! #include ".Xresources.d/themes/zenburn.xresources"
+!! #include ".Xresources.d/themes/gruvbox-dark.xresources"
+!! #include ".Xresources.d/themes/gruvbox-light.xresources"
+!! #include ".Xresources.d/themes/base16-github-256.xresources"
+!! #include ".Xresources.d/themes/base16-zenburn.xresources"
+!! #include ".Xresources.d/themes/base16-tomorrow-night.xresources"
+!! #include ".Xresources.d/themes/challenger-deep.xresources"
+!! #include ".Xresources.d/themes/nord.xresources"
+!! #include ".Xresources.d/themes/base16-monokai-256.xresources"
+!! #include ".Xresources.d/themes/one-dark.xresources"
+!! #include ".Xresources.d/themes/dracula.xresources"
+!! #include ".Xresources.d/themes/solarized-dark.xresources"
+!! #include ".Xresources.d/themes/solarized-light.xresources"
