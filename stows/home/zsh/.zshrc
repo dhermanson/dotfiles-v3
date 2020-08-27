@@ -9,6 +9,8 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
+unsetopt nomatch # see https://github.com/thoughtbot/dotfiles/pull/194/commits/330d098a7f4e5bcacb30b2f735e096b6fd3731c8
+
 for file in $HOME/.zshrc.d/*.zsh;
 do
  source $file
