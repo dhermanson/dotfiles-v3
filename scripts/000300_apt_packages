@@ -23,6 +23,7 @@ sudo apt install -y \
   curl \
   docker.io \
   emacs \
+  emacs-common-non-dfsg \
   git \
   graphviz \
   libsqlite3-dev \
