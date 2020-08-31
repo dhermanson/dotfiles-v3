@@ -14,6 +14,8 @@ Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'cormacrelf/vim-colors-github'
 Plug 'ayu-theme/ayu-vim'
 Plug 'rakr/vim-one'
+Plug 'rakr/vim-two-firewatch'
+Plug 'NLKNguyen/papercolor-theme'
 " Plug 'icymind/NeoSolarized'
 
 " Essentials
@@ -298,6 +300,13 @@ endif
 
 colorscheme one
 let g:airline_theme='one'
+
+" colorscheme PaperColor
+" let g:airline_theme='papercolor'
+
+" let g:two_firewatch_italics=1
+" colorscheme two-firewatch
+" let g:airline_theme='twofirewatch'
 
 " colorscheme github
 " let g:airline_theme='github'
