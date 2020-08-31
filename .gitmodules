@@ -4,3 +4,6 @@
 [submodule "stows/home/ruby/.rbenv"]
 	path = stows/home/ruby/.rbenv
 	url = https://github.com/dhermanson/rbenv.git
+[submodule "stows/home/tmux/.tmux/plugins/tpm"]
+	path = stows/home/tmux/.tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
