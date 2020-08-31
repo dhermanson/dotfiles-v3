@@ -11,6 +11,9 @@ Plug 'jnurmine/Zenburn'
 Plug 'arcticicestudio/nord-vim'
 Plug 'chriskempson/base16-vim'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'cormacrelf/vim-colors-github'
+Plug 'ayu-theme/ayu-vim'
+Plug 'rakr/vim-one'
 " Plug 'icymind/NeoSolarized'
 
 " Essentials
@@ -289,8 +292,18 @@ endif
 
 " colorscheme base16-github
 " colorscheme base16-tomorrow
-colorscheme onehalflight
-let g:airline_theme='onehalflight'
+
+" colorscheme onehalflight
+" let g:airline_theme='onehalflight'
+
+colorscheme one
+let g:airline_theme='one'
+
+" colorscheme github
+" let g:airline_theme='github'
+
+" let ayucolor="light"
+" colorscheme ayu
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keyboard Mappings
