@@ -10,6 +10,7 @@ Plug 'challenger-deep-theme/vim'
 Plug 'jnurmine/Zenburn'
 Plug 'arcticicestudio/nord-vim'
 Plug 'chriskempson/base16-vim'
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
 " Plug 'icymind/NeoSolarized'
 
 " Essentials
@@ -286,7 +287,10 @@ endif
 " let g:airline_theme='solarized'
 " let g:airline_powerline_fonts = 0
 
-colorscheme base16-github
+" colorscheme base16-github
+" colorscheme base16-tomorrow
+colorscheme onehalflight
+let g:airline_theme='onehalflight'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keyboard Mappings
