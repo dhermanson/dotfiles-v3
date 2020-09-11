@@ -294,6 +294,7 @@ endif
 
 " colorscheme base16-github
 " colorscheme base16-tomorrow
+" colorscheme base16-solarized-dark
 
 " colorscheme onehalflight
 " let g:airline_theme='onehalflight'

@@ -7,7 +7,7 @@ sudo usermod -aG docker ${USER}
 
 # setup fonts
 # sudo fc-cache -fv
-fc-cache -fv ~/.local/share/fonts/
+# fc-cache -fv ~/.local/share/fonts/
 # list fonts with "fc-list -v"
 
 # use zsh

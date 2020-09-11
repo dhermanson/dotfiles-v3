@@ -1,5 +1,17 @@
 # Dotfiles
-My dotfiles. More to come.
+My dotfiles.
+
+Clone with submodules:
+
+```sh
+git clone --recurse-submodules <github url> 
+```
+
+After cloning, if you've forgotten to clone submodules:
+
+```sh
+git submodule update --init --recursive
+```
 
 ## Thinkpad suspend touchpad workaround for thinkpad
 https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1788928
