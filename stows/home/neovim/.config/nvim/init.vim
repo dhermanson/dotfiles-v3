@@ -299,11 +299,11 @@ endif
 " colorscheme onehalflight
 " let g:airline_theme='onehalflight'
 
-colorscheme one
-let g:airline_theme='one'
+" colorscheme one
+" let g:airline_theme='one'
 
-" colorscheme PaperColor
-" let g:airline_theme='papercolor'
+colorscheme PaperColor
+let g:airline_theme='papercolor'
 
 " let g:two_firewatch_italics=1
 " colorscheme two-firewatch
