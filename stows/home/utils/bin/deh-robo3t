@@ -1,4 +1,0 @@
-#! /usr/bin/env bash
-
-
-QT_FONT_DPI=128 robo3t
