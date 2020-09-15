@@ -1,6 +1,7 @@
 #! /bin/bash
-BASEDIR=$(dirname $0)
-ABSPATH=$(readlink -f $0)
-ABSDIR=$(dirname $ABSPATH)
-$($ABSDIR/deh-unstow-all)
-$($ABSDIR/deh-stow-all)
+
+repo_root=$(cat $HOME/.config/deh/dotfiles-repo-root)
+stow_bin=$repo_root/stows/home/stow/bin
+
+$($stow_bin/deh-unstow-all)
+$($stow_bin/deh-stow-all)

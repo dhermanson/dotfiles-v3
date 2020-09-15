@@ -26,6 +26,7 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
 export XDG_CONFIG_HOME=$HOME/.config
 
+#export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 # local executables
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.local/bin

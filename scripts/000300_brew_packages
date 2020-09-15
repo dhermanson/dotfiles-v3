@@ -1,0 +1,24 @@
+#! /bin/bash
+
+# for rbenv's ruby-build
+brew install openssl readline
+
+brew install \
+  curl \
+  git \
+  graphviz \
+  neovim \
+  python3 \
+  pwgen \
+  ripgrep \
+  sqlite \
+  stow \
+  tmux \
+  tree \
+  zsh
+
+brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+
+brew cask install \
+  emacs \
+  iterm2

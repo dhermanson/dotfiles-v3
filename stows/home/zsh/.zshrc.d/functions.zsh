@@ -8,14 +8,18 @@ function jc {
 
 function e() {
     if [ $# -eq 0 ]; then
-        file=$(fzf) && emacsclient -n -a "" "$file"
-        # file=$(fzf) && ec $file
+        file=$(fzf)
+
+        if [ $? -eq 0 ]; then
+          emacsclient -n -a "" "$file"
+          emacsclient -n --eval '(select-frame-set-input-focus (selected-frame))'
+        fi
+
     else
         emacsclient -n -a "" "$@"
-        # ec $@
+        emacsclient -n --eval '(select-frame-set-input-focus (selected-frame))'
     fi
 
-    emacsclient -n --eval '(select-frame-set-input-focus (selected-frame))'
 
 }
 
