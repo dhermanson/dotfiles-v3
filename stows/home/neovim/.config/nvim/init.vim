@@ -52,10 +52,10 @@ Plug 'gcmt/taboo.vim'
 
 " Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 
-" Plug 'roxma/nvim-yarp' " a dependency of 'ncm2'
-" Plug 'ncm2/ncm2' " v2 of the nvim-completion-manager
-" Plug 'ncm2/ncm2-ultisnips'
-" Plug 'ncm2/ncm2-tagprefix'
+Plug 'roxma/nvim-yarp' " a dependency of 'ncm2'
+Plug 'ncm2/ncm2' " v2 of the nvim-completion-manager
+Plug 'ncm2/ncm2-ultisnips'
+Plug 'ncm2/ncm2-tagprefix'
 " LanguageServer client for NeoVim.
 Plug 'autozimu/LanguageClient-neovim', {
   \ 'branch': 'next',
@@ -123,9 +123,9 @@ let g:ackprg = 'rg --vimgrep --no-heading '
 
 
 " ncm2
-" if has('nvim')
-"   autocmd BufEnter * call ncm2#enable_for_buffer()
-" endif
+if has('nvim')
+  autocmd BufEnter * call ncm2#enable_for_buffer()
+endif
 
 " ale
 let g:ale_linters = {

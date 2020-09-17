@@ -4,17 +4,20 @@
 brew install openssl readline
 
 brew install \
+  coreutils \
   curl \
   git \
   graphviz \
   neovim \
   python3 \
+  pyenv \
   pwgen \
   ripgrep \
   sqlite \
   stow \
   tmux \
   tree \
+  zlib \
   zsh
 
 brew install --HEAD universal-ctags/universal-ctags/universal-ctags
