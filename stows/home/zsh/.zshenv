@@ -24,7 +24,7 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 # export KDE_SESSION_VERSION=5
 # export XDG_CURRENT_DESKTOP=KDE
 
-export XDG_CONFIG_HOME=$HOME/.config
+# export XDG_CONFIG_HOME=$HOME/.config
 
 #export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 # local executables
@@ -44,7 +44,7 @@ export PATH=$PATH:$GOPATH/bin
 
 # java home
 # export JAVA_HOME=/usr/lib/jvm/java-11-oracle
-export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
+# export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
 # export JAVA_HOME=/usr/lib/jvm/jdk-11.0.3+7
 # export JAVA_HOME=/usr/lib/jvm/jdk8u212-b04
 # export JAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto

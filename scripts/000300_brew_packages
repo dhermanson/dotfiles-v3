@@ -17,6 +17,7 @@ brew install \
   stow \
   tmux \
   tree \
+  wget \
   zlib \
   zsh
 
