@@ -13,5 +13,5 @@ unsetopt nomatch # see https://github.com/thoughtbot/dotfiles/pull/194/commits/3
 
 for file in $HOME/.zshrc.d/*.zsh;
 do
- source $file
+  source $file
 done

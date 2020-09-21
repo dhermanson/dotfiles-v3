@@ -8,10 +8,12 @@ brew install \
   curl \
   git \
   graphviz \
+  jenv \
+  maven \
   neovim \
-  python3 \
-  pyenv \
   pwgen \
+  pyenv \
+  python3 \
   ripgrep \
   sqlite \
   stow \
