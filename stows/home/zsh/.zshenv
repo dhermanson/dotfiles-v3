@@ -7,6 +7,11 @@ export VISUAL="emacsclient"
 # export TERMINAL="konsole"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export TERM=xterm-24bit
+
 ##############################
 # fixes emacs issue
 # https://github.com/xmonad/xmonad/issues/34

@@ -42,3 +42,6 @@ https://stackoverflow.com/questions/10168449/git-update-submodules-recursively
 
 ### Tmux Plugin Manager(TPM)
 See [TPM's section on installing plugins](https://github.com/tmux-plugins/tpm#installing-plugins). You must hit `prefix + I` in order to install plugins. There is another [section on key bindings](https://github.com/tmux-plugins/tpm#key-bindings).
+
+# Truecolor
+read [this article](https://github.com/syl20bnr/spacemacs/wiki/Terminal)
