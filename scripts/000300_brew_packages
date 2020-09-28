@@ -9,6 +9,7 @@ brew install \
   git \
   graphviz \
   jenv \
+  jq \
   neovim \
   pwgen \
   pyenv \
