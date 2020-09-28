@@ -1,0 +1,7 @@
+#! /bin/bash
+
+repo_root=$(cat $HOME/.config/deh/dotfiles-repo-root)
+terminfo_dir=$repo_root/terminfo
+xterm24bit_file=$terminfo_dir/terminfo-24bit.src
+
+tic -x -o ~/.terminfo $xterm24bit_file
