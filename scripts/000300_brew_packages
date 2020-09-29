@@ -28,3 +28,10 @@ brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 brew cask install \
   emacs \
   iterm2
+
+brew tap homebrew/cask-fonts
+brew cask install \
+  font-inconsolata \
+  font-hack \
+  font-fira-code \
+  font-source-code-pro
