@@ -4,12 +4,16 @@
 brew install openssl readline
 
 brew install \
+  cmake \
   coreutils \
   curl \
+  findutils \
   git \
   graphviz \
   jenv \
   jq \
+  luarocks \
+  mpv \
   neovim \
   pwgen \
   pyenv \
@@ -26,6 +30,7 @@ brew install \
 brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
 brew cask install \
+  mactex \
   emacs \
   iterm2
 

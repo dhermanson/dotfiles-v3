@@ -13,3 +13,4 @@ tmp.*
 .grep.*
 .derick-makefile
 TAGS
+.java-version
