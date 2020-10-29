@@ -1,1 +1,3 @@
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
+
+_evalcache rbenv init -

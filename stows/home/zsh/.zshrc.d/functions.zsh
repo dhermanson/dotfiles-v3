@@ -6,23 +6,6 @@ function jc {
     curl -s -H "Accept: application/json" "$@" | python -m json.tool
 }
 
-function e() {
-    if [ $# -eq 0 ]; then
-        file=$(fzf)
-
-        if [ $? -eq 0 ]; then
-          emacsclient -n -a "" "$file"
-          emacsclient -n --eval '(select-frame-set-input-focus (selected-frame))'
-        fi
-
-    else
-        emacsclient -n -a "" "$@"
-        emacsclient -n --eval '(select-frame-set-input-focus (selected-frame))'
-    fi
-
-
-}
-
 function i() {
     if [ $# -eq 0 ]; then
         file=$(fzf) && touch $file && idea $file
@@ -48,7 +31,7 @@ fd() {
     dir=$toplevel/$relative_to_toplevel
   else
     dir=$(find ${1:-.} -path '*/\.*' -prune \
-      -o -type d -print 2> /dev/null | fzf +m) &&
+      -o -type d -print 2> /dev/null | fzf +m)
   fi
 
   cd "$dir"

@@ -4,6 +4,7 @@
 brew install openssl readline
 
 brew install \
+  asciidoctor \
   cmake \
   coreutils \
   curl \
@@ -20,6 +21,7 @@ brew install \
   pyenv \
   python3 \
   ripgrep \
+  sbcl \
   sqlite \
   stow \
   tmux \

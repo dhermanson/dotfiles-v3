@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+  file=$(fzf)
+
+  if [ $? -eq 0 ]; then
+    emacsclient -n -a "" "$file"
+    emacsclient -n --eval '(select-frame-set-input-focus (selected-frame))'
+  fi
+
+else
+  emacsclient -n -a "" "$@"
+  emacsclient -n --eval '(select-frame-set-input-focus (selected-frame))'
+fi

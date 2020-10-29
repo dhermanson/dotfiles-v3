@@ -2,6 +2,7 @@
 # source the Antigen plugin manager
 source $HOME/.antigen/antigen.zsh
 
+
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
@@ -14,6 +15,12 @@ antigen bundle tmux
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 # antigen bundle zsh-users/zsh-autosuggestions
+
+export NVM_LAZY_LOAD=true
+export NVM_DIR="$HOME/.nvm"
+antigen bundle lukechilds/zsh-nvm
+
+antigen bundle mroth/evalcache
 
 # Load the theme.
 # antigen theme robbyrussell
@@ -36,3 +43,5 @@ antigen theme bira
 
 # Tell Antigen that you're done.
 antigen apply
+
+_evalcache direnv hook zsh
