@@ -11,6 +11,7 @@ brew install \
   direnv \
   findutils \
   git \
+  gradle \
   graphviz \
   jenv \
   jq \
@@ -34,9 +35,7 @@ brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
 brew cask install \
   mactex \
-  emacs \
-  iterm2 \
-  xquartz
+  emacs
 
 brew tap homebrew/cask-fonts
 brew cask install \
