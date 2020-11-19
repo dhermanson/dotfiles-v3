@@ -3,7 +3,7 @@ if [ "$(uname)" == "Darwin" ]; then
     # Do something under Mac OS X platform        
   alias ls="gls"
   alias locate="glocate"
-  alias tree="tree -f"
+  # alias tree="tree -f"
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     # Do something under GNU/Linux platform
 elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
