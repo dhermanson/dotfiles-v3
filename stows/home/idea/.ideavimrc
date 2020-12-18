@@ -10,12 +10,16 @@ set ideajoin
 # nnoremap <A-s> :action GotoSymbol<CR>
 # nnoremap <A-f> :action GotoFile<CR>
 # nnoremap <A-d> :action GotoClass<CR>
+
 nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 nnoremap <A-c> <C-w>c
 nnoremap <A-o> <C-w>o
+
+nnoremap <Space>l :action FileStructurePopup<CR>
+
 # nnoremap <A-q> :action CloseEditor<CR>
 # nnoremap <A-w> :action SaveAll<CR>
 
