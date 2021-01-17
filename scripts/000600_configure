@@ -3,11 +3,11 @@
 # sudo systemctl set-default multi-user.target # to revert: sudo systemctl set-default graphical.target
 
 # avoid having to run sudo before every docker command
-# sudo usermod -aG docker ${USER}
+sudo usermod -aG docker ${USER}
 
 # setup fonts
-# sudo fc-cache -fv
-# fc-cache -fv ~/.local/share/fonts/
+sudo fc-cache -fv
+fc-cache -fv ~/.local/share/fonts/
 # list fonts with "fc-list -v"
 
 # use zsh
