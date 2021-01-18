@@ -45,3 +45,32 @@ See [TPM's section on installing plugins](https://github.com/tmux-plugins/tpm#in
 
 # Truecolor
 read [this article](https://github.com/syl20bnr/spacemacs/wiki/Terminal)
+
+
+## Manual Installs
+
+### Ruby
+Install a version of ruby using rbenv:
+```sh
+rbenv install -l
+rbenv install 2.7.1
+```
+
+### Java
+Download an adoptopjdk version of java and install it:
+```sh
+╭─derick@thinkpad /opt/jvm/jdk-11.0.9.1+1/bin
+╰─$ sudo update-alternatives --install /usr/local/bin/java java /opt/jvm/jdk-11.0.9.1+1/bin/java 0
+update-alternatives: using /opt/jvm/jdk-11.0.9.1+1/bin/java to provide /usr/local/bin/java (java) in auto mode
+
+╭─derick@thinkpad /opt/jvm/jdk-11.0.9.1+1/bin
+╰─$ sudo update-alternatives --install /usr/local/bin/javac javac /opt/jvm/jdk-11.0.9.1+1/bin/javac 0
+update-alternatives: using /opt/jvm/jdk-11.0.9.1+1/bin/javac to provide /usr/local/bin/javac (javac) in auto mode
+
+update-alternatives --list java
+update-alternatives --list javac
+sudo update-alternatives --config java
+sudo update-alternatives --config javac
+
+```
+
