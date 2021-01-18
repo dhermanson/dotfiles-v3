@@ -54,6 +54,7 @@ Install a version of ruby using rbenv:
 ```sh
 rbenv install -l
 rbenv install 2.7.1
+rbenv global 2.7.1
 ```
 
 ### Java
