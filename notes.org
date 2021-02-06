@@ -1,0 +1,4 @@
+* check power from command line
+#+begin_src sh
+  upower -i /org/freedesktop/UPower/devices/battery_BAT0
+#+end_src
