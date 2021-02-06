@@ -1,4 +1,5 @@
-# eval "$(pyenv init -)"
+if command -v pyenv &> /dev/null
+then
+  _evalcache pyenv init -
+fi
 
-
-_evalcache pyenv init -
