@@ -14,3 +14,4 @@ tmp.*
 .derick-makefile
 TAGS
 .java-version
+.dir-locals.el
